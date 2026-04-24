@@ -1,0 +1,2770 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Legal Sathi — Legal Pro Mobile</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: {"50":"#eef5ff","100":"#dbeafe","200":"#bcd7ff","300":"#8db8ff","400":"#5b92ff","500":"#336eea","600":"#1d4ed8","700":"#1d3fa8","800":"#1e357f","900":"#1b2e66"},
+              accent: {"50":"#eefbf3","100":"#d4f5df","200":"#aeecc2","300":"#79d99b","400":"#48bf74","500":"#2f855a","600":"#256b49","700":"#1f563d","800":"#194533","900":"#14372a"},
+              neutral: {"50":"#f8fafc","100":"#f1f5f9","200":"#e2e8f0","300":"#cbd5e1","400":"#94a3b8","500":"#64748b","600":"#475569","700":"#334155","800":"#1e293b","900":"#0f172a"},
+              info: "#0f766e",
+              success: "#15803d",
+              warning: "#c26d2d",
+              danger: "#be123c"
+            },
+            fontFamily: {
+              sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+              display: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+              serif: ["Georgia", "ui-serif", "serif"],
+              mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "monospace"]
+            },
+            spacing: {
+              4: "16px",
+              6: "24px",
+              8: "32px"
+            },
+            boxShadow: {
+              panel: "0 20px 44px rgba(15, 23, 42, 0.12)",
+              float: "0 28px 70px rgba(15, 23, 42, 0.18)"
+            },
+            borderRadius: {
+              xl: "12px",
+              "2xl": "18px",
+              "3xl": "26px"
+            }
+          }
+        }
+      }
+    </script>
+  
+    
+    <style>
+      html { scroll-behavior: smooth; }
+      body { min-height: 100vh; }
+      .screen-grid::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+        background-size: 24px 24px;
+        pointer-events: none;
+        opacity: 0.45;
+      }
+      .device-frame {
+        box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+      }
+      .scrollbar-hide::-webkit-scrollbar { display: none; }
+      .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+      .safe-label {
+        box-shadow: inset 0 0 0 1px rgba(255,255,255,0.28);
+      }
+      .focus-ring:focus-visible {
+        outline: 3px solid rgba(59, 130, 246, 0.55);
+        outline-offset: 3px;
+      }
+      .divider-dot::before {
+        content: "•";
+        margin-right: 0.5rem;
+        color: rgb(148 163 184);
+      }
+    </style>
+  
+    <!-- ACCESSIBILITY SPECS
+Contrast Ratios:
+- Primary text (#0f172a) on white (#FFFFFF): 17.9:1 ✅
+- Secondary text (#334155) on white (#FFFFFF): 10.4:1 ✅
+- Primary button text (#FFFFFF) on primary bg (#1d4ed8): 6.7:1 ✅
+
+Touch Targets (all ≥44dp):
+- Bottom nav items: 56dp height ✅
+- Primary buttons: 48dp height ✅
+- Icon buttons: 44dp × 44dp ✅
+
+Screen Reader Labels:
+- aria-label on all nav items and primary actions ✅
+- aria-live="polite" on real-time alert and sync surfaces ✅
+- tabindex="0" on interactive preview cards ✅
+- focus-visible rings on keyboard-focusable controls ✅
+-->
+  </head>
+  <body class="bg-gradient-to-br from-slate-100 via-white to-blue-50 font-sans text-neutral-900">
+    <main class="mx-auto flex min-h-screen max-w-[1680px] flex-col gap-8 px-4 py-6 lg:px-6 xl:px-8">
+      
+    <section class="rounded-[32px] bg-gradient-to-br from-neutral-900 via-primary-800 to-accent-700 p-6 text-white shadow-float">
+      <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+        <div class="max-w-3xl">
+          <p class="text-xs font-semibold uppercase tracking-[0.24em] text-white/70">Variation 2 — Legal Pro</p>
+          <h1 class="mt-3 font-display text-4xl font-black tracking-tight lg:text-5xl">Mobile Screen System</h1>
+          <p class="mt-4 max-w-2xl text-base text-white/80 lg:text-lg">Premium legal operations with dense analytics and sharper enterprise polish.</p>
+          <p class="mt-3 text-sm text-white/70">Uses enterprise precision from legal operations products and cleaner KPI structure from modern analytics dashboards.</p>
+        </div>
+        <div class="grid gap-3 sm:grid-cols-3">
+          <div class="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur">
+            <p class="text-xs uppercase tracking-[0.2em] text-white/60">Layout</p>
+            <p class="mt-2 text-sm font-semibold">Modular discovery dashboard</p>
+          </div>
+          <div class="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur">
+            <p class="text-xs uppercase tracking-[0.2em] text-white/60">Best for</p>
+            <p class="mt-2 text-sm font-semibold">Admin, firm, compliance, and revenue-heavy workflows with stronger dashboard density.</p>
+          </div>
+          <div class="rounded-2xl border border-white/15 bg-white/10 p-4 backdrop-blur">
+            <p class="text-xs uppercase tracking-[0.2em] text-white/60">Contrast</p>
+            <p class="mt-2 text-sm font-semibold">17.9:1 primary-on-white</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+      <section class="rounded-[32px] border border-neutral-200 bg-white/80 p-5 shadow-panel backdrop-blur lg:p-6">
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-neutral-500">Mobile · 390px</p>
+            <h2 class="mt-2 text-3xl font-black tracking-tight text-neutral-900">All 18 user journey screens, each with responsive preview panels and complete state coverage.</h2>
+            <p class="mt-3 max-w-4xl text-sm leading-6 text-neutral-600">Sharper hover lifts, quick panel reveals, and crisp filter transitions.</p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">Tailwind CDN</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-success/10 text-success">WCAG 2.1 AA target</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India embedded</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">Loading / Empty / Error / Offline</span>
+          </div>
+        </div>
+      </section>
+      
+    <section id="s-01" class="rounded-[36px] border border-neutral-200/80 bg-white/85 shadow-[0_28px_64px_rgba(15,23,42,0.16)] backdrop-blur">
+      <div class="grid gap-6 p-6 xl:grid-cols-[430px,1fr] xl:items-start">
+        <div class="mx-auto w-full max-w-[390px]">
+          <div class="device-frame rounded-[38px] border-[12px] border-neutral-900 bg-neutral-900 p-2">
+            <div class="relative overflow-hidden rounded-[30px] bg-gradient-to-b from-white to-neutral-50 p-4">
+              <div class="mx-auto mb-4 h-7 w-32 rounded-full bg-neutral-900"></div>
+              <div class="mb-4 flex items-center justify-between text-xs font-semibold text-neutral-500">
+                <span>9:41</span>
+                <span>5G • 82%</span>
+              </div>
+              
+      <div class="space-y-4">
+        <div class="rounded-[28px] bg-gradient-to-br from-primary-700 to-accent-600 p-5 text-white">
+          <p class="text-xs uppercase tracking-[0.24em] text-white/70">Welcome to Legal Sathi</p>
+          <h3 class="mt-2 text-2xl font-black tracking-tight">Choose your path into Bharat's legal ecosystem.</h3>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <button aria-label="English" class="focus-ring min-h-[44px] rounded-full border border-white/20 bg-white/10 px-3 text-sm">English</button><button aria-label="हिंदी" class="focus-ring min-h-[44px] rounded-full border border-white/20 bg-white/10 px-3 text-sm">हिंदी</button><button aria-label="தமிழ்" class="focus-ring min-h-[44px] rounded-full border border-white/20 bg-white/10 px-3 text-sm">தமிழ்</button><button aria-label="తెలుగు" class="focus-ring min-h-[44px] rounded-full border border-white/20 bg-white/10 px-3 text-sm">తెలుగు</button>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          
+            <button aria-label="Student" class="focus-ring  min-h-[92px] rounded-3xl border border-neutral-200 bg-white px-4 py-4 text-left shadow-sm hover:border-primary-200 hover:bg-primary-50">
+              <span class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Persona</span>
+              <strong class="mt-2 block text-base text-neutral-900">Student</strong>
+              <span class="mt-1 block text-sm text-neutral-500">Optimized dashboard and workflows</span>
+            </button>
+          
+            <button aria-label="Lawyer" class="focus-ring  min-h-[92px] rounded-3xl border border-neutral-200 bg-white px-4 py-4 text-left shadow-sm hover:border-primary-200 hover:bg-primary-50">
+              <span class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Persona</span>
+              <strong class="mt-2 block text-base text-neutral-900">Lawyer</strong>
+              <span class="mt-1 block text-sm text-neutral-500">Optimized dashboard and workflows</span>
+            </button>
+          
+            <button aria-label="Firm" class="focus-ring  min-h-[92px] rounded-3xl border border-neutral-200 bg-white px-4 py-4 text-left shadow-sm hover:border-primary-200 hover:bg-primary-50">
+              <span class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Persona</span>
+              <strong class="mt-2 block text-base text-neutral-900">Firm</strong>
+              <span class="mt-1 block text-sm text-neutral-500">Optimized dashboard and workflows</span>
+            </button>
+          
+            <button aria-label="Tutor" class="focus-ring  min-h-[92px] rounded-3xl border border-neutral-200 bg-white px-4 py-4 text-left shadow-sm hover:border-primary-200 hover:bg-primary-50">
+              <span class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Persona</span>
+              <strong class="mt-2 block text-base text-neutral-900">Tutor</strong>
+              <span class="mt-1 block text-sm text-neutral-500">Optimized dashboard and workflows</span>
+            </button>
+          
+            <button aria-label="Citizen" class="focus-ring col-span-2 min-h-[92px] rounded-3xl border border-neutral-200 bg-white px-4 py-4 text-left shadow-sm hover:border-primary-200 hover:bg-primary-50">
+              <span class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Persona</span>
+              <strong class="mt-2 block text-base text-neutral-900">Citizen</strong>
+              <span class="mt-1 block text-sm text-neutral-500">Find verified counsel and legal help</span>
+            </button>
+          
+        </div>
+      </div>
+    
+              
+    <nav aria-label="Primary mobile navigation" class="sticky bottom-0 mt-4 grid grid-cols-5 gap-2 rounded-[24px] border border-neutral-200/80 bg-white/95 p-2 backdrop-blur">
+      
+            <button aria-label="Dashboard" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold bg-primary-50 text-primary-700 shadow-sm">Dashboard</button>
+          
+            <button aria-label="Research" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Research</button>
+          
+            <button aria-label="Market" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Market</button>
+          
+            <button aria-label="Calendar" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Calendar</button>
+          
+            <button aria-label="Profile" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Profile</button>
+          
+    </nav>
+  
+            </div>
+          </div>
+        </div>
+        <div class="space-y-5">
+          
+    <div class="rounded-3xl border border-neutral-200 bg-white p-5 shadow-panel">
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">S-01</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">All</span>
+            
+          </div>
+          <h2 class="mt-4 text-2xl font-bold tracking-tight text-neutral-900">Splash / Onboarding</h2>
+          <p class="mt-2 text-sm leading-6 text-neutral-600">App launch, persona selection, language entry</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-right">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Design intent</p>
+          <p class="mt-2 text-sm font-medium text-neutral-700">Legal Pro · Modular discovery dashboard</p>
+        </div>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Logo animation</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Persona cards</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Language switcher</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Primary onboarding CTA</span>
+      </div>
+    </div>
+  
+          <div class="rounded-3xl border border-neutral-200 bg-neutral-50/80 p-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-neutral-900">Screen states</h3>
+                <p class="mt-1 text-sm text-neutral-500">Loading, empty, error, and offline surfaces for S-01.</p>
+              </div>
+              <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">Operational state coverage</span>
+            </div>
+            <div class="mt-4">
+    <div class="grid gap-4 md:grid-cols-2">
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Loading</p>
+      <div class="animate-pulse space-y-3" aria-live="polite">
+        <div class="h-4 w-3/4 rounded bg-neutral-200"></div>
+        <div class="h-4 w-1/2 rounded bg-neutral-200"></div>
+        <div class="h-20 rounded-2xl bg-neutral-100"></div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4 text-center">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-neutral-100 text-neutral-400">○</div>
+      <h4 class="mt-3 text-sm font-semibold text-neutral-900">No onboarding pack cached</h4>
+      <p class="mt-1 text-sm text-neutral-500">Download the latest persona pack to continue setup.</p>
+      <button aria-label="Get Started" class="focus-ring mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-primary-600 px-4 text-sm font-semibold text-white shadow-sm hover:bg-primary-700">Get Started</button>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-danger/20 bg-danger/5 p-4">
+      <div class="flex gap-3">
+        <div class="mt-0.5 h-5 w-5 rounded-full bg-danger/20 text-danger"></div>
+        <div>
+          <p class="text-sm font-medium text-danger">Couldn't load onboarding assets. Please retry.</p>
+          <button aria-label="Retry Splash / Onboarding" class="focus-ring mt-3 inline-flex min-h-[44px] items-center rounded-xl border border-danger/20 px-3 text-sm font-semibold text-danger hover:bg-white">Retry</button>
+        </div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-warning/20 bg-warning/5 p-4">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex gap-3">
+          <div class="mt-1 h-4 w-4 rounded-full bg-warning/25"></div>
+          <p class="text-sm text-warning">You're offline. Cached language packs remain available.</p>
+        </div>
+        <button aria-label="Retry sync for Splash / Onboarding" class="focus-ring text-sm font-semibold text-warning underline">Retry</button>
+      </div>
+    </div>
+  
+    </div>
+  </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+    <section id="s-02" class="rounded-[36px] border border-neutral-200/80 bg-white/85 shadow-[0_28px_64px_rgba(15,23,42,0.16)] backdrop-blur">
+      <div class="grid gap-6 p-6 xl:grid-cols-[430px,1fr] xl:items-start">
+        <div class="mx-auto w-full max-w-[390px]">
+          <div class="device-frame rounded-[38px] border-[12px] border-neutral-900 bg-neutral-900 p-2">
+            <div class="relative overflow-hidden rounded-[30px] bg-gradient-to-b from-white to-neutral-50 p-4">
+              <div class="mx-auto mb-4 h-7 w-32 rounded-full bg-neutral-900"></div>
+              <div class="mb-4 flex items-center justify-between text-xs font-semibold text-neutral-500">
+                <span>9:41</span>
+                <span>5G • 82%</span>
+              </div>
+              
+      <div class="space-y-4">
+        <div class="rounded-[28px] bg-neutral-900 p-5 text-white">
+          <p class="text-xs uppercase tracking-[0.24em] text-white/60">Secure sign in</p>
+          <h3 class="mt-2 text-2xl font-black tracking-tight">Access your matters, research, and consultations.</h3>
+        </div>
+        <div class="rounded-[28px] border border-neutral-200 bg-white p-4 shadow-sm">
+          <div class="grid grid-cols-2 gap-2 rounded-full bg-neutral-100 p-1">
+            <button class="focus-ring min-h-[44px] rounded-full bg-white text-sm font-semibold text-neutral-900 shadow-sm">Phone + OTP</button>
+            <button class="focus-ring min-h-[44px] rounded-full text-sm font-semibold text-neutral-500">Email</button>
+          </div>
+          <div class="mt-4 space-y-3">
+            <div class="rounded-2xl border border-neutral-200 px-4 py-3 text-sm text-neutral-500">+91 98765 43210</div>
+            <div class="grid grid-cols-6 gap-2">
+              <div class="h-12 rounded-2xl border border-neutral-200 bg-neutral-50"></div><div class="h-12 rounded-2xl border border-neutral-200 bg-neutral-50"></div><div class="h-12 rounded-2xl border border-neutral-200 bg-neutral-50"></div><div class="h-12 rounded-2xl border border-neutral-200 bg-neutral-50"></div><div class="h-12 rounded-2xl border border-neutral-200 bg-neutral-50"></div><div class="h-12 rounded-2xl border border-neutral-200 bg-neutral-50"></div>
+            </div>
+            <button aria-label="Continue securely" class="focus-ring min-h-[48px] w-full rounded-2xl bg-primary-600 text-sm font-semibold text-white shadow-sm hover:bg-primary-700">Continue securely</button>
+            <div class="grid gap-2">
+              <button class="focus-ring min-h-[44px] rounded-2xl border border-neutral-200 bg-white text-sm font-medium text-neutral-700">Continue with Google</button>
+              <button class="focus-ring min-h-[44px] rounded-2xl border border-neutral-200 bg-white text-sm font-medium text-neutral-700">Continue with Microsoft</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+              
+    <nav aria-label="Primary mobile navigation" class="sticky bottom-0 mt-4 grid grid-cols-5 gap-2 rounded-[24px] border border-neutral-200/80 bg-white/95 p-2 backdrop-blur">
+      
+            <button aria-label="Dashboard" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold bg-primary-50 text-primary-700 shadow-sm">Dashboard</button>
+          
+            <button aria-label="Research" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Research</button>
+          
+            <button aria-label="Market" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Market</button>
+          
+            <button aria-label="Calendar" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Calendar</button>
+          
+            <button aria-label="Profile" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Profile</button>
+          
+    </nav>
+  
+            </div>
+          </div>
+        </div>
+        <div class="space-y-5">
+          
+    <div class="rounded-3xl border border-neutral-200 bg-white p-5 shadow-panel">
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">S-02</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">All</span>
+            
+          </div>
+          <h2 class="mt-4 text-2xl font-bold tracking-tight text-neutral-900">Auth — Login/Signup</h2>
+          <p class="mt-2 text-sm leading-6 text-neutral-600">Secure authentication and account entry</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-right">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Design intent</p>
+          <p class="mt-2 text-sm font-medium text-neutral-700">Legal Pro · Modular discovery dashboard</p>
+        </div>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Email and phone tabs</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">OTP input</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Password field</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">OAuth buttons</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Verification helper text</span>
+      </div>
+    </div>
+  
+          <div class="rounded-3xl border border-neutral-200 bg-neutral-50/80 p-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-neutral-900">Screen states</h3>
+                <p class="mt-1 text-sm text-neutral-500">Loading, empty, error, and offline surfaces for S-02.</p>
+              </div>
+              <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">Operational state coverage</span>
+            </div>
+            <div class="mt-4">
+    <div class="grid gap-4 md:grid-cols-2">
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Loading</p>
+      <div class="animate-pulse space-y-3" aria-live="polite">
+        <div class="h-4 w-3/4 rounded bg-neutral-200"></div>
+        <div class="h-4 w-1/2 rounded bg-neutral-200"></div>
+        <div class="h-20 rounded-2xl bg-neutral-100"></div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4 text-center">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-neutral-100 text-neutral-400">○</div>
+      <h4 class="mt-3 text-sm font-semibold text-neutral-900">No sign-in methods enabled</h4>
+      <p class="mt-1 text-sm text-neutral-500">Activate email, phone, or SSO to let users log in.</p>
+      <button aria-label="Continue securely" class="focus-ring mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-primary-600 px-4 text-sm font-semibold text-white shadow-sm hover:bg-primary-700">Continue securely</button>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-danger/20 bg-danger/5 p-4">
+      <div class="flex gap-3">
+        <div class="mt-0.5 h-5 w-5 rounded-full bg-danger/20 text-danger"></div>
+        <div>
+          <p class="text-sm font-medium text-danger">Authentication service is temporarily unavailable.</p>
+          <button aria-label="Retry Auth — Login/Signup" class="focus-ring mt-3 inline-flex min-h-[44px] items-center rounded-xl border border-danger/20 px-3 text-sm font-semibold text-danger hover:bg-white">Retry</button>
+        </div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-warning/20 bg-warning/5 p-4">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex gap-3">
+          <div class="mt-1 h-4 w-4 rounded-full bg-warning/25"></div>
+          <p class="text-sm text-warning">Offline mode supports only last-session read access.</p>
+        </div>
+        <button aria-label="Retry sync for Auth — Login/Signup" class="focus-ring text-sm font-semibold text-warning underline">Retry</button>
+      </div>
+    </div>
+  
+    </div>
+  </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+    <section id="s-03" class="rounded-[36px] border border-neutral-200/80 bg-white/85 shadow-[0_28px_64px_rgba(15,23,42,0.16)] backdrop-blur">
+      <div class="grid gap-6 p-6 xl:grid-cols-[430px,1fr] xl:items-start">
+        <div class="mx-auto w-full max-w-[390px]">
+          <div class="device-frame rounded-[38px] border-[12px] border-neutral-900 bg-neutral-900 p-2">
+            <div class="relative overflow-hidden rounded-[30px] bg-gradient-to-b from-white to-neutral-50 p-4">
+              <div class="mx-auto mb-4 h-7 w-32 rounded-full bg-neutral-900"></div>
+              <div class="mb-4 flex items-center justify-between text-xs font-semibold text-neutral-500">
+                <span>9:41</span>
+                <span>5G • 82%</span>
+              </div>
+              
+      <div class="space-y-4">
+        <div class="rounded-[28px] bg-primary-50 p-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-xs uppercase tracking-[0.24em] text-primary-700">Step 2 of 3</p>
+              <h3 class="mt-1 text-xl font-bold text-neutral-900">Tell Legal Sathi how you work.</h3>
+            </div>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-white text-primary-700">DPDP ready</span>
+          </div>
+        </div>
+        <div class="space-y-3 rounded-[28px] border border-neutral-200 bg-white p-4 shadow-sm">
+          <div class="rounded-2xl border border-neutral-200 px-4 py-3 text-sm text-neutral-500">Name, designation, and location</div>
+          <div class="rounded-2xl border border-neutral-200 px-4 py-3 text-sm text-neutral-500">Languages spoken and practice areas</div>
+          <div class="rounded-2xl border border-neutral-200 px-4 py-3 text-sm text-neutral-500">College / firm / chamber details</div>
+          <div class="rounded-[24px] border border-primary-100 bg-primary-50 p-4">
+            <p class="text-sm font-semibold text-neutral-900">DPDP consent manager</p>
+            <div class="mt-3 space-y-2">
+              
+                <div class="flex items-center justify-between rounded-2xl bg-white px-3 py-2">
+                  <span class="text-sm text-neutral-700">Profile personalization</span>
+                  <span class="h-6 w-11 rounded-full bg-primary-600 p-0.5"><span class="block h-5 w-5 rounded-full bg-white translate-x-5"></span></span>
+                </div>
+                <div class="flex items-center justify-between rounded-2xl bg-white px-3 py-2">
+                  <span class="text-sm text-neutral-700">Court alerts and reminders</span>
+                  <span class="h-6 w-11 rounded-full bg-primary-600 p-0.5"><span class="block h-5 w-5 rounded-full bg-white translate-x-5"></span></span>
+                </div>
+                <div class="flex items-center justify-between rounded-2xl bg-white px-3 py-2">
+                  <span class="text-sm text-neutral-700">LegalGPT India assistance</span>
+                  <span class="h-6 w-11 rounded-full bg-neutral-300 p-0.5"><span class="block h-5 w-5 rounded-full bg-white "></span></span>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+              
+    <nav aria-label="Primary mobile navigation" class="sticky bottom-0 mt-4 grid grid-cols-5 gap-2 rounded-[24px] border border-neutral-200/80 bg-white/95 p-2 backdrop-blur">
+      
+            <button aria-label="Dashboard" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold bg-primary-50 text-primary-700 shadow-sm">Dashboard</button>
+          
+            <button aria-label="Research" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Research</button>
+          
+            <button aria-label="Market" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Market</button>
+          
+            <button aria-label="Calendar" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Calendar</button>
+          
+            <button aria-label="Profile" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Profile</button>
+          
+    </nav>
+  
+            </div>
+          </div>
+        </div>
+        <div class="space-y-5">
+          
+    <div class="rounded-3xl border border-neutral-200 bg-white p-5 shadow-panel">
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">S-03</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">All</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India visible</span>
+          </div>
+          <h2 class="mt-4 text-2xl font-bold tracking-tight text-neutral-900">Profile Setup</h2>
+          <p class="mt-2 text-sm leading-6 text-neutral-600">Collect persona-specific context and DPDP consent</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-right">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Design intent</p>
+          <p class="mt-2 text-sm font-medium text-neutral-700">Legal Pro · Modular discovery dashboard</p>
+        </div>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Persona form</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Languages</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Practice areas or college</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Notification preferences</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">DPDP consent card</span>
+      </div>
+    </div>
+  
+          <div class="rounded-3xl border border-neutral-200 bg-neutral-50/80 p-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-neutral-900">Screen states</h3>
+                <p class="mt-1 text-sm text-neutral-500">Loading, empty, error, and offline surfaces for S-03.</p>
+              </div>
+              <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India touchpoint</span>
+            </div>
+            <div class="mt-4">
+    <div class="grid gap-4 md:grid-cols-2">
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Loading</p>
+      <div class="animate-pulse space-y-3" aria-live="polite">
+        <div class="h-4 w-3/4 rounded bg-neutral-200"></div>
+        <div class="h-4 w-1/2 rounded bg-neutral-200"></div>
+        <div class="h-20 rounded-2xl bg-neutral-100"></div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4 text-center">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-neutral-100 text-neutral-400">○</div>
+      <h4 class="mt-3 text-sm font-semibold text-neutral-900">Profile details not started</h4>
+      <p class="mt-1 text-sm text-neutral-500">Add persona details to personalize Legal Sathi.</p>
+      <button aria-label="Save profile" class="focus-ring mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-primary-600 px-4 text-sm font-semibold text-white shadow-sm hover:bg-primary-700">Save profile</button>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-danger/20 bg-danger/5 p-4">
+      <div class="flex gap-3">
+        <div class="mt-0.5 h-5 w-5 rounded-full bg-danger/20 text-danger"></div>
+        <div>
+          <p class="text-sm font-medium text-danger">Profile setup couldn't be saved. Try again.</p>
+          <button aria-label="Retry Profile Setup" class="focus-ring mt-3 inline-flex min-h-[44px] items-center rounded-xl border border-danger/20 px-3 text-sm font-semibold text-danger hover:bg-white">Retry</button>
+        </div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-warning/20 bg-warning/5 p-4">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex gap-3">
+          <div class="mt-1 h-4 w-4 rounded-full bg-warning/25"></div>
+          <p class="text-sm text-warning">Profile edits are saved locally and will sync later.</p>
+        </div>
+        <button aria-label="Retry sync for Profile Setup" class="focus-ring text-sm font-semibold text-warning underline">Retry</button>
+      </div>
+    </div>
+  
+    </div>
+  </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+    <section id="s-04" class="rounded-[36px] border border-neutral-200/80 bg-white/85 shadow-[0_28px_64px_rgba(15,23,42,0.16)] backdrop-blur">
+      <div class="grid gap-6 p-6 xl:grid-cols-[430px,1fr] xl:items-start">
+        <div class="mx-auto w-full max-w-[390px]">
+          <div class="device-frame rounded-[38px] border-[12px] border-neutral-900 bg-neutral-900 p-2">
+            <div class="relative overflow-hidden rounded-[30px] bg-gradient-to-b from-white to-neutral-50 p-4">
+              <div class="mx-auto mb-4 h-7 w-32 rounded-full bg-neutral-900"></div>
+              <div class="mb-4 flex items-center justify-between text-xs font-semibold text-neutral-500">
+                <span>9:41</span>
+                <span>5G • 82%</span>
+              </div>
+              
+      <div class="space-y-4">
+        <div class="rounded-[28px] border border-primary-100 bg-white p-4 shadow-sm">
+          <p class="text-xs uppercase tracking-[0.2em] text-primary-700">Dashboard grid</p>
+          <div class="mt-3 grid grid-cols-2 gap-3">
+            
+                <div class="rounded-[24px] border border-neutral-200 bg-primary-50 p-4">
+                  <p class="text-xs uppercase tracking-[0.2em] text-neutral-500">Live queue</p>
+                  <p class="mt-2 text-xl font-black text-neutral-900">Item 18</p>
+                </div>
+                <div class="rounded-[24px] border border-neutral-200 bg-accent-50 p-4">
+                  <p class="text-xs uppercase tracking-[0.2em] text-neutral-500">Consultations</p>
+                  <p class="mt-2 text-xl font-black text-neutral-900">1 today</p>
+                </div>
+                <div class="rounded-[24px] border border-neutral-200 bg-white p-4">
+                  <p class="text-xs uppercase tracking-[0.2em] text-neutral-500">Open matters</p>
+                  <p class="mt-2 text-xl font-black text-neutral-900">14</p>
+                </div>
+                <div class="rounded-[24px] border border-neutral-200 bg-white p-4">
+                  <p class="text-xs uppercase tracking-[0.2em] text-neutral-500">AI suggestions</p>
+                  <p class="mt-2 text-xl font-black text-neutral-900">4</p>
+                </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          
+              <div class="rounded-[24px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <p class="text-sm font-semibold text-neutral-900">Cases</p>
+                <p class="mt-1 text-sm text-neutral-500">3 urgent</p>
+              </div>
+              <div class="rounded-[24px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <p class="text-sm font-semibold text-neutral-900">Calendar</p>
+                <p class="mt-1 text-sm text-neutral-500">2 conflicts checked</p>
+              </div>
+              <div class="rounded-[24px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <p class="text-sm font-semibold text-neutral-900">Alerts</p>
+                <p class="mt-1 text-sm text-neutral-500">1 queue jump</p>
+              </div>
+              <div class="rounded-[24px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <p class="text-sm font-semibold text-neutral-900">Billing</p>
+                <p class="mt-1 text-sm text-neutral-500">₹48K pending</p>
+              </div>
+        </div>
+      </div>
+    
+              
+    <nav aria-label="Primary mobile navigation" class="sticky bottom-0 mt-4 grid grid-cols-5 gap-2 rounded-[24px] border border-neutral-200/80 bg-white/95 p-2 backdrop-blur">
+      
+            <button aria-label="Dashboard" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold bg-primary-50 text-primary-700 shadow-sm">Dashboard</button>
+          
+            <button aria-label="Research" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Research</button>
+          
+            <button aria-label="Market" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Market</button>
+          
+            <button aria-label="Calendar" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Calendar</button>
+          
+            <button aria-label="Profile" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Profile</button>
+          
+    </nav>
+  
+            </div>
+          </div>
+        </div>
+        <div class="space-y-5">
+          
+    <div class="rounded-3xl border border-neutral-200 bg-white p-5 shadow-panel">
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">S-04</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">Lawyer/Firm</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India visible</span>
+          </div>
+          <h2 class="mt-4 text-2xl font-bold tracking-tight text-neutral-900">Home — Morning Brief</h2>
+          <p class="mt-2 text-sm leading-6 text-neutral-600">Daily agenda, hearings, alerts, AI quick access</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-right">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Design intent</p>
+          <p class="mt-2 text-sm font-medium text-neutral-700">Legal Pro · Modular discovery dashboard</p>
+        </div>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Greeting hero</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Today's hearings</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Pending tasks</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">AI prompt cards</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Calendar strip</span>
+      </div>
+    </div>
+  
+          <div class="rounded-3xl border border-neutral-200 bg-neutral-50/80 p-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-neutral-900">Screen states</h3>
+                <p class="mt-1 text-sm text-neutral-500">Loading, empty, error, and offline surfaces for S-04.</p>
+              </div>
+              <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India touchpoint</span>
+            </div>
+            <div class="mt-4">
+    <div class="grid gap-4 md:grid-cols-2">
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Loading</p>
+      <div class="animate-pulse space-y-3" aria-live="polite">
+        <div class="h-4 w-3/4 rounded bg-neutral-200"></div>
+        <div class="h-4 w-1/2 rounded bg-neutral-200"></div>
+        <div class="h-20 rounded-2xl bg-neutral-100"></div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4 text-center">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-neutral-100 text-neutral-400">○</div>
+      <h4 class="mt-3 text-sm font-semibold text-neutral-900">No hearings scheduled today</h4>
+      <p class="mt-1 text-sm text-neutral-500">Your calendar is clear. Add a matter or client follow-up.</p>
+      <button aria-label="Open morning brief" class="focus-ring mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-primary-600 px-4 text-sm font-semibold text-white shadow-sm hover:bg-primary-700">Open morning brief</button>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-danger/20 bg-danger/5 p-4">
+      <div class="flex gap-3">
+        <div class="mt-0.5 h-5 w-5 rounded-full bg-danger/20 text-danger"></div>
+        <div>
+          <p class="text-sm font-medium text-danger">Morning brief failed to refresh.</p>
+          <button aria-label="Retry Home — Morning Brief" class="focus-ring mt-3 inline-flex min-h-[44px] items-center rounded-xl border border-danger/20 px-3 text-sm font-semibold text-danger hover:bg-white">Retry</button>
+        </div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-warning/20 bg-warning/5 p-4">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex gap-3">
+          <div class="mt-1 h-4 w-4 rounded-full bg-warning/25"></div>
+          <p class="text-sm text-warning">Showing last synced hearings and task cards from cache.</p>
+        </div>
+        <button aria-label="Retry sync for Home — Morning Brief" class="focus-ring text-sm font-semibold text-warning underline">Retry</button>
+      </div>
+    </div>
+  
+    </div>
+  </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+    <section id="s-05" class="rounded-[36px] border border-neutral-200/80 bg-white/85 shadow-[0_28px_64px_rgba(15,23,42,0.16)] backdrop-blur">
+      <div class="grid gap-6 p-6 xl:grid-cols-[430px,1fr] xl:items-start">
+        <div class="mx-auto w-full max-w-[390px]">
+          <div class="device-frame rounded-[38px] border-[12px] border-neutral-900 bg-neutral-900 p-2">
+            <div class="relative overflow-hidden rounded-[30px] bg-gradient-to-b from-white to-neutral-50 p-4">
+              <div class="mx-auto mb-4 h-7 w-32 rounded-full bg-neutral-900"></div>
+              <div class="mb-4 flex items-center justify-between text-xs font-semibold text-neutral-500">
+                <span>9:41</span>
+                <span>5G • 82%</span>
+              </div>
+              
+      <div class="space-y-4">
+        <div class="rounded-[28px] border border-neutral-200 bg-white p-4 shadow-sm">
+          <div class="flex items-center justify-between gap-3">
+            <div class="rounded-2xl bg-neutral-100 px-4 py-3 text-sm text-neutral-500">Search matters, courts, clients</div>
+            <button class="focus-ring h-11 w-11 rounded-2xl bg-primary-600 text-lg font-bold text-white">+</button>
+          </div>
+          <div class="mt-3 flex gap-2 overflow-x-auto scrollbar-hide">
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">All</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-600">High priority</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-600">This week</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-600">Delhi HC</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-600">Commercial</span>
+          </div>
+        </div>
+        <div class="space-y-3">
+          
+              <button class="focus-ring w-full rounded-[28px] border border-neutral-200 bg-white p-4 text-left shadow-sm hover:border-primary-200">
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <p class="font-mono text-xs text-neutral-500">WP/1234/2026</p>
+                    <p class="mt-1 text-base font-semibold text-neutral-900">Khanna v. State</p>
+                    <p class="mt-1 text-sm text-neutral-500">Delhi HC · Criminal</p>
+                  </div>
+                  <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">Active</span>
+                </div>
+              </button>
+              <button class="focus-ring w-full rounded-[28px] border border-neutral-200 bg-white p-4 text-left shadow-sm hover:border-primary-200">
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <p class="font-mono text-xs text-neutral-500">ARB/98/2026</p>
+                    <p class="mt-1 text-base font-semibold text-neutral-900">Rao Arbitration</p>
+                    <p class="mt-1 text-sm text-neutral-500">Virtual matter · 13 docs</p>
+                  </div>
+                  <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">Awaiting hearing</span>
+                </div>
+              </button>
+              <button class="focus-ring w-full rounded-[28px] border border-neutral-200 bg-white p-4 text-left shadow-sm hover:border-primary-200">
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <p class="font-mono text-xs text-neutral-500">CC/430/2026</p>
+                    <p class="mt-1 text-base font-semibold text-neutral-900">Devaki Consumer Claim</p>
+                    <p class="mt-1 text-sm text-neutral-500">District Court · Client invoice pending</p>
+                  </div>
+                  <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">Drafting</span>
+                </div>
+              </button>
+        </div>
+      </div>
+    
+              
+    <nav aria-label="Primary mobile navigation" class="sticky bottom-0 mt-4 grid grid-cols-5 gap-2 rounded-[24px] border border-neutral-200/80 bg-white/95 p-2 backdrop-blur">
+      
+            <button aria-label="Dashboard" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold bg-primary-50 text-primary-700 shadow-sm">Dashboard</button>
+          
+            <button aria-label="Research" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Research</button>
+          
+            <button aria-label="Market" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Market</button>
+          
+            <button aria-label="Calendar" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Calendar</button>
+          
+            <button aria-label="Profile" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Profile</button>
+          
+    </nav>
+  
+            </div>
+          </div>
+        </div>
+        <div class="space-y-5">
+          
+    <div class="rounded-3xl border border-neutral-200 bg-white p-5 shadow-panel">
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">S-05</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">Lawyer/Firm</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India visible</span>
+          </div>
+          <h2 class="mt-4 text-2xl font-bold tracking-tight text-neutral-900">Case Management</h2>
+          <p class="mt-2 text-sm leading-6 text-neutral-600">Active matter overview and filters</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-right">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Design intent</p>
+          <p class="mt-2 text-sm font-medium text-neutral-700">Legal Pro · Modular discovery dashboard</p>
+        </div>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Search bar</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Case list</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Status filters</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Sort controls</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Add new case FAB</span>
+      </div>
+    </div>
+  
+          <div class="rounded-3xl border border-neutral-200 bg-neutral-50/80 p-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-neutral-900">Screen states</h3>
+                <p class="mt-1 text-sm text-neutral-500">Loading, empty, error, and offline surfaces for S-05.</p>
+              </div>
+              <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India touchpoint</span>
+            </div>
+            <div class="mt-4">
+    <div class="grid gap-4 md:grid-cols-2">
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Loading</p>
+      <div class="animate-pulse space-y-3" aria-live="polite">
+        <div class="h-4 w-3/4 rounded bg-neutral-200"></div>
+        <div class="h-4 w-1/2 rounded bg-neutral-200"></div>
+        <div class="h-20 rounded-2xl bg-neutral-100"></div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4 text-center">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-neutral-100 text-neutral-400">○</div>
+      <h4 class="mt-3 text-sm font-semibold text-neutral-900">No cases yet</h4>
+      <p class="mt-1 text-sm text-neutral-500">Get started by creating a new case or importing one.</p>
+      <button aria-label="Create case" class="focus-ring mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-primary-600 px-4 text-sm font-semibold text-white shadow-sm hover:bg-primary-700">Create case</button>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-danger/20 bg-danger/5 p-4">
+      <div class="flex gap-3">
+        <div class="mt-0.5 h-5 w-5 rounded-full bg-danger/20 text-danger"></div>
+        <div>
+          <p class="text-sm font-medium text-danger">Failed to load matters. Please try again.</p>
+          <button aria-label="Retry Case Management" class="focus-ring mt-3 inline-flex min-h-[44px] items-center rounded-xl border border-danger/20 px-3 text-sm font-semibold text-danger hover:bg-white">Retry</button>
+        </div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-warning/20 bg-warning/5 p-4">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex gap-3">
+          <div class="mt-1 h-4 w-4 rounded-full bg-warning/25"></div>
+          <p class="text-sm text-warning">Cached matters are available. New edits will sync later.</p>
+        </div>
+        <button aria-label="Retry sync for Case Management" class="focus-ring text-sm font-semibold text-warning underline">Retry</button>
+      </div>
+    </div>
+  
+    </div>
+  </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+    <section id="s-06" class="rounded-[36px] border border-neutral-200/80 bg-white/85 shadow-[0_28px_64px_rgba(15,23,42,0.16)] backdrop-blur">
+      <div class="grid gap-6 p-6 xl:grid-cols-[430px,1fr] xl:items-start">
+        <div class="mx-auto w-full max-w-[390px]">
+          <div class="device-frame rounded-[38px] border-[12px] border-neutral-900 bg-neutral-900 p-2">
+            <div class="relative overflow-hidden rounded-[30px] bg-gradient-to-b from-white to-neutral-50 p-4">
+              <div class="mx-auto mb-4 h-7 w-32 rounded-full bg-neutral-900"></div>
+              <div class="mb-4 flex items-center justify-between text-xs font-semibold text-neutral-500">
+                <span>9:41</span>
+                <span>5G • 82%</span>
+              </div>
+              
+      <div class="space-y-4">
+        <div class="rounded-[30px] bg-neutral-900 p-5 text-white">
+          <p class="font-mono text-xs tracking-[0.24em] text-white/55">WP/1234/2026</p>
+          <div class="mt-2 flex items-center justify-between gap-4">
+            <div>
+              <h3 class="text-2xl font-black tracking-tight">Khanna v. State</h3>
+              <p class="mt-1 text-sm text-white/70">Delhi High Court · Client communication updated 12 mins ago</p>
+            </div>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-white/10 text-white">Active</span>
+          </div>
+        </div>
+        <div class="grid gap-3">
+          
+              <div class="rounded-[24px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <div class="flex items-center justify-between">
+                  <h4 class="text-sm font-semibold text-neutral-900">Timeline</h4>
+                  <span class="h-2.5 w-2.5 rounded-full bg-primary-500"></span>
+                </div>
+                <p class="mt-2 text-sm text-neutral-500">Today's hearing note drafted and tagged to the matter.</p>
+              </div>
+              <div class="rounded-[24px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <div class="flex items-center justify-between">
+                  <h4 class="text-sm font-semibold text-neutral-900">Documents</h4>
+                  <span class="h-2.5 w-2.5 rounded-full bg-primary-500"></span>
+                </div>
+                <p class="mt-2 text-sm text-neutral-500">Order upload complete · OCR index in progress.</p>
+              </div>
+              <div class="rounded-[24px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <div class="flex items-center justify-between">
+                  <h4 class="text-sm font-semibold text-neutral-900">Client log</h4>
+                  <span class="h-2.5 w-2.5 rounded-full bg-primary-500"></span>
+                </div>
+                <p class="mt-2 text-sm text-neutral-500">Client informed by WhatsApp and in-app note.</p>
+              </div>
+              <div class="rounded-[24px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <div class="flex items-center justify-between">
+                  <h4 class="text-sm font-semibold text-neutral-900">LegalGPT India</h4>
+                  <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">Visible</span>
+                </div>
+                <p class="mt-2 text-sm text-neutral-500">Suggested 3 supporting precedents with 0.89 confidence.</p>
+              </div>
+        </div>
+      </div>
+    
+              
+    <nav aria-label="Primary mobile navigation" class="sticky bottom-0 mt-4 grid grid-cols-5 gap-2 rounded-[24px] border border-neutral-200/80 bg-white/95 p-2 backdrop-blur">
+      
+            <button aria-label="Dashboard" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold bg-primary-50 text-primary-700 shadow-sm">Dashboard</button>
+          
+            <button aria-label="Research" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Research</button>
+          
+            <button aria-label="Market" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Market</button>
+          
+            <button aria-label="Calendar" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Calendar</button>
+          
+            <button aria-label="Profile" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Profile</button>
+          
+    </nav>
+  
+            </div>
+          </div>
+        </div>
+        <div class="space-y-5">
+          
+    <div class="rounded-3xl border border-neutral-200 bg-white p-5 shadow-panel">
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">S-06</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">Lawyer/Firm</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India visible</span>
+          </div>
+          <h2 class="mt-4 text-2xl font-bold tracking-tight text-neutral-900">Case Detail View</h2>
+          <p class="mt-2 text-sm leading-6 text-neutral-600">Single matter workspace</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-right">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Design intent</p>
+          <p class="mt-2 text-sm font-medium text-neutral-700">Legal Pro · Modular discovery dashboard</p>
+        </div>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Timeline</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Documents tab</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Notes</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Client log</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Opposing party details</span>
+      </div>
+    </div>
+  
+          <div class="rounded-3xl border border-neutral-200 bg-neutral-50/80 p-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-neutral-900">Screen states</h3>
+                <p class="mt-1 text-sm text-neutral-500">Loading, empty, error, and offline surfaces for S-06.</p>
+              </div>
+              <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India touchpoint</span>
+            </div>
+            <div class="mt-4">
+    <div class="grid gap-4 md:grid-cols-2">
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Loading</p>
+      <div class="animate-pulse space-y-3" aria-live="polite">
+        <div class="h-4 w-3/4 rounded bg-neutral-200"></div>
+        <div class="h-4 w-1/2 rounded bg-neutral-200"></div>
+        <div class="h-20 rounded-2xl bg-neutral-100"></div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4 text-center">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-neutral-100 text-neutral-400">○</div>
+      <h4 class="mt-3 text-sm font-semibold text-neutral-900">No timeline activity yet</h4>
+      <p class="mt-1 text-sm text-neutral-500">Add the first note, hearing, or document to start this matter.</p>
+      <button aria-label="Update matter" class="focus-ring mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-primary-600 px-4 text-sm font-semibold text-white shadow-sm hover:bg-primary-700">Update matter</button>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-danger/20 bg-danger/5 p-4">
+      <div class="flex gap-3">
+        <div class="mt-0.5 h-5 w-5 rounded-full bg-danger/20 text-danger"></div>
+        <div>
+          <p class="text-sm font-medium text-danger">Matter details couldn't be loaded.</p>
+          <button aria-label="Retry Case Detail View" class="focus-ring mt-3 inline-flex min-h-[44px] items-center rounded-xl border border-danger/20 px-3 text-sm font-semibold text-danger hover:bg-white">Retry</button>
+        </div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-warning/20 bg-warning/5 p-4">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex gap-3">
+          <div class="mt-1 h-4 w-4 rounded-full bg-warning/25"></div>
+          <p class="text-sm text-warning">Viewing cached matter details. Edits will sync when online.</p>
+        </div>
+        <button aria-label="Retry sync for Case Detail View" class="focus-ring text-sm font-semibold text-warning underline">Retry</button>
+      </div>
+    </div>
+  
+    </div>
+  </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+    <section id="s-07" class="rounded-[36px] border border-neutral-200/80 bg-white/85 shadow-[0_28px_64px_rgba(15,23,42,0.16)] backdrop-blur">
+      <div class="grid gap-6 p-6 xl:grid-cols-[430px,1fr] xl:items-start">
+        <div class="mx-auto w-full max-w-[390px]">
+          <div class="device-frame rounded-[38px] border-[12px] border-neutral-900 bg-neutral-900 p-2">
+            <div class="relative overflow-hidden rounded-[30px] bg-gradient-to-b from-white to-neutral-50 p-4">
+              <div class="mx-auto mb-4 h-7 w-32 rounded-full bg-neutral-900"></div>
+              <div class="mb-4 flex items-center justify-between text-xs font-semibold text-neutral-500">
+                <span>9:41</span>
+                <span>5G • 82%</span>
+              </div>
+              
+      <div class="space-y-4">
+        <div class="rounded-[28px] border border-primary-100 bg-white p-4 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-xs uppercase tracking-[0.2em] text-primary-700">Assistant workspace</p>
+              <h3 class="mt-1 text-xl font-bold text-neutral-900">Ask, retrieve, verify, and pin results.</h3>
+            </div>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">Pinned</span>
+          </div>
+          <div class="mt-4 grid grid-cols-2 gap-3">
+            <div class="rounded-[22px] bg-primary-50 p-4 text-sm text-neutral-800">What is the ratio and maintainability risk here?</div>
+            <div class="rounded-[22px] bg-neutral-100 p-4 text-sm text-neutral-700">3 verified authorities found. 1 maintainability caution flagged.</div>
+          </div>
+          <div class="mt-4 grid gap-2">
+            <div class="rounded-2xl border border-neutral-200 px-3 py-2 text-sm text-neutral-600">Authority card</div><div class="rounded-2xl border border-neutral-200 px-3 py-2 text-sm text-neutral-600">Timeline card</div><div class="rounded-2xl border border-neutral-200 px-3 py-2 text-sm text-neutral-600">Simple explanation toggle</div>
+          </div>
+        </div>
+      </div>
+    
+              
+    <nav aria-label="Primary mobile navigation" class="sticky bottom-0 mt-4 grid grid-cols-5 gap-2 rounded-[24px] border border-neutral-200/80 bg-white/95 p-2 backdrop-blur">
+      
+            <button aria-label="Dashboard" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Dashboard</button>
+          
+            <button aria-label="Research" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold bg-primary-50 text-primary-700 shadow-sm">Research</button>
+          
+            <button aria-label="Market" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Market</button>
+          
+            <button aria-label="Calendar" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Calendar</button>
+          
+            <button aria-label="Profile" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Profile</button>
+          
+    </nav>
+  
+            </div>
+          </div>
+        </div>
+        <div class="space-y-5">
+          
+    <div class="rounded-3xl border border-neutral-200 bg-white p-5 shadow-panel">
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">S-07</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">All</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India visible</span>
+          </div>
+          <h2 class="mt-4 text-2xl font-bold tracking-tight text-neutral-900">AI Legal Assistant</h2>
+          <p class="mt-2 text-sm leading-6 text-neutral-600">LegalGPT India chat with citations and confidence</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-right">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Design intent</p>
+          <p class="mt-2 text-sm font-medium text-neutral-700">Legal Pro · Modular discovery dashboard</p>
+        </div>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Conversation thread</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Citation cards</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Language switcher</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Voice input</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Confidence indicator</span>
+      </div>
+    </div>
+  
+          <div class="rounded-3xl border border-neutral-200 bg-neutral-50/80 p-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-neutral-900">Screen states</h3>
+                <p class="mt-1 text-sm text-neutral-500">Loading, empty, error, and offline surfaces for S-07.</p>
+              </div>
+              <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India touchpoint</span>
+            </div>
+            <div class="mt-4">
+    <div class="grid gap-4 md:grid-cols-2">
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Loading</p>
+      <div class="animate-pulse space-y-3" aria-live="polite">
+        <div class="h-4 w-3/4 rounded bg-neutral-200"></div>
+        <div class="h-4 w-1/2 rounded bg-neutral-200"></div>
+        <div class="h-20 rounded-2xl bg-neutral-100"></div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4 text-center">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-neutral-100 text-neutral-400">○</div>
+      <h4 class="mt-3 text-sm font-semibold text-neutral-900">No conversation yet</h4>
+      <p class="mt-1 text-sm text-neutral-500">Start with a prompt about a judgment, matter, or memorial.</p>
+      <button aria-label="Ask LegalGPT India" class="focus-ring mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-primary-600 px-4 text-sm font-semibold text-white shadow-sm hover:bg-primary-700">Ask LegalGPT India</button>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-danger/20 bg-danger/5 p-4">
+      <div class="flex gap-3">
+        <div class="mt-0.5 h-5 w-5 rounded-full bg-danger/20 text-danger"></div>
+        <div>
+          <p class="text-sm font-medium text-danger">LegalGPT India couldn't complete this request.</p>
+          <button aria-label="Retry AI Legal Assistant" class="focus-ring mt-3 inline-flex min-h-[44px] items-center rounded-xl border border-danger/20 px-3 text-sm font-semibold text-danger hover:bg-white">Retry</button>
+        </div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-warning/20 bg-warning/5 p-4">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex gap-3">
+          <div class="mt-1 h-4 w-4 rounded-full bg-warning/25"></div>
+          <p class="text-sm text-warning">Chat history is cached. New questions require connectivity.</p>
+        </div>
+        <button aria-label="Retry sync for AI Legal Assistant" class="focus-ring text-sm font-semibold text-warning underline">Retry</button>
+      </div>
+    </div>
+  
+    </div>
+  </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+    <section id="s-08" class="rounded-[36px] border border-neutral-200/80 bg-white/85 shadow-[0_28px_64px_rgba(15,23,42,0.16)] backdrop-blur">
+      <div class="grid gap-6 p-6 xl:grid-cols-[430px,1fr] xl:items-start">
+        <div class="mx-auto w-full max-w-[390px]">
+          <div class="device-frame rounded-[38px] border-[12px] border-neutral-900 bg-neutral-900 p-2">
+            <div class="relative overflow-hidden rounded-[30px] bg-gradient-to-b from-white to-neutral-50 p-4">
+              <div class="mx-auto mb-4 h-7 w-32 rounded-full bg-neutral-900"></div>
+              <div class="mb-4 flex items-center justify-between text-xs font-semibold text-neutral-500">
+                <span>9:41</span>
+                <span>5G • 82%</span>
+              </div>
+              
+      <div class="space-y-4">
+        <div class="rounded-[28px] border border-neutral-200 bg-white p-4 shadow-sm">
+          <div class="rounded-2xl border border-neutral-200 px-4 py-3 text-sm text-neutral-500">Search by keyword, context, court, act, or judge</div>
+          <div class="mt-3 flex gap-2 overflow-x-auto scrollbar-hide">
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-600">Supreme Court</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-600">Constitution</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-600">2020+</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-600">Article 14</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">Saved offline</span>
+          </div>
+        </div>
+        <div class="space-y-3">
+          
+              <div class="rounded-[26px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <p class="font-mono text-xs text-neutral-500">(2023) 4 SCC 112</p>
+                    <p class="mt-1 text-sm font-semibold text-neutral-900">Procedural fairness in urgent relief matters</p>
+                    <p class="mt-1 text-xs text-neutral-500">Court, date, judge, cited acts, and quick summary visible</p>
+                  </div>
+                  <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">Saved</span>
+                </div>
+              </div>
+              <div class="rounded-[26px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <p class="font-mono text-xs text-neutral-500">AIR 2021 Del 88</p>
+                    <p class="mt-1 text-sm font-semibold text-neutral-900">Bench clarified maintainability threshold</p>
+                    <p class="mt-1 text-xs text-neutral-500">Court, date, judge, cited acts, and quick summary visible</p>
+                  </div>
+                  <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">Cross-ref</span>
+                </div>
+              </div>
+        </div>
+      </div>
+    
+              
+    <nav aria-label="Primary mobile navigation" class="sticky bottom-0 mt-4 grid grid-cols-5 gap-2 rounded-[24px] border border-neutral-200/80 bg-white/95 p-2 backdrop-blur">
+      
+            <button aria-label="Dashboard" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold bg-primary-50 text-primary-700 shadow-sm">Dashboard</button>
+          
+            <button aria-label="Research" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Research</button>
+          
+            <button aria-label="Market" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Market</button>
+          
+            <button aria-label="Calendar" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Calendar</button>
+          
+            <button aria-label="Profile" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Profile</button>
+          
+    </nav>
+  
+            </div>
+          </div>
+        </div>
+        <div class="space-y-5">
+          
+    <div class="rounded-3xl border border-neutral-200 bg-white p-5 shadow-panel">
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">S-08</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">Student/Lawyer</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India visible</span>
+          </div>
+          <h2 class="mt-4 text-2xl font-bold tracking-tight text-neutral-900">Judgment Search</h2>
+          <p class="mt-2 text-sm leading-6 text-neutral-600">Case law research and retrieval</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-right">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Design intent</p>
+          <p class="mt-2 text-sm font-medium text-neutral-700">Legal Pro · Modular discovery dashboard</p>
+        </div>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Search field</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Filter chips</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Result cards</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Save to library</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Cross-reference view</span>
+      </div>
+    </div>
+  
+          <div class="rounded-3xl border border-neutral-200 bg-neutral-50/80 p-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-neutral-900">Screen states</h3>
+                <p class="mt-1 text-sm text-neutral-500">Loading, empty, error, and offline surfaces for S-08.</p>
+              </div>
+              <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India touchpoint</span>
+            </div>
+            <div class="mt-4">
+    <div class="grid gap-4 md:grid-cols-2">
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Loading</p>
+      <div class="animate-pulse space-y-3" aria-live="polite">
+        <div class="h-4 w-3/4 rounded bg-neutral-200"></div>
+        <div class="h-4 w-1/2 rounded bg-neutral-200"></div>
+        <div class="h-20 rounded-2xl bg-neutral-100"></div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4 text-center">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-neutral-100 text-neutral-400">○</div>
+      <h4 class="mt-3 text-sm font-semibold text-neutral-900">No judgments match those filters</h4>
+      <p class="mt-1 text-sm text-neutral-500">Try a broader court range or fewer citation filters.</p>
+      <button aria-label="Search judgments" class="focus-ring mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-primary-600 px-4 text-sm font-semibold text-white shadow-sm hover:bg-primary-700">Search judgments</button>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-danger/20 bg-danger/5 p-4">
+      <div class="flex gap-3">
+        <div class="mt-0.5 h-5 w-5 rounded-full bg-danger/20 text-danger"></div>
+        <div>
+          <p class="text-sm font-medium text-danger">Search results couldn't be loaded.</p>
+          <button aria-label="Retry Judgment Search" class="focus-ring mt-3 inline-flex min-h-[44px] items-center rounded-xl border border-danger/20 px-3 text-sm font-semibold text-danger hover:bg-white">Retry</button>
+        </div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-warning/20 bg-warning/5 p-4">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex gap-3">
+          <div class="mt-1 h-4 w-4 rounded-full bg-warning/25"></div>
+          <p class="text-sm text-warning">Saved judgments stay available offline. Live search will resume when online.</p>
+        </div>
+        <button aria-label="Retry sync for Judgment Search" class="focus-ring text-sm font-semibold text-warning underline">Retry</button>
+      </div>
+    </div>
+  
+    </div>
+  </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+    <section id="s-09" class="rounded-[36px] border border-neutral-200/80 bg-white/85 shadow-[0_28px_64px_rgba(15,23,42,0.16)] backdrop-blur">
+      <div class="grid gap-6 p-6 xl:grid-cols-[430px,1fr] xl:items-start">
+        <div class="mx-auto w-full max-w-[390px]">
+          <div class="device-frame rounded-[38px] border-[12px] border-neutral-900 bg-neutral-900 p-2">
+            <div class="relative overflow-hidden rounded-[30px] bg-gradient-to-b from-white to-neutral-50 p-4">
+              <div class="mx-auto mb-4 h-7 w-32 rounded-full bg-neutral-900"></div>
+              <div class="mb-4 flex items-center justify-between text-xs font-semibold text-neutral-500">
+                <span>9:41</span>
+                <span>5G • 82%</span>
+              </div>
+              
+      <div class="space-y-4">
+        <div class="rounded-[30px] bg-gradient-to-br from-accent-600 to-primary-700 p-5 text-white">
+          <p class="text-xs uppercase tracking-[0.24em] text-white/60">Moot court suite</p>
+          <h3 class="mt-2 text-2xl font-black tracking-tight">Build your memorial. Simulate the bench. Score your round.</h3>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          
+              <div class="rounded-[24px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <p class="text-xs uppercase tracking-[0.2em] text-neutral-500">Memorial Drafter</p>
+                <p class="mt-2 text-lg font-bold text-neutral-900">Draft 3</p>
+              </div>
+              <div class="rounded-[24px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <p class="text-xs uppercase tracking-[0.2em] text-neutral-500">Counter Arguments</p>
+                <p class="mt-2 text-lg font-bold text-neutral-900">6 generated</p>
+              </div>
+              <div class="rounded-[24px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <p class="text-xs uppercase tracking-[0.2em] text-neutral-500">Judge Simulation</p>
+                <p class="mt-2 text-lg font-bold text-neutral-900">Ready</p>
+              </div>
+              <div class="rounded-[24px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <p class="text-xs uppercase tracking-[0.2em] text-neutral-500">Scoring Rubric</p>
+                <p class="mt-2 text-lg font-bold text-neutral-900">78 / 100</p>
+              </div>
+        </div>
+      </div>
+    
+              
+    <nav aria-label="Primary mobile navigation" class="sticky bottom-0 mt-4 grid grid-cols-5 gap-2 rounded-[24px] border border-neutral-200/80 bg-white/95 p-2 backdrop-blur">
+      
+            <button aria-label="Dashboard" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold bg-primary-50 text-primary-700 shadow-sm">Dashboard</button>
+          
+            <button aria-label="Research" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Research</button>
+          
+            <button aria-label="Market" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Market</button>
+          
+            <button aria-label="Calendar" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Calendar</button>
+          
+            <button aria-label="Profile" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Profile</button>
+          
+    </nav>
+  
+            </div>
+          </div>
+        </div>
+        <div class="space-y-5">
+          
+    <div class="rounded-3xl border border-neutral-200 bg-white p-5 shadow-panel">
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">S-09</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">Student</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India visible</span>
+          </div>
+          <h2 class="mt-4 text-2xl font-bold tracking-tight text-neutral-900">Moot Court Suite</h2>
+          <p class="mt-2 text-sm leading-6 text-neutral-600">Moot prep, memorial drafting, AI judge simulation</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-right">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Design intent</p>
+          <p class="mt-2 text-sm font-medium text-neutral-700">Legal Pro · Modular discovery dashboard</p>
+        </div>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Problem selector</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Memorial drafter</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Counter-argument builder</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Judge simulation</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Scoring rubric</span>
+      </div>
+    </div>
+  
+          <div class="rounded-3xl border border-neutral-200 bg-neutral-50/80 p-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-neutral-900">Screen states</h3>
+                <p class="mt-1 text-sm text-neutral-500">Loading, empty, error, and offline surfaces for S-09.</p>
+              </div>
+              <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India touchpoint</span>
+            </div>
+            <div class="mt-4">
+    <div class="grid gap-4 md:grid-cols-2">
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Loading</p>
+      <div class="animate-pulse space-y-3" aria-live="polite">
+        <div class="h-4 w-3/4 rounded bg-neutral-200"></div>
+        <div class="h-4 w-1/2 rounded bg-neutral-200"></div>
+        <div class="h-20 rounded-2xl bg-neutral-100"></div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4 text-center">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-neutral-100 text-neutral-400">○</div>
+      <h4 class="mt-3 text-sm font-semibold text-neutral-900">No moot problem selected</h4>
+      <p class="mt-1 text-sm text-neutral-500">Pick a moot problem to unlock memorial drafting and judge simulation.</p>
+      <button aria-label="Start practice round" class="focus-ring mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-primary-600 px-4 text-sm font-semibold text-white shadow-sm hover:bg-primary-700">Start practice round</button>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-danger/20 bg-danger/5 p-4">
+      <div class="flex gap-3">
+        <div class="mt-0.5 h-5 w-5 rounded-full bg-danger/20 text-danger"></div>
+        <div>
+          <p class="text-sm font-medium text-danger">Moot workspace failed to load.</p>
+          <button aria-label="Retry Moot Court Suite" class="focus-ring mt-3 inline-flex min-h-[44px] items-center rounded-xl border border-danger/20 px-3 text-sm font-semibold text-danger hover:bg-white">Retry</button>
+        </div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-warning/20 bg-warning/5 p-4">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex gap-3">
+          <div class="mt-1 h-4 w-4 rounded-full bg-warning/25"></div>
+          <p class="text-sm text-warning">Saved memorial drafts remain editable offline.</p>
+        </div>
+        <button aria-label="Retry sync for Moot Court Suite" class="focus-ring text-sm font-semibold text-warning underline">Retry</button>
+      </div>
+    </div>
+  
+    </div>
+  </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+    <section id="s-10" class="rounded-[36px] border border-neutral-200/80 bg-white/85 shadow-[0_28px_64px_rgba(15,23,42,0.16)] backdrop-blur">
+      <div class="grid gap-6 p-6 xl:grid-cols-[430px,1fr] xl:items-start">
+        <div class="mx-auto w-full max-w-[390px]">
+          <div class="device-frame rounded-[38px] border-[12px] border-neutral-900 bg-neutral-900 p-2">
+            <div class="relative overflow-hidden rounded-[30px] bg-gradient-to-b from-white to-neutral-50 p-4">
+              <div class="mx-auto mb-4 h-7 w-32 rounded-full bg-neutral-900"></div>
+              <div class="mb-4 flex items-center justify-between text-xs font-semibold text-neutral-500">
+                <span>9:41</span>
+                <span>5G • 82%</span>
+              </div>
+              
+      <div class="space-y-4">
+        <div class="rounded-[28px] border border-neutral-200 bg-white p-4 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-xs uppercase tracking-[0.2em] text-neutral-500">Internship hub</p>
+              <h3 class="mt-1 text-xl font-bold text-neutral-900">Opportunities matched to your current focus.</h3>
+            </div>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-success/10 text-success">8 new</span>
+          </div>
+        </div>
+        <div class="space-y-3">
+          
+              <div class="rounded-[26px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <p class="text-sm font-semibold text-neutral-900">Constitutional Law Intern</p>
+                <p class="mt-1 text-sm text-neutral-500">Delhi · 3 days left · NLU alumni referral</p>
+              </div>
+              <div class="rounded-[26px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <p class="text-sm font-semibold text-neutral-900">NGO Litigation Fellow</p>
+                <p class="mt-1 text-sm text-neutral-500">Bengaluru · Resume score 86% · Mock interview ready</p>
+              </div>
+              <div class="rounded-[26px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <p class="text-sm font-semibold text-neutral-900">Tribunal Research Intern</p>
+                <p class="mt-1 text-sm text-neutral-500">Hybrid · Saved to tracker</p>
+              </div>
+        </div>
+      </div>
+    
+              
+    <nav aria-label="Primary mobile navigation" class="sticky bottom-0 mt-4 grid grid-cols-5 gap-2 rounded-[24px] border border-neutral-200/80 bg-white/95 p-2 backdrop-blur">
+      
+            <button aria-label="Dashboard" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold bg-primary-50 text-primary-700 shadow-sm">Dashboard</button>
+          
+            <button aria-label="Research" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Research</button>
+          
+            <button aria-label="Market" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Market</button>
+          
+            <button aria-label="Calendar" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Calendar</button>
+          
+            <button aria-label="Profile" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Profile</button>
+          
+    </nav>
+  
+            </div>
+          </div>
+        </div>
+        <div class="space-y-5">
+          
+    <div class="rounded-3xl border border-neutral-200 bg-white p-5 shadow-panel">
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">S-10</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">Student</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India visible</span>
+          </div>
+          <h2 class="mt-4 text-2xl font-bold tracking-tight text-neutral-900">Internship Hub</h2>
+          <p class="mt-2 text-sm leading-6 text-neutral-600">Opportunity discovery and application tracking</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-right">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Design intent</p>
+          <p class="mt-2 text-sm font-medium text-neutral-700">Legal Pro · Modular discovery dashboard</p>
+        </div>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Opportunity grid</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Deadline tracker</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">AI resume builder</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Mock interview</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Alumni directory</span>
+      </div>
+    </div>
+  
+          <div class="rounded-3xl border border-neutral-200 bg-neutral-50/80 p-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-neutral-900">Screen states</h3>
+                <p class="mt-1 text-sm text-neutral-500">Loading, empty, error, and offline surfaces for S-10.</p>
+              </div>
+              <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India touchpoint</span>
+            </div>
+            <div class="mt-4">
+    <div class="grid gap-4 md:grid-cols-2">
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Loading</p>
+      <div class="animate-pulse space-y-3" aria-live="polite">
+        <div class="h-4 w-3/4 rounded bg-neutral-200"></div>
+        <div class="h-4 w-1/2 rounded bg-neutral-200"></div>
+        <div class="h-20 rounded-2xl bg-neutral-100"></div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4 text-center">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-neutral-100 text-neutral-400">○</div>
+      <h4 class="mt-3 text-sm font-semibold text-neutral-900">No internships match your filters</h4>
+      <p class="mt-1 text-sm text-neutral-500">Expand location or practice-area filters to discover more roles.</p>
+      <button aria-label="Find internships" class="focus-ring mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-primary-600 px-4 text-sm font-semibold text-white shadow-sm hover:bg-primary-700">Find internships</button>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-danger/20 bg-danger/5 p-4">
+      <div class="flex gap-3">
+        <div class="mt-0.5 h-5 w-5 rounded-full bg-danger/20 text-danger"></div>
+        <div>
+          <p class="text-sm font-medium text-danger">Internship feed couldn't be refreshed.</p>
+          <button aria-label="Retry Internship Hub" class="focus-ring mt-3 inline-flex min-h-[44px] items-center rounded-xl border border-danger/20 px-3 text-sm font-semibold text-danger hover:bg-white">Retry</button>
+        </div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-warning/20 bg-warning/5 p-4">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex gap-3">
+          <div class="mt-1 h-4 w-4 rounded-full bg-warning/25"></div>
+          <p class="text-sm text-warning">Saved internship listings and drafts remain available offline.</p>
+        </div>
+        <button aria-label="Retry sync for Internship Hub" class="focus-ring text-sm font-semibold text-warning underline">Retry</button>
+      </div>
+    </div>
+  
+    </div>
+  </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+    <section id="s-11" class="rounded-[36px] border border-neutral-200/80 bg-white/85 shadow-[0_28px_64px_rgba(15,23,42,0.16)] backdrop-blur">
+      <div class="grid gap-6 p-6 xl:grid-cols-[430px,1fr] xl:items-start">
+        <div class="mx-auto w-full max-w-[390px]">
+          <div class="device-frame rounded-[38px] border-[12px] border-neutral-900 bg-neutral-900 p-2">
+            <div class="relative overflow-hidden rounded-[30px] bg-gradient-to-b from-white to-neutral-50 p-4">
+              <div class="mx-auto mb-4 h-7 w-32 rounded-full bg-neutral-900"></div>
+              <div class="mb-4 flex items-center justify-between text-xs font-semibold text-neutral-500">
+                <span>9:41</span>
+                <span>5G • 82%</span>
+              </div>
+              
+      <div class="space-y-4">
+        <div class="rounded-[28px] border border-neutral-200 bg-white p-4 shadow-sm">
+          <div class="rounded-2xl border border-neutral-200 px-4 py-3 text-sm text-neutral-500">Search city, language, budget, or practice area</div>
+          <div class="mt-3 flex gap-2 overflow-x-auto scrollbar-hide">
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-600">Near me</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-600">Family law</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-600">Hindi</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-600">₹₹</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-600">Female lawyer</span>
+          </div>
+        </div>
+        <div class="space-y-3">
+          
+              <button class="focus-ring flex w-full items-start gap-3 rounded-[26px] border border-neutral-200 bg-white p-4 text-left shadow-sm hover:border-primary-200">
+                <div class="mt-1 h-12 w-12 rounded-2xl bg-primary-100"></div>
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-center gap-2">
+                    <p class="text-sm font-semibold text-neutral-900">Adv. Asha Menon</p>
+                    <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">Verified</span>
+                  </div>
+                  <p class="mt-1 text-sm text-neutral-500">Family Law · Bengaluru · Verified</p>
+                </div>
+                <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">₹₹₹</span>
+              </button>
+              <button class="focus-ring flex w-full items-start gap-3 rounded-[26px] border border-neutral-200 bg-white p-4 text-left shadow-sm hover:border-primary-200">
+                <div class="mt-1 h-12 w-12 rounded-2xl bg-primary-100"></div>
+                <div class="min-w-0 flex-1">
+                  <div class="flex items-center gap-2">
+                    <p class="text-sm font-semibold text-neutral-900">Adv. Irfan Khan</p>
+                    <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">Verified</span>
+                  </div>
+                  <p class="mt-1 text-sm text-neutral-500">Civil + Property · Mysuru · Accepting new clients</p>
+                </div>
+                <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">₹₹</span>
+              </button>
+        </div>
+      </div>
+    
+              
+    <nav aria-label="Primary mobile navigation" class="sticky bottom-0 mt-4 grid grid-cols-5 gap-2 rounded-[24px] border border-neutral-200/80 bg-white/95 p-2 backdrop-blur">
+      
+            <button aria-label="Dashboard" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold bg-primary-50 text-primary-700 shadow-sm">Dashboard</button>
+          
+            <button aria-label="Research" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Research</button>
+          
+            <button aria-label="Market" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Market</button>
+          
+            <button aria-label="Calendar" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Calendar</button>
+          
+            <button aria-label="Profile" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Profile</button>
+          
+    </nav>
+  
+            </div>
+          </div>
+        </div>
+        <div class="space-y-5">
+          
+    <div class="rounded-3xl border border-neutral-200 bg-white p-5 shadow-panel">
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">S-11</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">Citizen</span>
+            
+          </div>
+          <h2 class="mt-4 text-2xl font-bold tracking-tight text-neutral-900">Lawyer Discovery</h2>
+          <p class="mt-2 text-sm leading-6 text-neutral-600">Find verified counsel and compare profiles</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-right">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Design intent</p>
+          <p class="mt-2 text-sm font-medium text-neutral-700">Legal Pro · Modular discovery dashboard</p>
+        </div>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Search filters</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Profile cards</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Verified badges</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Near me</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Book consultation CTA</span>
+      </div>
+    </div>
+  
+          <div class="rounded-3xl border border-neutral-200 bg-neutral-50/80 p-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-neutral-900">Screen states</h3>
+                <p class="mt-1 text-sm text-neutral-500">Loading, empty, error, and offline surfaces for S-11.</p>
+              </div>
+              <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">Operational state coverage</span>
+            </div>
+            <div class="mt-4">
+    <div class="grid gap-4 md:grid-cols-2">
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Loading</p>
+      <div class="animate-pulse space-y-3" aria-live="polite">
+        <div class="h-4 w-3/4 rounded bg-neutral-200"></div>
+        <div class="h-4 w-1/2 rounded bg-neutral-200"></div>
+        <div class="h-20 rounded-2xl bg-neutral-100"></div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4 text-center">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-neutral-100 text-neutral-400">○</div>
+      <h4 class="mt-3 text-sm font-semibold text-neutral-900">No lawyers found</h4>
+      <p class="mt-1 text-sm text-neutral-500">Try a different city, practice area, or budget range.</p>
+      <button aria-label="Find a lawyer" class="focus-ring mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-primary-600 px-4 text-sm font-semibold text-white shadow-sm hover:bg-primary-700">Find a lawyer</button>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-danger/20 bg-danger/5 p-4">
+      <div class="flex gap-3">
+        <div class="mt-0.5 h-5 w-5 rounded-full bg-danger/20 text-danger"></div>
+        <div>
+          <p class="text-sm font-medium text-danger">Lawyer search failed to load.</p>
+          <button aria-label="Retry Lawyer Discovery" class="focus-ring mt-3 inline-flex min-h-[44px] items-center rounded-xl border border-danger/20 px-3 text-sm font-semibold text-danger hover:bg-white">Retry</button>
+        </div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-warning/20 bg-warning/5 p-4">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex gap-3">
+          <div class="mt-1 h-4 w-4 rounded-full bg-warning/25"></div>
+          <p class="text-sm text-warning">Saved lawyer profiles stay available while offline.</p>
+        </div>
+        <button aria-label="Retry sync for Lawyer Discovery" class="focus-ring text-sm font-semibold text-warning underline">Retry</button>
+      </div>
+    </div>
+  
+    </div>
+  </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+    <section id="s-12" class="rounded-[36px] border border-neutral-200/80 bg-white/85 shadow-[0_28px_64px_rgba(15,23,42,0.16)] backdrop-blur">
+      <div class="grid gap-6 p-6 xl:grid-cols-[430px,1fr] xl:items-start">
+        <div class="mx-auto w-full max-w-[390px]">
+          <div class="device-frame rounded-[38px] border-[12px] border-neutral-900 bg-neutral-900 p-2">
+            <div class="relative overflow-hidden rounded-[30px] bg-gradient-to-b from-white to-neutral-50 p-4">
+              <div class="mx-auto mb-4 h-7 w-32 rounded-full bg-neutral-900"></div>
+              <div class="mb-4 flex items-center justify-between text-xs font-semibold text-neutral-500">
+                <span>9:41</span>
+                <span>5G • 82%</span>
+              </div>
+              
+      <div class="space-y-4">
+        <div class="rounded-[30px] bg-primary-50 p-4">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="text-xs uppercase tracking-[0.2em] text-primary-700">Consultation booking</p>
+              <h3 class="mt-1 text-xl font-bold text-neutral-900">Choose a slot, confirm payment, and arrive prepared.</h3>
+            </div>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-white text-primary-700">Razorpay ready</span>
+          </div>
+        </div>
+        <div class="rounded-[28px] border border-neutral-200 bg-white p-4 shadow-sm">
+          <div class="grid grid-cols-4 gap-2 text-center text-sm">
+            <button class="focus-ring min-h-[52px] rounded-2xl bg-neutral-100 text-neutral-600">12</button><button class="focus-ring min-h-[52px] rounded-2xl bg-primary-600 text-white">13</button><button class="focus-ring min-h-[52px] rounded-2xl bg-neutral-100 text-neutral-600">14</button><button class="focus-ring min-h-[52px] rounded-2xl bg-neutral-100 text-neutral-600">15</button>
+          </div>
+          <div class="mt-4 grid grid-cols-3 gap-2">
+            <button class="focus-ring min-h-[44px] rounded-2xl border border-neutral-200 bg-white text-neutral-600 text-sm font-medium">10:00</button><button class="focus-ring min-h-[44px] rounded-2xl border border-neutral-200 bg-white text-neutral-600 text-sm font-medium">10:30</button><button class="focus-ring min-h-[44px] rounded-2xl border border-neutral-200 bg-white text-neutral-600 text-sm font-medium">11:00</button><button class="focus-ring min-h-[44px] rounded-2xl border border-neutral-200 bg-white text-neutral-600 text-sm font-medium">11:30</button><button class="focus-ring min-h-[44px] rounded-2xl border border-neutral-200 bg-white text-neutral-600 text-sm font-medium">14:00</button><button class="focus-ring min-h-[44px] rounded-2xl border border-primary-600 bg-primary-50 text-primary-700 text-sm font-medium">16:00</button>
+          </div>
+          <div class="mt-4 rounded-[22px] bg-neutral-50 p-4 text-sm text-neutral-600">
+            30-minute video consult · ₹1,500 total · Notes autosave enabled.
+          </div>
+        </div>
+      </div>
+    
+              
+    <nav aria-label="Primary mobile navigation" class="sticky bottom-0 mt-4 grid grid-cols-5 gap-2 rounded-[24px] border border-neutral-200/80 bg-white/95 p-2 backdrop-blur">
+      
+            <button aria-label="Dashboard" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold bg-primary-50 text-primary-700 shadow-sm">Dashboard</button>
+          
+            <button aria-label="Research" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Research</button>
+          
+            <button aria-label="Market" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Market</button>
+          
+            <button aria-label="Calendar" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Calendar</button>
+          
+            <button aria-label="Profile" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Profile</button>
+          
+    </nav>
+  
+            </div>
+          </div>
+        </div>
+        <div class="space-y-5">
+          
+    <div class="rounded-3xl border border-neutral-200 bg-white p-5 shadow-panel">
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">S-12</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">Citizen/Lawyer</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India visible</span>
+          </div>
+          <h2 class="mt-4 text-2xl font-bold tracking-tight text-neutral-900">Consultation Booking</h2>
+          <p class="mt-2 text-sm leading-6 text-neutral-600">Schedule, pay, and prepare for a consultation</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-right">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Design intent</p>
+          <p class="mt-2 text-sm font-medium text-neutral-700">Legal Pro · Modular discovery dashboard</p>
+        </div>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Slot calendar</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Mode toggle</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Payment summary</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Pre-consultation form</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Notes autosave</span>
+      </div>
+    </div>
+  
+          <div class="rounded-3xl border border-neutral-200 bg-neutral-50/80 p-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-neutral-900">Screen states</h3>
+                <p class="mt-1 text-sm text-neutral-500">Loading, empty, error, and offline surfaces for S-12.</p>
+              </div>
+              <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India touchpoint</span>
+            </div>
+            <div class="mt-4">
+    <div class="grid gap-4 md:grid-cols-2">
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Loading</p>
+      <div class="animate-pulse space-y-3" aria-live="polite">
+        <div class="h-4 w-3/4 rounded bg-neutral-200"></div>
+        <div class="h-4 w-1/2 rounded bg-neutral-200"></div>
+        <div class="h-20 rounded-2xl bg-neutral-100"></div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4 text-center">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-neutral-100 text-neutral-400">○</div>
+      <h4 class="mt-3 text-sm font-semibold text-neutral-900">No available slots</h4>
+      <p class="mt-1 text-sm text-neutral-500">This lawyer has no open slots for the selected date range.</p>
+      <button aria-label="Confirm booking" class="focus-ring mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-primary-600 px-4 text-sm font-semibold text-white shadow-sm hover:bg-primary-700">Confirm booking</button>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-danger/20 bg-danger/5 p-4">
+      <div class="flex gap-3">
+        <div class="mt-0.5 h-5 w-5 rounded-full bg-danger/20 text-danger"></div>
+        <div>
+          <p class="text-sm font-medium text-danger">Booking flow couldn't load right now.</p>
+          <button aria-label="Retry Consultation Booking" class="focus-ring mt-3 inline-flex min-h-[44px] items-center rounded-xl border border-danger/20 px-3 text-sm font-semibold text-danger hover:bg-white">Retry</button>
+        </div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-warning/20 bg-warning/5 p-4">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex gap-3">
+          <div class="mt-1 h-4 w-4 rounded-full bg-warning/25"></div>
+          <p class="text-sm text-warning">Booking details are cached. Payment requires connectivity.</p>
+        </div>
+        <button aria-label="Retry sync for Consultation Booking" class="focus-ring text-sm font-semibold text-warning underline">Retry</button>
+      </div>
+    </div>
+  
+    </div>
+  </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+    <section id="s-13" class="rounded-[36px] border border-neutral-200/80 bg-white/85 shadow-[0_28px_64px_rgba(15,23,42,0.16)] backdrop-blur">
+      <div class="grid gap-6 p-6 xl:grid-cols-[430px,1fr] xl:items-start">
+        <div class="mx-auto w-full max-w-[390px]">
+          <div class="device-frame rounded-[38px] border-[12px] border-neutral-900 bg-neutral-900 p-2">
+            <div class="relative overflow-hidden rounded-[30px] bg-gradient-to-b from-white to-neutral-50 p-4">
+              <div class="mx-auto mb-4 h-7 w-32 rounded-full bg-neutral-900"></div>
+              <div class="mb-4 flex items-center justify-between text-xs font-semibold text-neutral-500">
+                <span>9:41</span>
+                <span>5G • 82%</span>
+              </div>
+              
+      <div class="space-y-4">
+        <div class="rounded-[30px] bg-gradient-to-br from-danger to-accent-700 p-5 text-white" aria-live="polite">
+          <p class="text-xs uppercase tracking-[0.24em] text-white/60">Court Alerts Center</p>
+          <h3 class="mt-2 text-2xl font-black tracking-tight">Your case is almost up.</h3>
+          <p class="mt-2 text-sm text-white/80">Order uploads, queue jumps, and reminder checkpoints stay in one place.</p>
+        </div>
+        <div class="space-y-3">
+          
+              <div class="rounded-[26px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <p class="text-sm font-semibold text-neutral-900">Live queue</p>
+                    <p class="mt-1 text-sm text-neutral-500">Court 3 · Item 18 · moving to item 15</p>
+                  </div>
+                  <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-danger/10 text-danger">Within 5</span>
+                </div>
+              </div>
+              <div class="rounded-[26px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <p class="text-sm font-semibold text-neutral-900">Reminder</p>
+                    <p class="mt-1 text-sm text-neutral-500">Tomorrow · Filing deadline for affidavit</p>
+                  </div>
+                  <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">1 day</span>
+                </div>
+              </div>
+              <div class="rounded-[26px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <p class="text-sm font-semibold text-neutral-900">Order upload</p>
+                    <p class="mt-1 text-sm text-neutral-500">District Court · Order indexed to vault</p>
+                  </div>
+                  <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">New</span>
+                </div>
+              </div>
+        </div>
+      </div>
+    
+              
+    <nav aria-label="Primary mobile navigation" class="sticky bottom-0 mt-4 grid grid-cols-5 gap-2 rounded-[24px] border border-neutral-200/80 bg-white/95 p-2 backdrop-blur">
+      
+            <button aria-label="Dashboard" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Dashboard</button>
+          
+            <button aria-label="Research" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Research</button>
+          
+            <button aria-label="Market" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Market</button>
+          
+            <button aria-label="Calendar" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold bg-primary-50 text-primary-700 shadow-sm">Calendar</button>
+          
+            <button aria-label="Profile" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Profile</button>
+          
+    </nav>
+  
+            </div>
+          </div>
+        </div>
+        <div class="space-y-5">
+          
+    <div class="rounded-3xl border border-neutral-200 bg-white p-5 shadow-panel">
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">S-13</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">Lawyer/Firm</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India visible</span>
+          </div>
+          <h2 class="mt-4 text-2xl font-bold tracking-tight text-neutral-900">Court Alerts Center</h2>
+          <p class="mt-2 text-sm leading-6 text-neutral-600">Real-time cause list and hearing reminders</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-right">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Design intent</p>
+          <p class="mt-2 text-sm font-medium text-neutral-700">Legal Pro · Modular discovery dashboard</p>
+        </div>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Live queue</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Push banner</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Alert history</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Snooze controls</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Reminder timeline</span>
+      </div>
+    </div>
+  
+          <div class="rounded-3xl border border-neutral-200 bg-neutral-50/80 p-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-neutral-900">Screen states</h3>
+                <p class="mt-1 text-sm text-neutral-500">Loading, empty, error, and offline surfaces for S-13.</p>
+              </div>
+              <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India touchpoint</span>
+            </div>
+            <div class="mt-4">
+    <div class="grid gap-4 md:grid-cols-2">
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Loading</p>
+      <div class="animate-pulse space-y-3" aria-live="polite">
+        <div class="h-4 w-3/4 rounded bg-neutral-200"></div>
+        <div class="h-4 w-1/2 rounded bg-neutral-200"></div>
+        <div class="h-20 rounded-2xl bg-neutral-100"></div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4 text-center">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-neutral-100 text-neutral-400">○</div>
+      <h4 class="mt-3 text-sm font-semibold text-neutral-900">No live alerts right now</h4>
+      <p class="mt-1 text-sm text-neutral-500">Tracked courts are quiet. Reminders will appear here as hearings approach.</p>
+      <button aria-label="Open alert center" class="focus-ring mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-primary-600 px-4 text-sm font-semibold text-white shadow-sm hover:bg-primary-700">Open alert center</button>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-danger/20 bg-danger/5 p-4">
+      <div class="flex gap-3">
+        <div class="mt-0.5 h-5 w-5 rounded-full bg-danger/20 text-danger"></div>
+        <div>
+          <p class="text-sm font-medium text-danger">Court alerts couldn't sync.</p>
+          <button aria-label="Retry Court Alerts Center" class="focus-ring mt-3 inline-flex min-h-[44px] items-center rounded-xl border border-danger/20 px-3 text-sm font-semibold text-danger hover:bg-white">Retry</button>
+        </div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-warning/20 bg-warning/5 p-4">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex gap-3">
+          <div class="mt-1 h-4 w-4 rounded-full bg-warning/25"></div>
+          <p class="text-sm text-warning">Showing last-known court queue positions from cache.</p>
+        </div>
+        <button aria-label="Retry sync for Court Alerts Center" class="focus-ring text-sm font-semibold text-warning underline">Retry</button>
+      </div>
+    </div>
+  
+    </div>
+  </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+    <section id="s-14" class="rounded-[36px] border border-neutral-200/80 bg-white/85 shadow-[0_28px_64px_rgba(15,23,42,0.16)] backdrop-blur">
+      <div class="grid gap-6 p-6 xl:grid-cols-[430px,1fr] xl:items-start">
+        <div class="mx-auto w-full max-w-[390px]">
+          <div class="device-frame rounded-[38px] border-[12px] border-neutral-900 bg-neutral-900 p-2">
+            <div class="relative overflow-hidden rounded-[30px] bg-gradient-to-b from-white to-neutral-50 p-4">
+              <div class="mx-auto mb-4 h-7 w-32 rounded-full bg-neutral-900"></div>
+              <div class="mb-4 flex items-center justify-between text-xs font-semibold text-neutral-500">
+                <span>9:41</span>
+                <span>5G • 82%</span>
+              </div>
+              
+      <div class="space-y-4">
+        <div class="grid grid-cols-2 gap-3">
+          
+              <div class="rounded-[24px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <p class="text-xs uppercase tracking-[0.2em] text-neutral-500">Receivables</p>
+                <p class="mt-2 text-xl font-bold text-neutral-900">₹2.3L</p>
+              </div>
+              <div class="rounded-[24px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <p class="text-xs uppercase tracking-[0.2em] text-neutral-500">Collected</p>
+                <p class="mt-2 text-xl font-bold text-neutral-900">₹8.4L</p>
+              </div>
+              <div class="rounded-[24px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <p class="text-xs uppercase tracking-[0.2em] text-neutral-500">Retainer alerts</p>
+                <p class="mt-2 text-xl font-bold text-neutral-900">3</p>
+              </div>
+              <div class="rounded-[24px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <p class="text-xs uppercase tracking-[0.2em] text-neutral-500">GST due</p>
+                <p class="mt-2 text-xl font-bold text-neutral-900">₹42K</p>
+              </div>
+        </div>
+        <div class="rounded-[28px] border border-neutral-200 bg-white p-4 shadow-sm">
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-semibold text-neutral-900">Invoice queue</h3>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-success/10 text-success">GST compliant</span>
+          </div>
+          <div class="mt-3 space-y-2">
+            
+                <div class="flex items-center justify-between rounded-2xl bg-neutral-50 px-3 py-2 text-sm">
+                  <span class="font-mono text-neutral-500">INV-2026-044</span>
+                  <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-success/10 text-success">Paid</span>
+                  <span class="font-semibold text-neutral-900">₹24,000</span>
+                </div>
+                <div class="flex items-center justify-between rounded-2xl bg-neutral-50 px-3 py-2 text-sm">
+                  <span class="font-mono text-neutral-500">INV-2026-045</span>
+                  <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-warning/10 text-warning">Pending</span>
+                  <span class="font-semibold text-neutral-900">₹48,000</span>
+                </div>
+                <div class="flex items-center justify-between rounded-2xl bg-neutral-50 px-3 py-2 text-sm">
+                  <span class="font-mono text-neutral-500">INV-2026-046</span>
+                  <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-warning/10 text-warning">Retainer</span>
+                  <span class="font-semibold text-neutral-900">₹1,20,000</span>
+                </div>
+          </div>
+        </div>
+      </div>
+    
+              
+    <nav aria-label="Primary mobile navigation" class="sticky bottom-0 mt-4 grid grid-cols-5 gap-2 rounded-[24px] border border-neutral-200/80 bg-white/95 p-2 backdrop-blur">
+      
+            <button aria-label="Dashboard" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold bg-primary-50 text-primary-700 shadow-sm">Dashboard</button>
+          
+            <button aria-label="Research" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Research</button>
+          
+            <button aria-label="Market" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Market</button>
+          
+            <button aria-label="Calendar" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Calendar</button>
+          
+            <button aria-label="Profile" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Profile</button>
+          
+    </nav>
+  
+            </div>
+          </div>
+        </div>
+        <div class="space-y-5">
+          
+    <div class="rounded-3xl border border-neutral-200 bg-white p-5 shadow-panel">
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">S-14</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">Lawyer/Firm</span>
+            
+          </div>
+          <h2 class="mt-4 text-2xl font-bold tracking-tight text-neutral-900">Billing & Invoices</h2>
+          <p class="mt-2 text-sm leading-6 text-neutral-600">Legal finance, invoices, GST, receivables</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-right">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Design intent</p>
+          <p class="mt-2 text-sm font-medium text-neutral-700">Legal Pro · Modular discovery dashboard</p>
+        </div>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">P&L summary</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Invoice list</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Receivables</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Retainer alerts</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Collection methods</span>
+      </div>
+    </div>
+  
+          <div class="rounded-3xl border border-neutral-200 bg-neutral-50/80 p-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-neutral-900">Screen states</h3>
+                <p class="mt-1 text-sm text-neutral-500">Loading, empty, error, and offline surfaces for S-14.</p>
+              </div>
+              <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">Operational state coverage</span>
+            </div>
+            <div class="mt-4">
+    <div class="grid gap-4 md:grid-cols-2">
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Loading</p>
+      <div class="animate-pulse space-y-3" aria-live="polite">
+        <div class="h-4 w-3/4 rounded bg-neutral-200"></div>
+        <div class="h-4 w-1/2 rounded bg-neutral-200"></div>
+        <div class="h-20 rounded-2xl bg-neutral-100"></div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4 text-center">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-neutral-100 text-neutral-400">○</div>
+      <h4 class="mt-3 text-sm font-semibold text-neutral-900">No invoices generated yet</h4>
+      <p class="mt-1 text-sm text-neutral-500">Create your first GST-compliant invoice to start tracking revenue.</p>
+      <button aria-label="Create invoice" class="focus-ring mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-primary-600 px-4 text-sm font-semibold text-white shadow-sm hover:bg-primary-700">Create invoice</button>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-danger/20 bg-danger/5 p-4">
+      <div class="flex gap-3">
+        <div class="mt-0.5 h-5 w-5 rounded-full bg-danger/20 text-danger"></div>
+        <div>
+          <p class="text-sm font-medium text-danger">Billing data failed to load.</p>
+          <button aria-label="Retry Billing & Invoices" class="focus-ring mt-3 inline-flex min-h-[44px] items-center rounded-xl border border-danger/20 px-3 text-sm font-semibold text-danger hover:bg-white">Retry</button>
+        </div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-warning/20 bg-warning/5 p-4">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex gap-3">
+          <div class="mt-1 h-4 w-4 rounded-full bg-warning/25"></div>
+          <p class="text-sm text-warning">Last synced invoices are available. New collections will sync later.</p>
+        </div>
+        <button aria-label="Retry sync for Billing & Invoices" class="focus-ring text-sm font-semibold text-warning underline">Retry</button>
+      </div>
+    </div>
+  
+    </div>
+  </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+    <section id="s-15" class="rounded-[36px] border border-neutral-200/80 bg-white/85 shadow-[0_28px_64px_rgba(15,23,42,0.16)] backdrop-blur">
+      <div class="grid gap-6 p-6 xl:grid-cols-[430px,1fr] xl:items-start">
+        <div class="mx-auto w-full max-w-[390px]">
+          <div class="device-frame rounded-[38px] border-[12px] border-neutral-900 bg-neutral-900 p-2">
+            <div class="relative overflow-hidden rounded-[30px] bg-gradient-to-b from-white to-neutral-50 p-4">
+              <div class="mx-auto mb-4 h-7 w-32 rounded-full bg-neutral-900"></div>
+              <div class="mb-4 flex items-center justify-between text-xs font-semibold text-neutral-500">
+                <span>9:41</span>
+                <span>5G • 82%</span>
+              </div>
+              
+      <div class="space-y-4">
+        <div class="rounded-[28px] border border-neutral-200 bg-white p-4 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-xs uppercase tracking-[0.2em] text-neutral-500">Document vault</p>
+              <h3 class="mt-1 text-xl font-bold text-neutral-900">Search across case files, drafts, and signed records.</h3>
+            </div>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">AES-256</span>
+          </div>
+        </div>
+        <div class="space-y-3">
+          
+              <div class="rounded-[26px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <p class="text-sm font-semibold text-neutral-900">Khanna Matter</p>
+                <p class="mt-1 text-sm text-neutral-500">14 files · OCR indexed · 2 pending signatures</p>
+              </div>
+              <div class="rounded-[26px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <p class="text-sm font-semibold text-neutral-900">Rao Arbitration</p>
+                <p class="mt-1 text-sm text-neutral-500">7 files · version history clean</p>
+              </div>
+              <div class="rounded-[26px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <p class="text-sm font-semibold text-neutral-900">Citizen Consultation</p>
+                <p class="mt-1 text-sm text-neutral-500">3 notes · follow-up saved</p>
+              </div>
+        </div>
+      </div>
+    
+              
+    <nav aria-label="Primary mobile navigation" class="sticky bottom-0 mt-4 grid grid-cols-5 gap-2 rounded-[24px] border border-neutral-200/80 bg-white/95 p-2 backdrop-blur">
+      
+            <button aria-label="Dashboard" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold bg-primary-50 text-primary-700 shadow-sm">Dashboard</button>
+          
+            <button aria-label="Research" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Research</button>
+          
+            <button aria-label="Market" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Market</button>
+          
+            <button aria-label="Calendar" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Calendar</button>
+          
+            <button aria-label="Profile" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Profile</button>
+          
+    </nav>
+  
+            </div>
+          </div>
+        </div>
+        <div class="space-y-5">
+          
+    <div class="rounded-3xl border border-neutral-200 bg-white p-5 shadow-panel">
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">S-15</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">All</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India visible</span>
+          </div>
+          <h2 class="mt-4 text-2xl font-bold tracking-tight text-neutral-900">Document Vault</h2>
+          <p class="mt-2 text-sm leading-6 text-neutral-600">Secure file storage and version history</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-right">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Design intent</p>
+          <p class="mt-2 text-sm font-medium text-neutral-700">Legal Pro · Modular discovery dashboard</p>
+        </div>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Folder tree</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">OCR search</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Version history</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">eSign integration</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Encrypted storage badge</span>
+      </div>
+    </div>
+  
+          <div class="rounded-3xl border border-neutral-200 bg-neutral-50/80 p-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-neutral-900">Screen states</h3>
+                <p class="mt-1 text-sm text-neutral-500">Loading, empty, error, and offline surfaces for S-15.</p>
+              </div>
+              <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India touchpoint</span>
+            </div>
+            <div class="mt-4">
+    <div class="grid gap-4 md:grid-cols-2">
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Loading</p>
+      <div class="animate-pulse space-y-3" aria-live="polite">
+        <div class="h-4 w-3/4 rounded bg-neutral-200"></div>
+        <div class="h-4 w-1/2 rounded bg-neutral-200"></div>
+        <div class="h-20 rounded-2xl bg-neutral-100"></div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4 text-center">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-neutral-100 text-neutral-400">○</div>
+      <h4 class="mt-3 text-sm font-semibold text-neutral-900">No documents uploaded</h4>
+      <p class="mt-1 text-sm text-neutral-500">Upload a file or import one from your matter workspace.</p>
+      <button aria-label="Upload document" class="focus-ring mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-primary-600 px-4 text-sm font-semibold text-white shadow-sm hover:bg-primary-700">Upload document</button>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-danger/20 bg-danger/5 p-4">
+      <div class="flex gap-3">
+        <div class="mt-0.5 h-5 w-5 rounded-full bg-danger/20 text-danger"></div>
+        <div>
+          <p class="text-sm font-medium text-danger">Document vault couldn't load files.</p>
+          <button aria-label="Retry Document Vault" class="focus-ring mt-3 inline-flex min-h-[44px] items-center rounded-xl border border-danger/20 px-3 text-sm font-semibold text-danger hover:bg-white">Retry</button>
+        </div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-warning/20 bg-warning/5 p-4">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex gap-3">
+          <div class="mt-1 h-4 w-4 rounded-full bg-warning/25"></div>
+          <p class="text-sm text-warning">Downloaded files and metadata are available offline.</p>
+        </div>
+        <button aria-label="Retry sync for Document Vault" class="focus-ring text-sm font-semibold text-warning underline">Retry</button>
+      </div>
+    </div>
+  
+    </div>
+  </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+    <section id="s-16" class="rounded-[36px] border border-neutral-200/80 bg-white/85 shadow-[0_28px_64px_rgba(15,23,42,0.16)] backdrop-blur">
+      <div class="grid gap-6 p-6 xl:grid-cols-[430px,1fr] xl:items-start">
+        <div class="mx-auto w-full max-w-[390px]">
+          <div class="device-frame rounded-[38px] border-[12px] border-neutral-900 bg-neutral-900 p-2">
+            <div class="relative overflow-hidden rounded-[30px] bg-gradient-to-b from-white to-neutral-50 p-4">
+              <div class="mx-auto mb-4 h-7 w-32 rounded-full bg-neutral-900"></div>
+              <div class="mb-4 flex items-center justify-between text-xs font-semibold text-neutral-500">
+                <span>9:41</span>
+                <span>5G • 82%</span>
+              </div>
+              
+      <div class="space-y-4">
+        <div class="rounded-[28px] border border-neutral-200 bg-white p-4 shadow-sm">
+          <div class="grid grid-cols-3 gap-2 rounded-full bg-neutral-100 p-1">
+            <button class="focus-ring min-h-[44px] rounded-full text-neutral-500 text-sm font-semibold">Day</button><button class="focus-ring min-h-[44px] rounded-full bg-white text-neutral-900 shadow-sm text-sm font-semibold">Week</button><button class="focus-ring min-h-[44px] rounded-full text-neutral-500 text-sm font-semibold">Month</button>
+          </div>
+          <div class="mt-4 space-y-2">
+            
+                <div class="flex items-center justify-between rounded-2xl bg-neutral-50 px-4 py-3 text-sm">
+                  <div>
+                    <p class="font-semibold text-neutral-900">09:00</p>
+                    <p class="text-neutral-500">Travel to Delhi HC</p>
+                  </div>
+                  <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">Primary</span>
+                </div>
+                <div class="flex items-center justify-between rounded-2xl bg-neutral-50 px-4 py-3 text-sm">
+                  <div>
+                    <p class="font-semibold text-neutral-900">10:30</p>
+                    <p class="text-neutral-500">Hearing block · Court 3</p>
+                  </div>
+                  <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">Critical</span>
+                </div>
+                <div class="flex items-center justify-between rounded-2xl bg-neutral-50 px-4 py-3 text-sm">
+                  <div>
+                    <p class="font-semibold text-neutral-900">16:00</p>
+                    <p class="text-neutral-500">Citizen video consultation</p>
+                  </div>
+                  <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">Booked</span>
+                </div>
+          </div>
+        </div>
+      </div>
+    
+              
+    <nav aria-label="Primary mobile navigation" class="sticky bottom-0 mt-4 grid grid-cols-5 gap-2 rounded-[24px] border border-neutral-200/80 bg-white/95 p-2 backdrop-blur">
+      
+            <button aria-label="Dashboard" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold bg-primary-50 text-primary-700 shadow-sm">Dashboard</button>
+          
+            <button aria-label="Research" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Research</button>
+          
+            <button aria-label="Market" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Market</button>
+          
+            <button aria-label="Calendar" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Calendar</button>
+          
+            <button aria-label="Profile" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Profile</button>
+          
+    </nav>
+  
+            </div>
+          </div>
+        </div>
+        <div class="space-y-5">
+          
+    <div class="rounded-3xl border border-neutral-200 bg-white p-5 shadow-panel">
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">S-16</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">Lawyer/Firm</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India visible</span>
+          </div>
+          <h2 class="mt-4 text-2xl font-bold tracking-tight text-neutral-900">Calendar & Scheduler</h2>
+          <p class="mt-2 text-sm leading-6 text-neutral-600">Unified legal calendar across hearings and meetings</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-right">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Design intent</p>
+          <p class="mt-2 text-sm font-medium text-neutral-700">Legal Pro · Modular discovery dashboard</p>
+        </div>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Day/week/month switch</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Hearing blocks</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Client meetings</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Sync status</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Conflict checker</span>
+      </div>
+    </div>
+  
+          <div class="rounded-3xl border border-neutral-200 bg-neutral-50/80 p-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-neutral-900">Screen states</h3>
+                <p class="mt-1 text-sm text-neutral-500">Loading, empty, error, and offline surfaces for S-16.</p>
+              </div>
+              <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India touchpoint</span>
+            </div>
+            <div class="mt-4">
+    <div class="grid gap-4 md:grid-cols-2">
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Loading</p>
+      <div class="animate-pulse space-y-3" aria-live="polite">
+        <div class="h-4 w-3/4 rounded bg-neutral-200"></div>
+        <div class="h-4 w-1/2 rounded bg-neutral-200"></div>
+        <div class="h-20 rounded-2xl bg-neutral-100"></div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4 text-center">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-neutral-100 text-neutral-400">○</div>
+      <h4 class="mt-3 text-sm font-semibold text-neutral-900">Nothing scheduled</h4>
+      <p class="mt-1 text-sm text-neutral-500">Your calendar is clear for the selected range.</p>
+      <button aria-label="Add event" class="focus-ring mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-primary-600 px-4 text-sm font-semibold text-white shadow-sm hover:bg-primary-700">Add event</button>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-danger/20 bg-danger/5 p-4">
+      <div class="flex gap-3">
+        <div class="mt-0.5 h-5 w-5 rounded-full bg-danger/20 text-danger"></div>
+        <div>
+          <p class="text-sm font-medium text-danger">Calendar data couldn't be loaded.</p>
+          <button aria-label="Retry Calendar & Scheduler" class="focus-ring mt-3 inline-flex min-h-[44px] items-center rounded-xl border border-danger/20 px-3 text-sm font-semibold text-danger hover:bg-white">Retry</button>
+        </div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-warning/20 bg-warning/5 p-4">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex gap-3">
+          <div class="mt-1 h-4 w-4 rounded-full bg-warning/25"></div>
+          <p class="text-sm text-warning">Cached calendar blocks remain visible. New edits will queue.</p>
+        </div>
+        <button aria-label="Retry sync for Calendar & Scheduler" class="focus-ring text-sm font-semibold text-warning underline">Retry</button>
+      </div>
+    </div>
+  
+    </div>
+  </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+    <section id="s-17" class="rounded-[36px] border border-neutral-200/80 bg-white/85 shadow-[0_28px_64px_rgba(15,23,42,0.16)] backdrop-blur">
+      <div class="grid gap-6 p-6 xl:grid-cols-[430px,1fr] xl:items-start">
+        <div class="mx-auto w-full max-w-[390px]">
+          <div class="device-frame rounded-[38px] border-[12px] border-neutral-900 bg-neutral-900 p-2">
+            <div class="relative overflow-hidden rounded-[30px] bg-gradient-to-b from-white to-neutral-50 p-4">
+              <div class="mx-auto mb-4 h-7 w-32 rounded-full bg-neutral-900"></div>
+              <div class="mb-4 flex items-center justify-between text-xs font-semibold text-neutral-500">
+                <span>9:41</span>
+                <span>5G • 82%</span>
+              </div>
+              
+      <div class="space-y-4">
+        <div class="flex gap-2 overflow-x-auto scrollbar-hide">
+          <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">All</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-600">Court</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-600">Payment</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-600">AI</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-600">General</span>
+        </div>
+        <div class="space-y-3">
+          
+              <div class="rounded-[26px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <p class="text-sm font-semibold text-neutral-900">Court alert</p>
+                    <p class="mt-1 text-sm text-neutral-500">Your case is within five serials in Court 3.</p>
+                  </div>
+                  <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-danger/10 text-danger">High</span>
+                </div>
+              </div>
+              <div class="rounded-[26px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <p class="text-sm font-semibold text-neutral-900">Payment</p>
+                    <p class="mt-1 text-sm text-neutral-500">Consultation payment captured successfully.</p>
+                  </div>
+                  <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-600">Normal</span>
+                </div>
+              </div>
+              <div class="rounded-[26px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <div class="flex items-start justify-between gap-3">
+                  <div>
+                    <p class="text-sm font-semibold text-neutral-900">LegalGPT India</p>
+                    <p class="mt-1 text-sm text-neutral-500">Research bundle ready with 3 verified citations.</p>
+                  </div>
+                  <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-600">Normal</span>
+                </div>
+              </div>
+        </div>
+      </div>
+    
+              
+    <nav aria-label="Primary mobile navigation" class="sticky bottom-0 mt-4 grid grid-cols-5 gap-2 rounded-[24px] border border-neutral-200/80 bg-white/95 p-2 backdrop-blur">
+      
+            <button aria-label="Dashboard" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold bg-primary-50 text-primary-700 shadow-sm">Dashboard</button>
+          
+            <button aria-label="Research" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Research</button>
+          
+            <button aria-label="Market" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Market</button>
+          
+            <button aria-label="Calendar" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Calendar</button>
+          
+            <button aria-label="Profile" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Profile</button>
+          
+    </nav>
+  
+            </div>
+          </div>
+        </div>
+        <div class="space-y-5">
+          
+    <div class="rounded-3xl border border-neutral-200 bg-white p-5 shadow-panel">
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">S-17</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">All</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India visible</span>
+          </div>
+          <h2 class="mt-4 text-2xl font-bold tracking-tight text-neutral-900">Notifications Center</h2>
+          <p class="mt-2 text-sm leading-6 text-neutral-600">Consolidated alerts feed</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-right">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Design intent</p>
+          <p class="mt-2 text-sm font-medium text-neutral-700">Legal Pro · Modular discovery dashboard</p>
+        </div>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Chronological feed</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Type filters</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Read/unread</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Priority sorting</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Archive</span>
+      </div>
+    </div>
+  
+          <div class="rounded-3xl border border-neutral-200 bg-neutral-50/80 p-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-neutral-900">Screen states</h3>
+                <p class="mt-1 text-sm text-neutral-500">Loading, empty, error, and offline surfaces for S-17.</p>
+              </div>
+              <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-info/10 text-info">LegalGPT India touchpoint</span>
+            </div>
+            <div class="mt-4">
+    <div class="grid gap-4 md:grid-cols-2">
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Loading</p>
+      <div class="animate-pulse space-y-3" aria-live="polite">
+        <div class="h-4 w-3/4 rounded bg-neutral-200"></div>
+        <div class="h-4 w-1/2 rounded bg-neutral-200"></div>
+        <div class="h-20 rounded-2xl bg-neutral-100"></div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4 text-center">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-neutral-100 text-neutral-400">○</div>
+      <h4 class="mt-3 text-sm font-semibold text-neutral-900">Nothing new right now</h4>
+      <p class="mt-1 text-sm text-neutral-500">You're caught up across court, payment, AI, and general alerts.</p>
+      <button aria-label="Review notifications" class="focus-ring mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-primary-600 px-4 text-sm font-semibold text-white shadow-sm hover:bg-primary-700">Review notifications</button>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-danger/20 bg-danger/5 p-4">
+      <div class="flex gap-3">
+        <div class="mt-0.5 h-5 w-5 rounded-full bg-danger/20 text-danger"></div>
+        <div>
+          <p class="text-sm font-medium text-danger">Notifications couldn't be loaded.</p>
+          <button aria-label="Retry Notifications Center" class="focus-ring mt-3 inline-flex min-h-[44px] items-center rounded-xl border border-danger/20 px-3 text-sm font-semibold text-danger hover:bg-white">Retry</button>
+        </div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-warning/20 bg-warning/5 p-4">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex gap-3">
+          <div class="mt-1 h-4 w-4 rounded-full bg-warning/25"></div>
+          <p class="text-sm text-warning">Showing cached notifications from your last sync.</p>
+        </div>
+        <button aria-label="Retry sync for Notifications Center" class="focus-ring text-sm font-semibold text-warning underline">Retry</button>
+      </div>
+    </div>
+  
+    </div>
+  </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+
+    <section id="s-18" class="rounded-[36px] border border-neutral-200/80 bg-white/85 shadow-[0_28px_64px_rgba(15,23,42,0.16)] backdrop-blur">
+      <div class="grid gap-6 p-6 xl:grid-cols-[430px,1fr] xl:items-start">
+        <div class="mx-auto w-full max-w-[390px]">
+          <div class="device-frame rounded-[38px] border-[12px] border-neutral-900 bg-neutral-900 p-2">
+            <div class="relative overflow-hidden rounded-[30px] bg-gradient-to-b from-white to-neutral-50 p-4">
+              <div class="mx-auto mb-4 h-7 w-32 rounded-full bg-neutral-900"></div>
+              <div class="mb-4 flex items-center justify-between text-xs font-semibold text-neutral-500">
+                <span>9:41</span>
+                <span>5G • 82%</span>
+              </div>
+              
+      <div class="space-y-4">
+        <div class="rounded-[28px] border border-neutral-200 bg-white p-4 shadow-sm">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-xs uppercase tracking-[0.2em] text-neutral-500">Settings & privacy</p>
+              <h3 class="mt-1 text-xl font-bold text-neutral-900">Control appearance, language, consent, and data rights.</h3>
+            </div>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">DPDP</span>
+          </div>
+        </div>
+        <div class="space-y-3">
+          
+              <div class="rounded-[24px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <div class="flex items-center justify-between">
+                  <p class="text-sm font-semibold text-neutral-900">Theme</p>
+                  <span class="text-neutral-400">›</span>
+                </div>
+                <p class="mt-1 text-sm text-neutral-500">Light · Dark · System</p>
+              </div>
+              <div class="rounded-[24px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <div class="flex items-center justify-between">
+                  <p class="text-sm font-semibold text-neutral-900">Language</p>
+                  <span class="text-neutral-400">›</span>
+                </div>
+                <p class="mt-1 text-sm text-neutral-500">English, हिंदी, தமிழ்</p>
+              </div>
+              <div class="rounded-[24px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <div class="flex items-center justify-between">
+                  <p class="text-sm font-semibold text-neutral-900">Consent manager</p>
+                  <span class="text-neutral-400">›</span>
+                </div>
+                <p class="mt-1 text-sm text-neutral-500">Review purpose, export data, request deletion</p>
+              </div>
+              <div class="rounded-[24px] border border-neutral-200 bg-white p-4 shadow-sm">
+                <div class="flex items-center justify-between">
+                  <p class="text-sm font-semibold text-neutral-900">Connected tools</p>
+                  <span class="text-neutral-400">›</span>
+                </div>
+                <p class="mt-1 text-sm text-neutral-500">Calendar, WhatsApp, mail</p>
+              </div>
+        </div>
+      </div>
+    
+              
+    <nav aria-label="Primary mobile navigation" class="sticky bottom-0 mt-4 grid grid-cols-5 gap-2 rounded-[24px] border border-neutral-200/80 bg-white/95 p-2 backdrop-blur">
+      
+            <button aria-label="Dashboard" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Dashboard</button>
+          
+            <button aria-label="Research" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Research</button>
+          
+            <button aria-label="Market" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Market</button>
+          
+            <button aria-label="Calendar" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold text-neutral-500 hover:bg-neutral-50">Calendar</button>
+          
+            <button aria-label="Profile" class="focus-ring min-h-[56px] rounded-2xl text-[11px] font-semibold bg-primary-50 text-primary-700 shadow-sm">Profile</button>
+          
+    </nav>
+  
+            </div>
+          </div>
+        </div>
+        <div class="space-y-5">
+          
+    <div class="rounded-3xl border border-neutral-200 bg-white p-5 shadow-panel">
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">S-18</span>
+            <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-accent-50 text-accent-700">All</span>
+            
+          </div>
+          <h2 class="mt-4 text-2xl font-bold tracking-tight text-neutral-900">Settings & Privacy</h2>
+          <p class="mt-2 text-sm leading-6 text-neutral-600">Theme, language, privacy, account controls</p>
+        </div>
+        <div class="rounded-2xl border border-neutral-200 bg-neutral-50 px-4 py-3 text-right">
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Design intent</p>
+          <p class="mt-2 text-sm font-medium text-neutral-700">Legal Pro · Modular discovery dashboard</p>
+        </div>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Theme controls</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Language preference</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">DPDP consent manager</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Export/delete actions</span><span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-neutral-100 text-neutral-700">Integration list</span>
+      </div>
+    </div>
+  
+          <div class="rounded-3xl border border-neutral-200 bg-neutral-50/80 p-5">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 class="text-lg font-bold text-neutral-900">Screen states</h3>
+                <p class="mt-1 text-sm text-neutral-500">Loading, empty, error, and offline surfaces for S-18.</p>
+              </div>
+              <span class="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold bg-primary-50 text-primary-700">Operational state coverage</span>
+            </div>
+            <div class="mt-4">
+    <div class="grid gap-4 md:grid-cols-2">
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4">
+      <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-neutral-500">Loading</p>
+      <div class="animate-pulse space-y-3" aria-live="polite">
+        <div class="h-4 w-3/4 rounded bg-neutral-200"></div>
+        <div class="h-4 w-1/2 rounded bg-neutral-200"></div>
+        <div class="h-20 rounded-2xl bg-neutral-100"></div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-neutral-200 bg-white p-4 text-center">
+      <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-neutral-100 text-neutral-400">○</div>
+      <h4 class="mt-3 text-sm font-semibold text-neutral-900">No connected integrations</h4>
+      <p class="mt-1 text-sm text-neutral-500">Connect calendar, mail, or messaging tools to expand workflows.</p>
+      <button aria-label="Save preferences" class="focus-ring mt-4 inline-flex min-h-[48px] items-center justify-center rounded-xl bg-primary-600 px-4 text-sm font-semibold text-white shadow-sm hover:bg-primary-700">Save preferences</button>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-danger/20 bg-danger/5 p-4">
+      <div class="flex gap-3">
+        <div class="mt-0.5 h-5 w-5 rounded-full bg-danger/20 text-danger"></div>
+        <div>
+          <p class="text-sm font-medium text-danger">Settings couldn't be loaded.</p>
+          <button aria-label="Retry Settings & Privacy" class="focus-ring mt-3 inline-flex min-h-[44px] items-center rounded-xl border border-danger/20 px-3 text-sm font-semibold text-danger hover:bg-white">Retry</button>
+        </div>
+      </div>
+    </div>
+  
+      
+    <div class="rounded-2xl border border-warning/20 bg-warning/5 p-4">
+      <div class="flex items-start justify-between gap-3">
+        <div class="flex gap-3">
+          <div class="mt-1 h-4 w-4 rounded-full bg-warning/25"></div>
+          <p class="text-sm text-warning">Preference changes are saved locally and queued for sync.</p>
+        </div>
+        <button aria-label="Retry sync for Settings & Privacy" class="focus-ring text-sm font-semibold text-warning underline">Retry</button>
+      </div>
+    </div>
+  
+    </div>
+  </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  
+      <footer class="rounded-[30px] border border-neutral-200 bg-white/80 p-5 shadow-panel backdrop-blur">
+        <div class="grid gap-4 lg:grid-cols-[1fr,0.8fr] lg:items-start">
+          <div>
+            <h3 class="text-lg font-bold text-neutral-900">Variation comparison quick read</h3>
+            <div class="mt-4 overflow-x-auto">
+              <table class="min-w-full text-left text-sm text-neutral-600">
+                <thead class="border-b border-neutral-200 text-xs uppercase tracking-[0.2em] text-neutral-500">
+                  <tr><th class="py-3 pr-4">Variation</th><th class="py-3 pr-4">Character</th><th class="py-3 pr-4">Best use</th></tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b border-neutral-100"><td class="py-3 pr-4 font-semibold text-neutral-900">Bharat First</td><td class="py-3 pr-4">Warm, grounded, courtroom-ready</td><td class="py-3 pr-4">Operational beta launch</td></tr>
+                  <tr class="border-b border-neutral-100"><td class="py-3 pr-4 font-semibold text-neutral-900">Legal Pro</td><td class="py-3 pr-4">Premium, analytical, structured</td><td class="py-3 pr-4">Enterprise and admin workflows</td></tr>
+                  <tr><td class="py-3 pr-4 font-semibold text-neutral-900">AI Native</td><td class="py-3 pr-4">Guided, supportive, assistant-led</td><td class="py-3 pr-4">Student, tutor, and guided task flows</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="rounded-[26px] bg-neutral-50 p-5">
+            <h3 class="text-base font-bold text-neutral-900">Preview instruction</h3>
+            <ol class="mt-3 space-y-2 text-sm text-neutral-600">
+              <li>1. Open this file directly in any modern browser.</li>
+              <li>2. Test widths at 390px, 768px, 1024px, and 1440px.</li>
+              <li>3. Tab through controls to confirm focus treatment and interaction ordering.</li>
+              <li>4. Review the matching spec markdown for component hierarchy and token details.</li>
+            </ol>
+          </div>
+        </div>
+      </footer>
+    </main>
+  </body>
+</html>

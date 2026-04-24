@@ -1,0 +1,307 @@
+name: legal-sathi-local
+
+x-node-env: &node-env
+  NODE_ENV: development
+  LOG_LEVEL: info
+  POSTGRES_URL: postgresql://legal_sathi:legal_sathi@postgres:5432/legal_sathi
+  MONGODB_URL: mongodb://legal_sathi:legal_sathi@mongodb:27017/legal_sathi?authSource=admin
+  REDIS_URL: redis://redis:6379/0
+  KAFKA_BROKERS: kafka:9092
+  ELASTICSEARCH_URL: http://elasticsearch:9200
+  AI_SERVICE_URL: http://ai-service:8000
+  S3_BUCKET: legal-sathi-local
+  AWS_REGION: ap-south-1
+
+x-node-service: &node-service
+  build:
+    context: ../../services/node-service
+  restart: unless-stopped
+  depends_on:
+    postgres:
+      condition: service_healthy
+    mongodb:
+      condition: service_healthy
+    redis:
+      condition: service_started
+    kafka:
+      condition: service_started
+    elasticsearch:
+      condition: service_healthy
+    ai-service:
+      condition: service_started
+  networks:
+    - legal-sathi
+
+services:
+  postgres:
+    image: postgres:16
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: legal_sathi
+      POSTGRES_USER: legal_sathi
+      POSTGRES_PASSWORD: legal_sathi
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U legal_sathi -d legal_sathi"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks:
+      - legal-sathi
+
+  mongodb:
+    image: mongo:7
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: legal_sathi
+      MONGO_INITDB_ROOT_PASSWORD: legal_sathi
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "mongosh --quiet mongodb://legal_sathi:legal_sathi@localhost:27017/admin --eval \"db.adminCommand('ping').ok\"",
+        ]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+    networks:
+      - legal-sathi
+
+  redis:
+    image: redis:7
+    restart: unless-stopped
+    command: ["redis-server", "--appendonly", "yes"]
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - legal-sathi
+
+  kafka:
+    image: bitnami/kafka:3.7
+    restart: unless-stopped
+    environment:
+      KAFKA_CFG_NODE_ID: 1
+      KAFKA_CFG_PROCESS_ROLES: broker,controller
+      KAFKA_CFG_CONTROLLER_LISTENER_NAMES: CONTROLLER
+      KAFKA_CFG_LISTENERS: PLAINTEXT://:9092,CONTROLLER://:9093
+      KAFKA_CFG_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,CONTROLLER:PLAINTEXT
+      KAFKA_CFG_CONTROLLER_QUORUM_VOTERS: 1@kafka:9093
+      KAFKA_CFG_AUTO_CREATE_TOPICS_ENABLE: "false"
+      KAFKA_KRAFT_CLUSTER_ID: MkU3OEVBNTcwNTJENDM2Qk
+      ALLOW_PLAINTEXT_LISTENER: "yes"
+    ports:
+      - "9092:9092"
+    volumes:
+      - kafka-data:/bitnami/kafka
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "/opt/bitnami/kafka/bin/kafka-topics.sh --bootstrap-server localhost:9092 --list >/dev/null 2>&1",
+        ]
+      interval: 15s
+      timeout: 10s
+      retries: 12
+    networks:
+      - legal-sathi
+
+  kafka-init:
+    image: bitnami/kafka:3.7
+    depends_on:
+      kafka:
+        condition: service_healthy
+    volumes:
+      - ./kafka/init-topics.sh:/opt/bitnami/scripts/init-topics.sh:ro
+    command: ["/bin/bash", "/opt/bitnami/scripts/init-topics.sh"]
+    networks:
+      - legal-sathi
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.14.3
+    restart: unless-stopped
+    environment:
+      discovery.type: single-node
+      xpack.security.enabled: "false"
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
+    ports:
+      - "9200:9200"
+    volumes:
+      - elasticsearch-data:/usr/share/elasticsearch/data
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "curl -fsS http://localhost:9200/_cluster/health?wait_for_status=yellow&timeout=5s >/dev/null",
+        ]
+      interval: 20s
+      timeout: 10s
+      retries: 15
+    networks:
+      - legal-sathi
+
+  ai-service:
+    build:
+      context: ../../services/ai-service
+    restart: unless-stopped
+    environment:
+      APP_ENV: development
+      LOG_LEVEL: info
+      FAISS_INDEX_NAME: legal-sathi-local
+      AWS_REGION: ap-south-1
+    ports:
+      - "8000:8000"
+    networks:
+      - legal-sathi
+
+  integration-mocks:
+    build:
+      context: ../../services/integration-mocks
+    restart: unless-stopped
+    environment:
+      PORT: 8090
+      LOG_LEVEL: info
+    ports:
+      - "8090:8090"
+    networks:
+      - legal-sathi
+
+  api-gateway:
+    <<: *node-service
+    environment:
+      <<: *node-env
+      SERVICE_NAME: api-gateway
+      SERVICE_ROLE: gateway
+      PORT: 8080
+      KAFKA_TOPICS: court.events.raw,court.events.parsed,alerts.dispatch,billing.events,document.events,ai.audit,consent.events
+      DOWNSTREAM_SERVICES: auth-identity-service,profile-persona-service,lawyer-discovery-service,case-management-service,court-data-service,consultation-scheduling-service,billing-subscription-service,document-vault-service,search-knowledge-service,legalgpt-orchestrator-service,notification-consent-service,admin-tenant-service
+    ports:
+      - "8080:8080"
+
+  auth-identity-service:
+    <<: *node-service
+    environment:
+      <<: *node-env
+      SERVICE_NAME: auth-identity-service
+      SERVICE_ROLE: domain
+      PORT: 4001
+      KAFKA_TOPICS: consent.events,ai.audit
+
+  profile-persona-service:
+    <<: *node-service
+    environment:
+      <<: *node-env
+      SERVICE_NAME: profile-persona-service
+      SERVICE_ROLE: domain
+      PORT: 4002
+      KAFKA_TOPICS: consent.events
+
+  lawyer-discovery-service:
+    <<: *node-service
+    environment:
+      <<: *node-env
+      SERVICE_NAME: lawyer-discovery-service
+      SERVICE_ROLE: domain
+      PORT: 4003
+      KAFKA_TOPICS: document.events,ai.audit
+
+  case-management-service:
+    <<: *node-service
+    environment:
+      <<: *node-env
+      SERVICE_NAME: case-management-service
+      SERVICE_ROLE: domain
+      PORT: 4004
+      KAFKA_TOPICS: court.events.parsed,document.events
+
+  court-data-service:
+    <<: *node-service
+    environment:
+      <<: *node-env
+      SERVICE_NAME: court-data-service
+      SERVICE_ROLE: domain
+      PORT: 4005
+      KAFKA_TOPICS: court.events.raw,court.events.parsed,alerts.dispatch
+
+  consultation-scheduling-service:
+    <<: *node-service
+    environment:
+      <<: *node-env
+      SERVICE_NAME: consultation-scheduling-service
+      SERVICE_ROLE: domain
+      PORT: 4006
+      KAFKA_TOPICS: billing.events,alerts.dispatch
+
+  billing-subscription-service:
+    <<: *node-service
+    environment:
+      <<: *node-env
+      SERVICE_NAME: billing-subscription-service
+      SERVICE_ROLE: domain
+      PORT: 4007
+      KAFKA_TOPICS: billing.events
+
+  document-vault-service:
+    <<: *node-service
+    environment:
+      <<: *node-env
+      SERVICE_NAME: document-vault-service
+      SERVICE_ROLE: domain
+      PORT: 4008
+      KAFKA_TOPICS: document.events
+
+  search-knowledge-service:
+    <<: *node-service
+    environment:
+      <<: *node-env
+      SERVICE_NAME: search-knowledge-service
+      SERVICE_ROLE: domain
+      PORT: 4009
+      KAFKA_TOPICS: ai.audit
+
+  legalgpt-orchestrator-service:
+    <<: *node-service
+    environment:
+      <<: *node-env
+      SERVICE_NAME: legalgpt-orchestrator-service
+      SERVICE_ROLE: ai-orchestrator
+      PORT: 4010
+      KAFKA_TOPICS: ai.audit
+
+  notification-consent-service:
+    <<: *node-service
+    environment:
+      <<: *node-env
+      SERVICE_NAME: notification-consent-service
+      SERVICE_ROLE: domain
+      PORT: 4011
+      KAFKA_TOPICS: alerts.dispatch,consent.events
+
+  admin-tenant-service:
+    <<: *node-service
+    environment:
+      <<: *node-env
+      SERVICE_NAME: admin-tenant-service
+      SERVICE_ROLE: domain
+      PORT: 4012
+      KAFKA_TOPICS: ai.audit,consent.events,billing.events
+
+volumes:
+  postgres-data:
+  mongodb-data:
+  redis-data:
+  kafka-data:
+  elasticsearch-data:
+
+networks:
+  legal-sathi:
+    driver: bridge
