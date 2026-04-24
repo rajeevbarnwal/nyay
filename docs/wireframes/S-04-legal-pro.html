@@ -137,6 +137,43 @@
         font-family: Inter, system-ui, sans-serif;
         transition: background-color 180ms ease, color 180ms ease;
       }
+      @media (min-width: 768px) {
+        body[data-screen-id="s04-home"] > .mx-auto {
+          min-height: 0 !important;
+        }
+        .s04-mobile-view {
+          display: none !important;
+        }
+        .s04-desktop-view {
+          display: block !important;
+        }
+        body[data-screen-id="s04-home"] > .mx-auto > .block {
+          display: none !important;
+        }
+        body[data-screen-id="s04-home"] > .mx-auto > .hidden {
+          display: block !important;
+        }
+        body[data-screen-id="s04-home"] .desktop-shell > aside.hidden {
+          display: flex !important;
+        }
+        .block.md\:hidden {
+          display: none !important;
+        }
+        .hidden.md\:block {
+          display: block !important;
+        }
+        .hidden.md\:flex {
+          display: flex !important;
+        }
+      }
+      @media (max-width: 767.98px) {
+        .s04-mobile-view {
+          display: block !important;
+        }
+        .s04-desktop-view {
+          display: none !important;
+        }
+      }
       body[data-screen-id="s01-preauth"],
       body[data-screen-id="s02-auth"] {
         min-height: 100dvh;
@@ -1068,7 +1105,7 @@
   </head>
   <body data-screen-id="s04-home">
     <div class="mx-auto min-h-screen max-w-[1440px]">
-      <div class="block md:hidden">
+      <div class="s04-mobile-view block md:hidden">
         <div class="min-h-screen px-4 pb-28 pt-4">
           <div class="mobile-stack space-y-2">
     <div class="priority-banner critical-banner sticky top-3 z-50 rounded-xl px-3 py-1.5 shadow-panel" role="alert" aria-live="assertive">
@@ -1237,6 +1274,7 @@
           <span class="metadata-chip metadata-chip-emerald font-mono">RLS</span>
         </div>
       </section>
+      <div class="mobile-lower-stack space-y-2">
       <section class="grid grid-cols-3 gap-2">
         <article class="s04-metric-card" style="background:linear-gradient(180deg, rgba(43,108,176,0.18), rgba(43,108,176,0.06));">
           <div class="flex items-center justify-between gap-2">
@@ -1263,8 +1301,6 @@
           <p class="mt-1 text-[10px] leading-4 text-[var(--ls-text-secondary)]">2 pending</p>
         </article>
       </section>
-          </div>
-          <main class="mobile-content space-y-4">
       <section class="panel rounded-[24px] p-4">
         <div class="flex items-center justify-between gap-3">
           <div>
@@ -1327,7 +1363,8 @@
           </div>
           <p class="mt-3 text-[11px] leading-5 text-[var(--ls-text-secondary)]">Push the ₹<span class="mono">1,500</span> payment request after the video call ends.</p>
         </button>
-        <article class="col-span-2 rounded-[20px] border border-[var(--ls-error)]/40 p-4" style="background:linear-gradient(180deg, rgba(197,48,48,0.20), rgba(217,119,6,0.12));">
+      </section>
+        <article class="rounded-[20px] border border-[var(--ls-error)]/40 p-4" style="background:linear-gradient(180deg, rgba(197,48,48,0.20), rgba(217,119,6,0.12));">
           <div class="flex items-start justify-between gap-3">
             <div class="min-w-0">
               <p class="text-[10px] font-bold uppercase tracking-[0.16em] text-[#7F1D1D] dark:text-[#FECACA]">Priority filing</p>
@@ -1336,7 +1373,6 @@
             <span class="s04-action-icon" style="background:rgba(197,48,48,0.18); color:#FC8181;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M12 3.5 4.5 17h15L12 3.5Z"></path><path d="M12 9v3.5M12 16h.01"></path></svg></span>
           </div>
         </article>
-      </section>
       <section class="panel rounded-[24px] p-4" aria-live="polite">
         <div class="flex items-center justify-between gap-3">
           <div>
@@ -1353,6 +1389,9 @@
           </div>
         </div>
       </section>
+      </div>
+          </div>
+          <main class="mobile-content space-y-4">
             
     <details class="panel rounded-[24px] p-4 shadow-panel">
       <summary class="drawer-summary focus-ring rounded-xl">
@@ -1493,7 +1532,7 @@
         </div>
       </div>
 
-      <div class="hidden md:block">
+      <div class="s04-desktop-view hidden md:block">
         
     <div class="priority-banner critical-banner sticky top-0 z-50 border-b px-5 py-1.5" role="alert" aria-live="assertive">
       <div class="mx-auto flex max-w-[1440px] items-center justify-between gap-4">
