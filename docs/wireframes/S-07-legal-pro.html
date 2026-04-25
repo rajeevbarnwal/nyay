@@ -129,6 +129,7 @@
       }
       html { scroll-behavior: smooth; }
       body {
+        margin: 0;
         background:
           radial-gradient(circle at top right, rgba(43, 108, 176, 0.16), transparent 28%),
           linear-gradient(180deg, rgba(43, 108, 176, 0.04), transparent 22%),
@@ -136,6 +137,43 @@
         color: var(--ls-text-primary);
         font-family: Inter, system-ui, sans-serif;
         transition: background-color 180ms ease, color 180ms ease;
+      }
+      @media (min-width: 768px) {
+        body[data-screen-id="s07-ai-assistant"] > .mx-auto {
+          min-height: 0 !important;
+        }
+        .s07-mobile-view {
+          display: none !important;
+        }
+        .s07-desktop-view {
+          display: block !important;
+        }
+        body[data-screen-id="s07-ai-assistant"] > .mx-auto > .block {
+          display: none !important;
+        }
+        body[data-screen-id="s07-ai-assistant"] > .mx-auto > .hidden {
+          display: block !important;
+        }
+        body[data-screen-id="s07-ai-assistant"] .desktop-shell > aside.hidden {
+          display: flex !important;
+        }
+        .block.md\:hidden {
+          display: none !important;
+        }
+        .hidden.md\:block {
+          display: block !important;
+        }
+        .hidden.md\:flex {
+          display: flex !important;
+        }
+      }
+      @media (max-width: 767.98px) {
+        .s07-mobile-view {
+          display: block !important;
+        }
+        .s07-desktop-view {
+          display: none !important;
+        }
       }
       body[data-screen-id="s01-preauth"],
       body[data-screen-id="s02-auth"] {
@@ -164,6 +202,55 @@
       .tinted-card {
         background: linear-gradient(180deg, color-mix(in srgb, var(--ls-accent) 9%, var(--ls-surface-2)), color-mix(in srgb, var(--ls-surface-2) 92%, transparent)) !important;
       }
+      .tint-blue {
+        border-color: rgba(43, 108, 176, 0.28) !important;
+        background: linear-gradient(180deg, rgba(43, 108, 176, 0.14), rgba(43, 108, 176, 0.05)) !important;
+      }
+      .tint-amber {
+        border-color: rgba(217, 119, 6, 0.28) !important;
+        background: linear-gradient(180deg, rgba(217, 119, 6, 0.14), rgba(217, 119, 6, 0.05)) !important;
+      }
+      .tint-violet {
+        border-color: rgba(99, 102, 241, 0.28) !important;
+        background: linear-gradient(180deg, rgba(99, 102, 241, 0.14), rgba(99, 102, 241, 0.05)) !important;
+      }
+      .tint-green {
+        border-color: rgba(5, 150, 105, 0.28) !important;
+        background: linear-gradient(180deg, rgba(5, 150, 105, 0.14), rgba(5, 150, 105, 0.05)) !important;
+      }
+      .tint-rose {
+        border-color: rgba(225, 29, 72, 0.28) !important;
+        background: linear-gradient(180deg, rgba(225, 29, 72, 0.14), rgba(225, 29, 72, 0.05)) !important;
+      }
+      .s07-kicker {
+        display: inline-flex;
+        width: max-content;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        border-radius: 999px;
+        border: 1px solid rgba(43, 108, 176, 0.28);
+        padding: 6px 10px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        line-height: 1;
+        text-transform: uppercase;
+        color: var(--ls-text-primary);
+      }
+      .s07-kicker-icon {
+        width: 34px;
+        height: 34px;
+        padding: 0;
+      }
+      .s07-kicker svg {
+        width: 16px;
+        height: 16px;
+      }
+      .s07-kicker-blue { border-color: rgba(43, 108, 176, 0.28); background: rgba(43, 108, 176, 0.14); color: #8DB8FF; }
+      .s07-kicker-amber { border-color: rgba(217, 119, 6, 0.28); background: rgba(217, 119, 6, 0.14); color: #FBBF24; }
+      .s07-kicker-violet { border-color: rgba(99, 102, 241, 0.28); background: rgba(99, 102, 241, 0.14); color: #A5B4FC; }
+      .s07-kicker-green { border-color: rgba(5, 150, 105, 0.28); background: rgba(5, 150, 105, 0.14); color: #9AE6B4; }
       .panel-muted { background: rgba(29, 45, 64, 0.48); border: 1px solid rgba(42, 63, 87, 0.9); }
       .focus-ring:focus-visible { outline: 2px solid var(--ls-accent); outline-offset: 2px; }
       .btn-active,
@@ -351,10 +438,10 @@
         min-width: 44px;
         min-height: 44px;
         border-radius: 16px;
-        border: 1px solid var(--ls-border);
+        border: 1px solid rgba(43, 108, 176, 0.28);
         padding: 0;
-        background: var(--ls-surface-2);
-        color: var(--ls-text-primary);
+        background: rgba(43, 108, 176, 0.14);
+        color: #2B6CB0;
       }
       .notify-badge {
         position: absolute;
@@ -872,6 +959,119 @@
       .desktop-stack > section:nth-of-type(2) {
         position: static;
       }
+      body[data-screen-id="s07-ai-assistant"] {
+        overflow-x: clip;
+      }
+      @media (min-width: 768px) {
+        body[data-screen-id="s07-ai-assistant"] .s07-mobile-view.block.md\:hidden {
+          display: none !important;
+        }
+        body[data-screen-id="s07-ai-assistant"] .s07-desktop-view.hidden.md\:block {
+          display: block !important;
+          opacity: 1 !important;
+          visibility: visible !important;
+        }
+      }
+      body[data-screen-id="s07-ai-assistant"] .mobile-sticky-stack {
+        position: sticky;
+        top: var(--ls-mobile-toolbar-top);
+        z-index: 49;
+        gap: 0;
+        margin-bottom: 0;
+      }
+      @media (max-width: 767.98px) {
+        body[data-screen-id="s07-ai-assistant"] > .mx-auto {
+          width: 100vw !important;
+          max-width: 100vw !important;
+          overflow-x: clip;
+        }
+      }
+      body[data-screen-id="s07-ai-assistant"] .s07-mobile-view {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        overflow-x: clip;
+      }
+      body[data-screen-id="s07-ai-assistant"] .mobile-stack,
+      body[data-screen-id="s07-ai-assistant"] .mobile-lower-stack,
+      body[data-screen-id="s07-ai-assistant"] .mobile-content {
+        width: min(358px, calc(100vw - 32px)) !important;
+        max-width: min(358px, calc(100vw - 32px)) !important;
+        width: min(358px, calc(100dvw - 32px)) !important;
+        max-width: min(358px, calc(100dvw - 32px)) !important;
+        overflow-x: clip;
+      }
+      body[data-screen-id="s07-ai-assistant"] .s07-mobile-view > .min-h-screen {
+        box-sizing: border-box;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 0 !important;
+        overflow-x: clip;
+      }
+      body[data-screen-id="s07-ai-assistant"] .s07-mobile-view .panel,
+      body[data-screen-id="s07-ai-assistant"] .s07-mobile-view .critical-banner,
+      body[data-screen-id="s07-ai-assistant"] .mobile-lower-stack > section {
+        box-sizing: border-box;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      body[data-screen-id="s07-ai-assistant"] .priority-banner p {
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+      body[data-screen-id="s07-ai-assistant"] .mobile-utility-card {
+        position: relative;
+        padding: 10px 12px;
+        border-radius: 22px;
+        background: var(--ls-surface);
+        border: 1px solid var(--ls-border);
+      }
+      body[data-screen-id="s07-ai-assistant"] .mobile-utility-actions {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+      }
+      body[data-screen-id="s07-ai-assistant"] .mobile-hero-card {
+        padding: 12px;
+        border-radius: 20px;
+      }
+      body[data-screen-id="s07-ai-assistant"] .mobile-hero-card [data-greeting-text] {
+        font-size: 1rem;
+        line-height: 1.25;
+      }
+      body[data-screen-id="s07-ai-assistant"] .ai-status-card {
+        min-width: 0;
+        border-radius: 18px;
+        padding: 10px;
+      }
+      body[data-screen-id="s07-ai-assistant"] .ai-status-card p {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      body[data-screen-id="s07-ai-assistant"] .mobile-dock {
+        box-sizing: border-box;
+        left: 16px;
+        right: auto;
+        width: min(358px, calc(100vw - 32px)) !important;
+        max-width: min(358px, calc(100vw - 32px));
+        width: min(358px, calc(100dvw - 32px)) !important;
+        max-width: min(358px, calc(100dvw - 32px));
+        overflow: hidden;
+      }
+      body[data-screen-id="s07-ai-assistant"] .dock-grid {
+        min-width: 0;
+        width: 100%;
+      }
+      body[data-screen-id="s07-ai-assistant"] .dock-item {
+        min-width: 0;
+      }
+      body[data-screen-id="s07-ai-assistant"] .desktop-shell,
+      body[data-screen-id="s07-ai-assistant"] .desktop-shell main {
+        min-height: calc(100vh - 32px);
+      }
       @keyframes ls-orbit {
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
@@ -897,12 +1097,13 @@
     - Icon-based Sun / Moon / System theme control persists selection in localStorage ✅
     -->
   </head>
-  <body >
+  <body data-screen-id="s07-ai-assistant">
     <div class="mx-auto min-h-screen max-w-[1440px]">
-      <div class="block md:hidden">
+      <div class="s07-mobile-view">
         <div class="min-h-screen px-4 pb-28 pt-4">
+          <div class="mobile-stack space-y-2">
           
-    <div class="priority-banner critical-banner sticky top-3 z-50 mb-3 rounded-xl px-3 py-1.5 shadow-panel" role="alert" aria-live="assertive">
+    <div class="priority-banner critical-banner sticky top-0 z-50 rounded-xl px-3 py-1.5 shadow-panel" role="alert" aria-live="assertive">
       <div class="flex items-center justify-between gap-3">
         <p class="text-[10px] leading-[1.2] text-[var(--ls-critical-text)]">Priority alert · Delhi High Court Court 32 is running <span class="mono">18m</span> ahead of schedule for Sharma v. State of Maharashtra</p>
         <div class="flex shrink-0 items-center gap-1">
@@ -916,16 +1117,16 @@
   
           
           <div class="mobile-sticky-stack">
-            
+
     <section class="mobile-utility-card panel rounded-[24px] p-3 shadow-panel">
-      <div class="flex items-center justify-between gap-3">
+      <div class="flex items-start justify-between gap-3">
         
     <div class="min-w-0">
       <img src="./LegalSaathi_Logo.png" alt="Legal Saathi" class="w-[108px] sm:w-[120px] h-auto object-contain" />
       <p class="mt-2 text-[11px] leading-4 text-[var(--ls-text-secondary)]">Enterprise legal operations for Bharat.</p>
     </div>
   
-        <div class="flex shrink-0 items-center gap-2">
+        <div class="mobile-utility-actions flex shrink-0 items-center gap-2">
           
     <details class="notifications-popover relative">
       <summary aria-label="Open notifications" class="notify-button focus-ring cursor-pointer">
@@ -1026,7 +1227,8 @@
     </section>
   
             
-    <section class="mobile-hero-card panel rounded-[22px] p-3 shadow-panel">
+          </div>
+    <section class="mobile-hero-card panel rounded-[22px] p-3 shadow-panel" style="border-color:rgba(99,102,241,0.36); background:linear-gradient(180deg, rgba(79,70,229,0.14), rgba(43,108,176,0.06));">
       <div class="flex items-start justify-between gap-3">
         <div>
           <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--ls-text-secondary)]">S-07 · LegalGPT India</p>
@@ -1040,49 +1242,65 @@
         </div>
         <span class="rounded-full bg-[var(--ls-success)]/15 px-3 py-1 font-mono text-xs text-[#9AE6B4]">CONF 0.87</span>
         </div>
-        <div class="mt-4 flex flex-wrap gap-2">
-          <button type="button" aria-label="Delhi HC" class="focus-ring min-h-[44px] rounded-full border border-[var(--ls-border)] bg-[var(--ls-surface-2)] px-4 text-sm text-[var(--ls-text-secondary)] tinted-card" data-action-select data-action-active="false">Delhi HC</button><button type="button" aria-label="Hindi" class="focus-ring min-h-[44px] rounded-full border border-[var(--ls-border)] bg-[var(--ls-surface-2)] px-4 text-sm text-[var(--ls-text-secondary)] tinted-card" data-action-select data-action-active="false">Hindi</button><button type="button" aria-label="Simple mode" class="focus-ring min-h-[44px] rounded-full border border-[var(--ls-border)] bg-[var(--ls-surface-2)] px-4 text-sm text-[var(--ls-text-secondary)] tinted-card" data-action-select data-action-active="false">Simple mode</button><button type="button" aria-label="Matter-linked" class="focus-ring min-h-[44px] rounded-full border border-[var(--ls-border)] bg-[var(--ls-surface-2)] px-4 text-sm text-[var(--ls-text-secondary)] tinted-card" data-action-select data-action-active="false">Matter-linked</button>
+        <div class="mt-3 grid grid-cols-3 gap-2">
+          <div class="ai-status-card border border-[var(--ls-border)]" style="background:linear-gradient(180deg, rgba(79,70,229,0.16), rgba(79,70,229,0.06));">
+            <p class="text-[9px] font-semibold uppercase tracking-[0.12em] text-[var(--ls-text-secondary)]">Confidence</p>
+            <p class="mt-1 font-mono text-sm text-[var(--ls-text-primary)]">0.87</p>
+          </div>
+          <div class="ai-status-card border border-[var(--ls-border)]" style="background:linear-gradient(180deg, rgba(43,108,176,0.16), rgba(43,108,176,0.06));">
+            <p class="text-[9px] font-semibold uppercase tracking-[0.12em] text-[var(--ls-text-secondary)]">Citations</p>
+            <p class="mt-1 font-mono text-sm text-[var(--ls-text-primary)]">03</p>
+          </div>
+          <div class="ai-status-card border border-[var(--ls-border)]" style="background:linear-gradient(180deg, rgba(5,150,105,0.16), rgba(5,150,105,0.06));">
+            <p class="text-[9px] font-semibold uppercase tracking-[0.12em] text-[var(--ls-text-secondary)]">Language</p>
+            <p class="mt-1 font-mono text-sm text-[var(--ls-text-primary)]">HI/EN</p>
+          </div>
       </div>
     </section>
   
-          </div>
           
           
-          <main class="mobile-content space-y-4">
+          <main class="mobile-content">
+            <div class="mobile-lower-stack space-y-2">
             
       <section class="panel rounded-[24px] p-4">
         <div class="rounded-2xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] p-4 tinted-card">
-          <p class="text-xs uppercase tracking-[0.18em] text-[var(--ls-text-secondary)]">Query</p>
+          <span class="s07-kicker s07-kicker-icon s07-kicker-violet" role="img" aria-label="Query bot" title="Query">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="8" width="14" height="10" rx="3"></rect><path d="M12 8V5"></path><path d="M9 12h.01M15 12h.01M9.5 15h5"></path><path d="M7 18l-2 2M17 18l2 2"></path></svg>
+          </span>
           <p class="mt-2 text-sm text-[var(--ls-text-primary)]">Summarize the injunction test under <span class="mono">Order XXXIX Rules 1 and 2 CPC</span> and identify <span class="mono">3</span> Delhi High Court authorities for a startup shareholder dispute.</p>
         </div>
-        <div class="mt-4 space-y-4" aria-live="polite">
-          <div class="ml-10 rounded-2xl border border-[var(--ls-border)] bg-[var(--ls-bg)]/50 p-4">
-            <p class="text-xs uppercase tracking-[0.18em] text-[var(--ls-text-secondary)]">Assistant summary</p>
-            <p class="mt-3 text-sm leading-6 text-[var(--ls-text-primary)]">The Court typically examines prima facie case, balance of convenience, and irreparable harm. In shareholder disputes, Delhi High Court orders often give weight to board-control prejudice and dilution risk if interim protection is denied.</p>
+        <div class="mt-3 space-y-3" aria-live="polite">
+          <div class="relative ml-6 rounded-2xl border border-[var(--ls-border)] p-4" style="background:linear-gradient(180deg, rgba(43,108,176,0.14), rgba(43,108,176,0.05));">
+            <span class="s07-kicker s07-kicker-icon s07-kicker-blue absolute right-3 top-3" role="img" aria-label="Assistant summary" title="Assistant summary">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.2"></circle><path d="M5.5 19a6.5 6.5 0 0 1 13 0"></path></svg>
+            </span>
+            <p class="sr-only">Assistant summary</p>
+            <p class="mt-10 text-sm leading-6 text-[var(--ls-text-primary)]">The Court typically examines prima facie case, balance of convenience, and irreparable harm. In shareholder disputes, Delhi High Court orders often give weight to board-control prejudice and dilution risk if interim protection is denied.</p>
           </div>
-          <div class="rounded-2xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] p-4 tinted-card">
-            <p class="text-xs uppercase tracking-[0.18em] text-[var(--ls-text-secondary)]">Authorities</p>
+          <div class="rounded-2xl border border-[var(--ls-border)] p-4" style="background:linear-gradient(180deg, rgba(99,102,241,0.16), rgba(99,102,241,0.06));">
+            <span class="s07-kicker s07-kicker-violet">Authorities</span>
             <div class="mt-3 space-y-3">
               
-                    <div class="rounded-2xl border border-[var(--ls-border)] bg-[var(--ls-bg)]/55 p-3">
+                    <div class="rounded-2xl border border-[var(--ls-border)] p-3" style="background:linear-gradient(180deg, rgba(43,108,176,0.14), rgba(43,108,176,0.05));">
                       <p class="font-mono text-xs text-[var(--ls-accent-soft)]">2025 SCC OnLine Del 418</p>
                       <p class="mt-1 text-sm text-[var(--ls-text-primary)]">Board-control injunction in a promoter dispute</p>
                     </div>
                   
-                    <div class="rounded-2xl border border-[var(--ls-border)] bg-[var(--ls-bg)]/55 p-3">
+                    <div class="rounded-2xl border border-[var(--ls-border)] p-3" style="background:linear-gradient(180deg, rgba(217,119,6,0.14), rgba(217,119,6,0.05));">
                       <p class="font-mono text-xs text-[var(--ls-accent-soft)]">(2024) 9 SCC 221</p>
                       <p class="mt-1 text-sm text-[var(--ls-text-primary)]">Supreme Court articulation of interim relief standards</p>
                     </div>
                   
-                    <div class="rounded-2xl border border-[var(--ls-border)] bg-[var(--ls-bg)]/55 p-3">
+                    <div class="rounded-2xl border border-[var(--ls-border)] p-3" style="background:linear-gradient(180deg, rgba(5,150,105,0.14), rgba(5,150,105,0.05));">
                       <p class="font-mono text-xs text-[var(--ls-accent-soft)]">2023 SCC OnLine Del 991</p>
                       <p class="mt-1 text-sm text-[var(--ls-text-primary)]">Share dilution and irreparable harm reasoning</p>
                     </div>
                   
             </div>
           </div>
-          <div class="rounded-2xl border border-[var(--ls-border)] bg-[var(--ls-bg)]/55 p-4">
-            <p class="text-xs uppercase tracking-[0.18em] text-[var(--ls-text-secondary)]">Suggested next prompts</p>
+          <div class="rounded-2xl border border-[var(--ls-border)] p-4" style="background:linear-gradient(180deg, rgba(5,150,105,0.14), rgba(5,150,105,0.05));">
+            <span class="s07-kicker s07-kicker-green">Suggested next prompts</span>
             <div class="mt-3 flex flex-wrap gap-2">
               <button type="button" aria-label="Draft a short injunction note" class="focus-ring min-h-[44px] rounded-xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] px-4 py-2 text-sm text-[var(--ls-text-primary)] tinted-card" data-action-select data-action-active="false">Draft a short injunction note</button><button type="button" aria-label="Explain in simple Hindi" class="focus-ring min-h-[44px] rounded-xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] px-4 py-2 text-sm text-[var(--ls-text-primary)] tinted-card" data-action-select data-action-active="false">Explain in simple Hindi</button><button type="button" aria-label="List contrary authorities" class="focus-ring min-h-[44px] rounded-xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] px-4 py-2 text-sm text-[var(--ls-text-primary)] tinted-card" data-action-select data-action-active="false">List contrary authorities</button>
             </div>
@@ -1091,13 +1309,13 @@
       </section>
       <section class="panel rounded-[24px] p-4">
         <div class="flex items-center justify-between">
-          <p class="text-sm font-semibold text-[var(--ls-text-primary)]">Compose next query</p>
+          <span class="s07-kicker s07-kicker-amber">Compose next query</span>
           <div class="flex items-center gap-2">
             <button type="button" title="Send prompt to LegalGPT India" aria-label="Send prompt to LegalGPT India" data-action-select data-action-active="false" class="focus-ring action-icon-button grid h-11 w-11 rounded-xl shrink-0 place-items-center border" style="border-color:rgba(43,108,176,0.28); background:rgba(43,108,176,0.14); color:#2B6CB0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M4.5 11.5 19 4l-3.2 16-4.2-5-7.1-3.5Z"></path><path d="M11.6 15 19 4"></path></svg><span class="sr-only">Send prompt to LegalGPT India</span></button>
             <button type="button" title="Voice input" aria-label="Voice input" data-action-select data-action-active="false" class="focus-ring action-icon-button grid h-11 w-11 rounded-xl shrink-0 place-items-center border" style="border-color:rgba(225,29,72,0.28); background:rgba(225,29,72,0.14); color:#E11D48;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><rect x="9" y="3.5" width="6" height="10" rx="3"></rect><path d="M7 10.5v1a5 5 0 0 0 10 0v-1M12 16.5v4M9 20.5h6"></path></svg><span class="sr-only">Voice input</span></button>
           </div>
         </div>
-        <div class="mt-3 rounded-2xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] p-4 tinted-card">
+        <div class="mt-3 rounded-2xl border border-[var(--ls-border)] p-4 tint-amber">
           <p class="text-sm text-[var(--ls-text-secondary)]">Ask for authorities, drafting help, plain-language explanations, or bilingual summaries.</p>
         </div>
       </section>
@@ -1180,6 +1398,7 @@
       </div>
     </details>
   
+            </div>
           </main>
           
           
@@ -1240,8 +1459,9 @@
   
         </div>
       </div>
+      </div>
 
-      <div class="hidden md:block">
+      <div class="s07-desktop-view">
         
     <div class="priority-banner critical-banner sticky top-0 z-50 border-b px-5 py-1.5" role="alert" aria-live="assertive">
       <div class="mx-auto flex max-w-[1440px] items-center justify-between gap-4">
@@ -1350,168 +1570,130 @@
     </aside>
   
           <main class="grid-pattern px-6 pb-6 lg:px-8" style="padding-top:5px; background-color: color-mix(in srgb, var(--ls-bg) 76%, white 24%); background-image: linear-gradient(rgba(144,164,183,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(144,164,183,0.05) 1px, transparent 1px); background-size:24px 24px;">
-            <div class="desktop-stack space-y-6" style="row-gap:10px;">
+            <div class="desktop-stack space-y-2" style="row-gap:10px;">
               <div class="desktop-sticky-stack" style="top:calc(var(--ls-desktop-card-top) - 4px); gap:10px;">
                 
-    <section class="desktop-toolbar panel rounded-[20px] p-3 shadow-panel">
-      <div class="flex items-center justify-between gap-4">
-        <div class="flex items-center gap-3">
-          
-    <div class="min-w-0">
-      <img src="./LegalSaathi_Logo.png" alt="Legal Saathi" class="w-[108px] sm:w-[120px] h-auto object-contain" />
-      <p class="mt-2 text-[11px] leading-4 text-[var(--ls-text-secondary)]">Enterprise legal operations for Bharat.</p>
-    </div>
-  
+    <section class="desktop-toolbar header-card rounded-[18px] p-[14px] shadow-panel" style="border-color:rgba(99,102,241,0.28); background:linear-gradient(180deg, rgba(79,70,229,0.10), rgba(43,108,176,0.04)), var(--ls-bg);">
+      <div class="flex items-start justify-between gap-5">
+        <div class="min-w-0">
+          <p class="text-[10px] font-semibold uppercase tracking-[0.17em] text-[var(--ls-text-secondary)]">S-07 · AI Legal Assistant</p>
+          <div class="mt-1.5 flex items-center gap-2">
+            <span class="greeting-icon-badge" data-greeting-icon aria-hidden="true"></span>
+            <h1 data-greeting-text class="text-[25px] font-semibold leading-tight text-[var(--ls-text-primary)]">Good Morning, Rajeev!</h1>
+          </div>
+          <p class="mt-1.5 max-w-3xl text-[13px] leading-5 text-[var(--ls-text-secondary)]">LegalGPT India surfaces conversation, authorities, and matter context side-by-side with citation-bound confidence.</p>
         </div>
-        <div class="flex items-center gap-3">
-          
-    <details class="notifications-popover relative">
-      <summary aria-label="Open notifications" class="notify-button focus-ring cursor-pointer">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M15 17.5H5.5a1 1 0 0 1-.8-1.6l1.3-1.8V9.8a6 6 0 1 1 12 0v4.3l1.3 1.8a1 1 0 0 1-.8 1.6H15"></path><path d="M9.5 17.5a2.5 2.5 0 0 0 5 0"></path></svg>
-        <span data-notification-count class="notify-badge">4</span>
-      </summary>
-      <div class="notify-panel panel absolute right-0 top-full mt-2 rounded-[18px] p-2.5 shadow-float">
-        <div class="flex items-center justify-between gap-3">
-          <div>
-            <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--ls-text-secondary)]">Notifications</p>
-            <p data-notification-summary class="mt-1 text-xs text-[var(--ls-text-primary)]"><span class="mono">4</span> new updates</p>
+        <div class="flex shrink-0 flex-col items-end gap-2">
+          <div class="flex items-center gap-2">
+            <details class="notifications-popover relative">
+              <summary aria-label="Open notifications" class="notify-button focus-ring cursor-pointer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M15 17.5H5.5a1 1 0 0 1-.8-1.6l1.3-1.8V9.8a6 6 0 1 1 12 0v4.3l1.3 1.8a1 1 0 0 1-.8 1.6H15"></path><path d="M9.5 17.5a2.5 2.5 0 0 0 5 0"></path></svg>
+                <span data-notification-count class="notify-badge">4</span>
+              </summary>
+              <div class="notify-panel panel absolute right-0 top-full mt-2 rounded-[18px] p-2.5 shadow-float">
+                <div class="flex items-center justify-between gap-3">
+                  <div>
+                    <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--ls-text-secondary)]">Notifications</p>
+                    <p data-notification-summary class="mt-1 text-xs text-[var(--ls-text-primary)]"><span class="mono">4</span> new updates</p>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <button type="button" data-clear-notifications class="focus-ring min-h-[32px] rounded-lg px-2.5 text-[11px] font-medium text-[var(--ls-accent)]">Clear all</button>
+                    <button type="button" data-close-popover="notifications" aria-label="Close notifications" class="focus-ring grid h-8 w-8 place-items-center rounded-lg text-[var(--ls-text-secondary)]">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+                    </button>
+                  </div>
+                </div>
+                <div data-notification-list class="mt-3">
+                  <div class="notify-item">
+                    <p class="text-[11px] font-semibold text-[var(--ls-text-primary)]">Court 32 moved up by <span class="mono">18m</span></p>
+                    <p class="mt-1 text-[10px] leading-[1.35] text-[var(--ls-text-secondary)]">Sharma v. State of Maharashtra · Delhi High Court</p>
+                  </div>
+                  <div class="notify-item">
+                    <p class="text-[11px] font-semibold text-[var(--ls-text-primary)]">LegalGPT confidence review ready</p>
+                    <p class="mt-1 text-[10px] leading-[1.35] text-[var(--ls-text-secondary)]">Rao Exports response is ready with <span class="mono">3</span> citations</p>
+                  </div>
+                </div>
+              </div>
+            </details>
+            <details class="appearance-popover relative">
+              <summary aria-label="Open appearance controls. Current mode available." class="focus-ring grid h-12 w-12 rounded-2xl cursor-pointer place-items-center" style="border-color:rgba(217,119,6,0.28); background:rgba(217,119,6,0.14); color:#D97706; box-shadow:0 10px 24px -18px rgba(217,119,6,0.18);">
+                <div data-theme-preview data-current-theme="dark" class="theme-preview-trigger">
+                  <span data-mode="light" class="theme-preview-icon-static"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.75v2.1M12 19.15v2.1M4.93 4.93l1.49 1.49M17.58 17.58l1.49 1.49M2.75 12h2.1M19.15 12h2.1M4.93 19.07l1.49-1.49M17.58 6.42l1.49-1.49"></path></svg></span>
+                  <span data-mode="dark" class="theme-preview-icon-static"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M20.2 14.1A8.6 8.6 0 0 1 9.9 3.8a8.85 8.85 0 1 0 10.3 10.3Z"></path></svg></span>
+                  <span data-mode="system" class="theme-preview-icon-static"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><rect x="3.5" y="4.5" width="17" height="11.5" rx="2"></rect><path d="M8.5 19.5h7M12 16.5v3"></path></svg></span>
+                </div>
+              </summary>
+              <div class="panel absolute right-0 top-full mt-2 w-[168px] rounded-[20px] p-2 shadow-float">
+                <p class="px-2 pt-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--ls-text-secondary)]">Appearance</p>
+                <div class="mt-2 grid grid-cols-3 gap-2">
+                  <button type="button" data-theme-option="light" aria-label="Switch to light mode" aria-pressed="false" class="theme-toggle-btn focus-ring min-h-[44px] rounded-xl border px-0" style="border-color:rgba(217,119,6,0.28); background:rgba(217,119,6,0.14); color:#D97706;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.75v2.1M12 19.15v2.1M4.93 4.93l1.49 1.49M17.58 17.58l1.49 1.49M2.75 12h2.1M19.15 12h2.1M4.93 19.07l1.49-1.49M17.58 6.42l1.49-1.49"></path></svg></button>
+                  <button type="button" data-theme-option="dark" aria-label="Switch to dark mode" aria-pressed="false" class="theme-toggle-btn focus-ring min-h-[44px] rounded-xl border px-0" style="border-color:rgba(43,108,176,0.28); background:rgba(43,108,176,0.14); color:#2B6CB0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M20.2 14.1A8.6 8.6 0 0 1 9.9 3.8a8.85 8.85 0 1 0 10.3 10.3Z"></path></svg></button>
+                  <button type="button" data-theme-option="system" aria-label="Use system theme" aria-pressed="false" class="theme-toggle-btn focus-ring min-h-[44px] rounded-xl border px-0" style="border-color:rgba(99,102,241,0.28); background:rgba(99,102,241,0.14); color:#4F46E5;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><rect x="3.5" y="4.5" width="17" height="11.5" rx="2"></rect><path d="M8.5 19.5h7M12 16.5v3"></path></svg></button>
+                </div>
+              </div>
+            </details>
           </div>
-          <div class="flex items-center gap-1">
-            <button type="button" data-clear-notifications class="focus-ring min-h-[32px] rounded-lg px-2.5 text-[11px] font-medium text-[var(--ls-accent)]">Clear all</button>
-            <button type="button" data-close-popover="notifications" aria-label="Close notifications" class="focus-ring grid h-8 w-8 place-items-center rounded-lg text-[var(--ls-text-secondary)]">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="m6 6 12 12M18 6 6 18"></path></svg>
-            </button>
-          </div>
-        </div>
-        <div data-notification-list class="mt-3">
-          <div class="notify-item">
-            <p class="text-[11px] font-semibold text-[var(--ls-text-primary)]">Court 32 moved up by <span class="mono">18m</span></p>
-            <p class="mt-1 text-[10px] leading-[1.35] text-[var(--ls-text-secondary)]">Sharma v. State of Maharashtra · Delhi High Court</p>
-          </div>
-          <div class="notify-item">
-            <p class="text-[11px] font-semibold text-[var(--ls-text-primary)]">NCLT Mumbai uploaded a new order</p>
-            <p class="mt-1 text-[10px] leading-[1.35] text-[var(--ls-text-secondary)]">Apex Builders matter refreshed at <span class="mono">08:57</span></p>
-          </div>
-          <div class="notify-item">
-            <p class="text-[11px] font-semibold text-[var(--ls-text-primary)]">Reminder due in <span class="mono">2h</span></p>
-            <p class="mt-1 text-[10px] leading-[1.35] text-[var(--ls-text-secondary)]">Rao Exports arbitration prep note is still pending</p>
-          </div>
-          <div class="notify-item">
-            <p class="text-[11px] font-semibold text-[var(--ls-text-primary)]">Bench assembled</p>
-            <p class="mt-1 text-[10px] leading-[1.35] text-[var(--ls-text-secondary)]">Apex Builders v. RERA is now ready in virtual court</p>
-          </div>
-        </div>
-      </div>
-    </details>
-  
-          <div class="theme-toggle-group grid grid-cols-3 gap-2 rounded-2xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] p-1">
-            <button type="button" data-theme-option="light" aria-label="Switch to light mode" aria-pressed="false" class="theme-toggle-btn focus-ring min-h-[44px] min-w-[44px] rounded-xl px-3">
-              
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
-        <circle cx="12" cy="12" r="4.2"></circle>
-        <path d="M12 2.75v2.1M12 19.15v2.1M4.93 4.93l1.49 1.49M17.58 17.58l1.49 1.49M2.75 12h2.1M19.15 12h2.1M4.93 19.07l1.49-1.49M17.58 6.42l1.49-1.49"></path>
-      </svg>
-    
-              <span class="sr-only">Light mode</span>
-            </button>
-            <button type="button" data-theme-option="dark" aria-label="Switch to dark mode" aria-pressed="false" class="theme-toggle-btn focus-ring min-h-[44px] min-w-[44px] rounded-xl px-3">
-              
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
-        <path d="M20.2 14.1A8.6 8.6 0 0 1 9.9 3.8a8.85 8.85 0 1 0 10.3 10.3Z"></path>
-      </svg>
-    
-              <span class="sr-only">Dark mode</span>
-            </button>
-            <button type="button" data-theme-option="system" aria-label="Use system theme" aria-pressed="false" class="theme-toggle-btn focus-ring min-h-[44px] min-w-[44px] rounded-xl px-3">
-              
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
-        <rect x="3.5" y="4.5" width="17" height="11.5" rx="2"></rect>
-        <path d="M8.5 19.5h7M12 16.5v3"></path>
-      </svg>
-    
-              <span class="sr-only">System theme</span>
-            </button>
+          <div class="metadata-line" aria-label="Current date and system metadata">
+            <span class="metadata-chip metadata-chip-primary mono">24 Apr 2026</span>
+            <span class="metadata-chip metadata-chip-amber mono">IST</span>
+            <span class="metadata-chip metadata-chip-violet mono">AP-SOUTH-1</span>
+            <span class="metadata-chip metadata-chip-emerald mono">RLS</span>
           </div>
         </div>
       </div>
     </section>
   
-                
-      <section class="desktop-hero panel rounded-[28px] p-6 shadow-float">
-        <div class="flex items-start justify-between gap-6">
-          <div>
-            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--ls-text-secondary)]">S-07 · AI Legal Assistant</p>
-            <div class="mt-2 greeting-chip">
-              <span class="greeting-icon-badge" data-greeting-icon aria-hidden="true"></span>
-              <h1 data-greeting-text class="text-3xl font-semibold text-[var(--ls-text-primary)]">Good Morning, Rajeev!</h1>
-            </div>
-            <p class="mt-3 max-w-3xl text-sm leading-6 text-[var(--ls-text-secondary)]">Legal Pro surfaces conversation, authorities, and matter context side-by-side while keeping citation density high.</p>
-          </div>
-          <div class="flex flex-wrap gap-2">
-    <span class="inline-flex items-center gap-2 rounded-full border border-sky-500/25 bg-gradient-to-r from-sky-500/16 via-amber-400/16 to-violet-500/12 px-3 py-1.5 text-[11px] text-[var(--ls-text-primary)]">
-      <span class="grid h-5 w-5 place-items-center rounded-full bg-[var(--ls-surface)]/70 text-[var(--ls-accent)]">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5"><rect x="4.5" y="5.5" width="15" height="14" rx="2"></rect><path d="M8 3.5v4M16 3.5v4M4.5 9.5h15"></path></svg>
-      </span>
-      <span class="font-mono">19 Apr 2026</span>
-    </span>
-    <span class="rounded-full border border-amber-500/20 bg-amber-500/12 px-3 py-1 font-mono text-[11px] text-amber-700 dark:text-amber-300">IST</span>
-    <span class="rounded-full border border-violet-500/20 bg-violet-500/12 px-3 py-1 font-mono text-[11px] text-violet-700 dark:text-violet-300">AP-SOUTH-1</span>
-    <span class="rounded-full border border-emerald-500/20 bg-emerald-500/12 px-3 py-1 font-mono text-[11px] text-emerald-700 dark:text-emerald-300">RLS</span>
-  </div>
-        </div>
-      </section>
-  
               </div>
               
       <section class="grid gap-6 xl:grid-cols-[0.8fr,1.25fr,0.9fr]">
         <div class="space-y-4">
-          <div class="panel rounded-[24px] p-5">
-            <p class="text-xs uppercase tracking-[0.18em] text-[var(--ls-text-secondary)]">Session controls</p>
+          <div class="panel rounded-[24px] p-5 tint-blue">
+            <p class="s07-kicker s07-kicker-blue">Session controls</p>
             <div class="mt-4 space-y-3">
-              <div class="rounded-2xl bg-[var(--ls-surface-2)] p-4 tinted-card">
+              <div class="rounded-2xl border p-4 tint-blue">
                 <p class="text-sm text-[var(--ls-text-primary)]">Jurisdiction</p>
                 <p class="mt-2 font-mono text-sm text-[var(--ls-accent-soft)]">Delhi HC + Supreme Court</p>
               </div>
-              <div class="rounded-2xl bg-[var(--ls-surface-2)] p-4 tinted-card">
+              <div class="rounded-2xl border p-4 tint-violet">
                 <p class="text-sm text-[var(--ls-text-primary)]">Matter context</p>
                 <p class="mt-2 text-sm text-[var(--ls-text-secondary)]">Rao Exports shareholder dispute</p>
               </div>
-              <div class="rounded-2xl bg-[var(--ls-surface-2)] p-4 tinted-card">
+              <div class="rounded-2xl border p-4 tint-green">
                 <p class="text-sm text-[var(--ls-text-primary)]">Confidence threshold</p>
                 <p class="mt-2 font-mono text-sm text-[var(--ls-accent-soft)]">0.82</p>
               </div>
             </div>
           </div>
-          <div class="panel rounded-[24px] p-5">
-            <p class="text-xs uppercase tracking-[0.18em] text-[var(--ls-text-secondary)]">Saved prompts</p>
+          <div class="panel rounded-[24px] p-5 tint-amber">
+            <p class="s07-kicker s07-kicker-amber">Saved prompts</p>
             <div class="mt-4 space-y-3">
-              <button type="button" aria-label="Prepare a short interim-injunction note" class="focus-ring flex min-h-[44px] w-full items-center rounded-xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] px-4 text-left text-sm text-[var(--ls-text-primary)] tinted-card" data-action-select data-action-active="false">Prepare a short interim-injunction note</button><button type="button" aria-label="Explain a citation in plain Hindi" class="focus-ring flex min-h-[44px] w-full items-center rounded-xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] px-4 text-left text-sm text-[var(--ls-text-primary)] tinted-card" data-action-select data-action-active="false">Explain a citation in plain Hindi</button><button type="button" aria-label="List contrary authorities with bench composition" class="focus-ring flex min-h-[44px] w-full items-center rounded-xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] px-4 text-left text-sm text-[var(--ls-text-primary)] tinted-card" data-action-select data-action-active="false">List contrary authorities with bench composition</button>
+              <button type="button" aria-label="Prepare a short interim-injunction note" class="focus-ring flex min-h-[44px] w-full items-center rounded-xl border px-4 text-left text-sm text-[var(--ls-text-primary)] tint-amber" data-action-select data-action-active="false">Prepare a short interim-injunction note</button><button type="button" aria-label="Explain a citation in plain Hindi" class="focus-ring flex min-h-[44px] w-full items-center rounded-xl border px-4 text-left text-sm text-[var(--ls-text-primary)] tint-blue" data-action-select data-action-active="false">Explain a citation in plain Hindi</button><button type="button" aria-label="List contrary authorities with bench composition" class="focus-ring flex min-h-[44px] w-full items-center rounded-xl border px-4 text-left text-sm text-[var(--ls-text-primary)] tint-violet" data-action-select data-action-active="false">List contrary authorities with bench composition</button>
             </div>
           </div>
         </div>
-        <div class="panel rounded-[24px] p-5" aria-live="polite">
+        <div class="panel rounded-[24px] p-5 tint-violet" aria-live="polite">
           <div class="flex items-center justify-between">
             <div>
-              <p class="text-xs uppercase tracking-[0.18em] text-[var(--ls-text-secondary)]">Conversation</p>
+              <p class="s07-kicker s07-kicker-violet">Conversation</p>
               <p class="mt-1 text-sm text-[var(--ls-text-primary)]">Linked to Rao Exports matter</p>
             </div>
             <span class="rounded-full bg-[var(--ls-success)]/15 px-3 py-1 font-mono text-xs text-[#9AE6B4]">CONF 0.87</span>
           </div>
           <div class="mt-4 space-y-4">
-            <div class="rounded-2xl border border-[var(--ls-border)] bg-[var(--ls-bg)]/55 p-4">
+            <div class="rounded-2xl border p-4 tint-blue">
               <p class="text-xs uppercase tracking-[0.18em] text-[var(--ls-text-secondary)]">User query</p>
               <p class="mt-2 text-sm leading-6 text-[var(--ls-text-primary)]">Summarize the injunction test under <span class="mono">Order XXXIX Rules 1 and 2 CPC</span> and identify Delhi High Court authorities for a shareholder dilution dispute.</p>
             </div>
-            <div class="rounded-2xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] p-4 tinted-card">
+            <div class="rounded-2xl border p-4 tint-violet">
               <p class="text-xs uppercase tracking-[0.18em] text-[var(--ls-text-secondary)]">Assistant response</p>
               <p class="mt-3 text-sm leading-7 text-[var(--ls-text-primary)]">The injunction test remains structured around prima facie case, balance of convenience, and irreparable harm. In shareholder disputes, interim relief analysis often emphasizes dilution risk, loss of governance rights, and whether damages can later repair the loss of control.</p>
               <div class="mt-4 flex flex-wrap gap-2">
                 <button type="button" aria-label="Explain in simple terms" class="focus-ring min-h-[44px] rounded-xl border border-[var(--ls-border)] bg-[var(--ls-bg)]/40 px-4 py-2 text-sm text-[var(--ls-text-primary)]" data-action-select data-action-active="false">Explain in simple terms</button><button type="button" aria-label="Draft issue list" class="focus-ring min-h-[44px] rounded-xl border border-[var(--ls-border)] bg-[var(--ls-bg)]/40 px-4 py-2 text-sm text-[var(--ls-text-primary)]" data-action-select data-action-active="false">Draft issue list</button><button type="button" aria-label="Generate hearing note" class="focus-ring min-h-[44px] rounded-xl border border-[var(--ls-border)] bg-[var(--ls-bg)]/40 px-4 py-2 text-sm text-[var(--ls-text-primary)]" data-action-select data-action-active="false">Generate hearing note</button>
               </div>
             </div>
-            <div class="rounded-2xl border border-[var(--ls-border)] bg-[var(--ls-bg)]/55 p-4">
-              <p class="text-xs uppercase tracking-[0.18em] text-[var(--ls-text-secondary)]">Composer</p>
-              <div class="mt-3 rounded-2xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] p-4 text-sm text-[var(--ls-text-secondary)] tinted-card">Ask about authorities, fact extraction, timeline preparation, or bilingual explanations.</div>
+            <div class="rounded-2xl border p-4 tint-amber">
+              <p class="s07-kicker s07-kicker-amber">Composer</p>
+              <div class="mt-3 rounded-2xl border p-4 text-sm text-[var(--ls-text-secondary)] tint-amber">Ask about authorities, fact extraction, timeline preparation, or bilingual explanations.</div>
               <div class="mt-3 flex items-center gap-3">
                 <button type="button" title="Send prompt" aria-label="Send prompt" data-action-select data-action-active="false" class="focus-ring action-icon-button grid h-11 w-11 rounded-xl shrink-0 place-items-center border" style="border-color:rgba(43,108,176,0.28); background:rgba(43,108,176,0.14); color:#2B6CB0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M4.5 11.5 19 4l-3.2 16-4.2-5-7.1-3.5Z"></path><path d="M11.6 15 19 4"></path></svg><span class="sr-only">Send prompt</span></button>
                 <button type="button" title="Voice input" aria-label="Voice input" data-action-select data-action-active="false" class="focus-ring action-icon-button grid h-11 w-11 rounded-xl shrink-0 place-items-center border" style="border-color:rgba(225,29,72,0.28); background:rgba(225,29,72,0.14); color:#E11D48;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><rect x="9" y="3.5" width="6" height="10" rx="3"></rect><path d="M7 10.5v1a5 5 0 0 0 10 0v-1M12 16.5v4M9 20.5h6"></path></svg><span class="sr-only">Voice input</span></button>
@@ -1520,32 +1702,32 @@
           </div>
         </div>
         <div class="space-y-4">
-          <div class="panel rounded-[24px] p-5">
-            <p class="text-xs uppercase tracking-[0.18em] text-[var(--ls-text-secondary)]">Authority rail</p>
+          <div class="panel rounded-[24px] p-5 tint-blue">
+            <p class="s07-kicker s07-kicker-blue">Authority rail</p>
             <div class="mt-4 space-y-3">
               
-                    <div class="rounded-2xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] p-4 tinted-card">
+                    <div class="rounded-2xl border p-4 tint-blue">
                       <p class="font-mono text-xs text-[var(--ls-accent-soft)]">2025 SCC OnLine Del 418</p>
                       <p class="mt-2 text-sm text-[var(--ls-text-primary)]">Interim board-control restraint</p>
                     </div>
                   
-                    <div class="rounded-2xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] p-4 tinted-card">
+                    <div class="rounded-2xl border p-4 tint-amber">
                       <p class="font-mono text-xs text-[var(--ls-accent-soft)]">(2024) 9 SCC 221</p>
                       <p class="mt-2 text-sm text-[var(--ls-text-primary)]">Interim-relief principle synthesis</p>
                     </div>
                   
-                    <div class="rounded-2xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] p-4 tinted-card">
+                    <div class="rounded-2xl border p-4 tint-green">
                       <p class="font-mono text-xs text-[var(--ls-accent-soft)]">2023 SCC OnLine Del 991</p>
                       <p class="mt-2 text-sm text-[var(--ls-text-primary)]">Share dilution and irreparable harm</p>
                     </div>
                   
             </div>
           </div>
-          <div class="panel rounded-[24px] p-5">
-            <p class="text-xs uppercase tracking-[0.18em] text-[var(--ls-text-secondary)]">Matter insights</p>
+          <div class="panel rounded-[24px] p-5 tint-green">
+            <p class="s07-kicker s07-kicker-green">Matter insights</p>
             <div class="mt-4 space-y-3">
-              <div class="rounded-2xl bg-[var(--ls-surface-2)] p-4 text-sm text-[var(--ls-text-primary)] tinted-card">Likely hearing objective: preserve board composition until the challenged allotment is reviewed.</div>
-              <div class="rounded-2xl bg-[var(--ls-surface-2)] p-4 text-sm text-[var(--ls-text-primary)] tinted-card">Risk note: watch for delay arguments if the allotment was disclosed more than <span class="mono">14</span> days ago.</div>
+              <div class="rounded-2xl border p-4 text-sm text-[var(--ls-text-primary)] tint-green">Likely hearing objective: preserve board composition until the challenged allotment is reviewed.</div>
+              <div class="rounded-2xl border p-4 text-sm text-[var(--ls-text-primary)] tint-amber">Risk note: watch for delay arguments if the allotment was disclosed more than <span class="mono">14</span> days ago.</div>
             </div>
           </div>
         </div>
