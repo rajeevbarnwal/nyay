@@ -129,6 +129,7 @@
       }
       html { scroll-behavior: smooth; }
       body {
+        margin: 0;
         background:
           radial-gradient(circle at top right, rgba(43, 108, 176, 0.16), transparent 28%),
           linear-gradient(180deg, rgba(43, 108, 176, 0.04), transparent 22%),
@@ -136,6 +137,43 @@
         color: var(--ls-text-primary);
         font-family: Inter, system-ui, sans-serif;
         transition: background-color 180ms ease, color 180ms ease;
+      }
+      @media (min-width: 768px) {
+        body[data-screen-id="s08-judgment-search"] > .mx-auto {
+          min-height: 0 !important;
+        }
+        .s08-mobile-view {
+          display: none !important;
+        }
+        .s08-desktop-view {
+          display: block !important;
+        }
+        body[data-screen-id="s08-judgment-search"] > .mx-auto > .block {
+          display: none !important;
+        }
+        body[data-screen-id="s08-judgment-search"] > .mx-auto > .hidden {
+          display: block !important;
+        }
+        body[data-screen-id="s08-judgment-search"] .desktop-shell > aside.hidden {
+          display: flex !important;
+        }
+        .block.md\:hidden {
+          display: none !important;
+        }
+        .hidden.md\:block {
+          display: block !important;
+        }
+        .hidden.md\:flex {
+          display: flex !important;
+        }
+      }
+      @media (max-width: 767.98px) {
+        .s08-mobile-view {
+          display: block !important;
+        }
+        .s08-desktop-view {
+          display: none !important;
+        }
       }
       body[data-screen-id="s01-preauth"],
       body[data-screen-id="s02-auth"] {
@@ -163,6 +201,113 @@
       }
       .tinted-card {
         background: linear-gradient(180deg, color-mix(in srgb, var(--ls-accent) 9%, var(--ls-surface-2)), color-mix(in srgb, var(--ls-surface-2) 92%, transparent)) !important;
+      }
+      .tint-blue {
+        border-color: rgba(43, 108, 176, 0.28) !important;
+        background: linear-gradient(180deg, rgba(43, 108, 176, 0.14), rgba(43, 108, 176, 0.05)) !important;
+      }
+      .tint-amber {
+        border-color: rgba(217, 119, 6, 0.28) !important;
+        background: linear-gradient(180deg, rgba(217, 119, 6, 0.14), rgba(217, 119, 6, 0.05)) !important;
+      }
+      .tint-violet {
+        border-color: rgba(99, 102, 241, 0.28) !important;
+        background: linear-gradient(180deg, rgba(99, 102, 241, 0.14), rgba(99, 102, 241, 0.05)) !important;
+      }
+      .tint-green {
+        border-color: rgba(5, 150, 105, 0.28) !important;
+        background: linear-gradient(180deg, rgba(5, 150, 105, 0.14), rgba(5, 150, 105, 0.05)) !important;
+      }
+      .tint-rose {
+        border-color: rgba(225, 29, 72, 0.28) !important;
+        background: linear-gradient(180deg, rgba(225, 29, 72, 0.14), rgba(225, 29, 72, 0.05)) !important;
+      }
+      .s08-kicker {
+        display: inline-flex;
+        width: max-content;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        border-radius: 999px;
+        border: 1px solid rgba(43, 108, 176, 0.28);
+        padding: 6px 10px;
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 0.16em;
+        line-height: 1;
+        text-transform: uppercase;
+        color: var(--ls-text-primary);
+      }
+      .s08-kicker-icon {
+        width: 34px;
+        height: 34px;
+        padding: 0;
+      }
+      .s08-kicker svg,
+      .s08-action-icon svg {
+        width: 16px;
+        height: 16px;
+      }
+      .s08-kicker-blue { border-color: rgba(43, 108, 176, 0.28); background: rgba(43, 108, 176, 0.14); color: #8DB8FF; }
+      .s08-kicker-amber { border-color: rgba(217, 119, 6, 0.28); background: rgba(217, 119, 6, 0.14); color: #FBBF24; }
+      .s08-kicker-violet { border-color: rgba(99, 102, 241, 0.28); background: rgba(99, 102, 241, 0.14); color: #A5B4FC; }
+      .s08-kicker-green { border-color: rgba(5, 150, 105, 0.28); background: rgba(5, 150, 105, 0.14); color: #9AE6B4; }
+      .s08-kicker-navy { border-color: rgba(43, 108, 176, 0.36); background: linear-gradient(135deg, rgba(15, 25, 35, 0.64), rgba(43, 108, 176, 0.24)); color: var(--ls-text-primary); }
+      .s08-kicker-deep-purple { border-color: rgba(76, 29, 149, 0.42); background: rgba(76, 29, 149, 0.22); color: #C4B5FD; }
+      .s08-query-search-icon {
+        width: 38px;
+        height: 38px;
+        border-color: rgba(196, 181, 253, 0.58);
+        background: linear-gradient(135deg, rgba(76, 29, 149, 0.98), rgba(109, 40, 217, 0.86));
+        color: #FFFFFF;
+        box-shadow: 0 12px 24px rgba(76, 29, 149, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+      }
+      .s08-query-search-icon svg {
+        width: 18px;
+        height: 18px;
+        filter: drop-shadow(0 1px 2px rgba(15, 25, 35, 0.45));
+      }
+      .s08-kicker-rose { border-color: rgba(225, 29, 72, 0.26); background: rgba(225, 29, 72, 0.12); color: #FDA4AF; }
+      .s08-action-icon {
+        display: inline-grid;
+        width: 44px;
+        height: 44px;
+        place-items: center;
+        border-radius: 14px;
+        border: 1px solid var(--ls-border);
+      }
+      body[data-screen-id="s08-judgment-search"] {
+        --s08-mobile-flow-gap: 8px;
+        --s08-shell-teal-start: rgba(13, 148, 136, 0.24);
+        --s08-shell-teal-end: rgba(13, 148, 136, 0.10);
+        --s08-shell-blue-start: rgba(43, 108, 176, 0.24);
+        --s08-shell-blue-end: rgba(43, 108, 176, 0.10);
+        --s08-shell-violet-start: rgba(99, 102, 241, 0.24);
+        --s08-shell-violet-end: rgba(99, 102, 241, 0.10);
+        --s08-shell-green-start: rgba(5, 150, 105, 0.24);
+        --s08-shell-green-end: rgba(5, 150, 105, 0.10);
+        --s08-shell-amber-start: rgba(217, 119, 6, 0.24);
+        --s08-shell-amber-end: rgba(217, 119, 6, 0.10);
+      }
+      .s08-shell-teal {
+        border-color: rgba(13, 148, 136, 0.38) !important;
+        background: linear-gradient(180deg, var(--s08-shell-teal-start), var(--s08-shell-teal-end)) !important;
+      }
+      .s08-shell-blue {
+        border-color: rgba(43, 108, 176, 0.38) !important;
+        background: linear-gradient(180deg, var(--s08-shell-blue-start), var(--s08-shell-blue-end)) !important;
+      }
+      .s08-shell-violet {
+        border-color: rgba(99, 102, 241, 0.38) !important;
+        background: linear-gradient(180deg, var(--s08-shell-violet-start), var(--s08-shell-violet-end)) !important;
+      }
+      .s08-shell-green {
+        border-color: rgba(5, 150, 105, 0.38) !important;
+        background: linear-gradient(180deg, var(--s08-shell-green-start), var(--s08-shell-green-end)) !important;
+      }
+      .s08-shell-amber {
+        border-color: rgba(217, 119, 6, 0.38) !important;
+        background: linear-gradient(180deg, var(--s08-shell-amber-start), var(--s08-shell-amber-end)) !important;
       }
       .panel-muted { background: rgba(29, 45, 64, 0.48); border: 1px solid rgba(42, 63, 87, 0.9); }
       .focus-ring:focus-visible { outline: 2px solid var(--ls-accent); outline-offset: 2px; }
@@ -872,6 +1017,180 @@
       .desktop-stack > section:nth-of-type(2) {
         position: static;
       }
+      body[data-screen-id="s08-judgment-search"] {
+        overflow-x: clip;
+      }
+      @media (min-width: 768px) {
+        body[data-screen-id="s08-judgment-search"] .s08-mobile-view.block.md\:hidden {
+          display: none !important;
+        }
+        body[data-screen-id="s08-judgment-search"] .s08-desktop-view.hidden.md\:block {
+          display: block !important;
+          opacity: 1 !important;
+          visibility: visible !important;
+        }
+      }
+      body[data-screen-id="s08-judgment-search"] .mobile-sticky-stack {
+        position: sticky;
+        top: var(--ls-mobile-toolbar-top);
+        z-index: 49;
+        gap: 0;
+        margin-bottom: 0;
+      }
+      @media (max-width: 767.98px) {
+        body[data-screen-id="s08-judgment-search"] > .mx-auto {
+          width: 100vw !important;
+          max-width: 100vw !important;
+          overflow-x: clip;
+        }
+      }
+      body[data-screen-id="s08-judgment-search"] .s08-mobile-view {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        overflow-x: clip;
+      }
+      body[data-screen-id="s08-judgment-search"] .mobile-stack,
+      body[data-screen-id="s08-judgment-search"] .mobile-lower-stack,
+      body[data-screen-id="s08-judgment-search"] .mobile-content {
+        width: min(358px, calc(100vw - 32px)) !important;
+        max-width: min(358px, calc(100vw - 32px)) !important;
+        width: min(358px, calc(100dvw - 32px)) !important;
+        max-width: min(358px, calc(100dvw - 32px)) !important;
+        overflow-x: clip;
+      }
+      body[data-screen-id="s08-judgment-search"] .mobile-stack,
+      body[data-screen-id="s08-judgment-search"] .mobile-lower-stack {
+        display: flex;
+        flex-direction: column;
+        gap: var(--s08-mobile-flow-gap);
+      }
+      body[data-screen-id="s08-judgment-search"] .mobile-stack > :not([hidden]) ~ :not([hidden]),
+      body[data-screen-id="s08-judgment-search"] .mobile-lower-stack > :not([hidden]) ~ :not([hidden]) {
+        margin-top: 0 !important;
+      }
+      body[data-screen-id="s08-judgment-search"] .mobile-content {
+        display: block;
+        margin-top: var(--s08-mobile-flow-gap) !important;
+      }
+      body[data-screen-id="s08-judgment-search"] .s08-mobile-view > .min-h-screen {
+        box-sizing: border-box;
+        width: 100vw !important;
+        max-width: 100vw !important;
+        padding-left: 16px;
+        padding-right: 16px;
+        padding-top: 0 !important;
+        overflow-x: clip;
+      }
+      body[data-screen-id="s08-judgment-search"] .s08-mobile-view .panel:not(.notify-panel):not(.popover-panel),
+      body[data-screen-id="s08-judgment-search"] .s08-mobile-view .critical-banner,
+      body[data-screen-id="s08-judgment-search"] .mobile-lower-stack > section {
+        box-sizing: border-box;
+        width: 100% !important;
+        max-width: 100% !important;
+      }
+      body[data-screen-id="s08-judgment-search"] .priority-banner p {
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+      body[data-screen-id="s08-judgment-search"] .mobile-utility-card {
+        position: relative;
+        padding: 10px 12px;
+        border-radius: 22px;
+        background: var(--ls-surface);
+        border: 1px solid var(--ls-border);
+      }
+      body[data-screen-id="s08-judgment-search"] .mobile-utility-actions {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+      }
+      body[data-screen-id="s08-judgment-search"] .mobile-utility-actions .notify-panel,
+      body[data-screen-id="s08-judgment-search"] .mobile-utility-actions .appearance-popover > .panel {
+        left: auto !important;
+        right: 0 !important;
+        max-width: calc(100vw - 48px) !important;
+      }
+      body[data-screen-id="s08-judgment-search"] .mobile-utility-actions .notify-panel {
+        width: min(196px, calc(100vw - 48px)) !important;
+        padding: 8px !important;
+      }
+      body[data-screen-id="s08-judgment-search"] .mobile-utility-actions .notify-panel .notify-item {
+        border-radius: 14px;
+        padding: 7px;
+      }
+      body[data-screen-id="s08-judgment-search"] .mobile-utility-actions .notify-panel [data-notification-list] {
+        margin-top: 8px !important;
+      }
+      body[data-screen-id="s08-judgment-search"] .mobile-utility-actions .notify-panel [data-clear-notifications] {
+        padding-inline: 6px !important;
+        font-size: 10px !important;
+        white-space: nowrap;
+      }
+      body[data-screen-id="s08-judgment-search"] .mobile-utility-actions .appearance-popover > .panel {
+        width: 164px !important;
+      }
+      body[data-screen-id="s08-judgment-search"] .mobile-hero-card {
+        padding: 9px;
+        border-radius: 18px;
+      }
+      body[data-screen-id="s08-judgment-search"] .mobile-hero-card [data-greeting-text] {
+        font-size: 0.92rem;
+        line-height: 1.18;
+        white-space: nowrap;
+      }
+      body[data-screen-id="s08-judgment-search"] .s08-mobile-hero-summary {
+        max-width: none;
+        font-size: 10.5px;
+        line-height: 1.2;
+      }
+      body[data-screen-id="s08-judgment-search"] .s08-mobile-hit-pill {
+        gap: 5px !important;
+        padding: 4px 8px !important;
+      }
+      body[data-screen-id="s08-judgment-search"] .s08-mobile-hit-pill span:last-child {
+        font-size: 10px !important;
+      }
+      body[data-screen-id="s08-judgment-search"] .s08-query-card {
+        padding: 12px !important;
+        border-radius: 20px !important;
+      }
+      body[data-screen-id="s08-judgment-search"] .s08-query-input {
+        margin-top: 10px !important;
+        padding: 10px !important;
+      }
+      body[data-screen-id="s08-judgment-search"] .s08-query-chips {
+        margin-top: 10px !important;
+        gap: 6px !important;
+      }
+      body[data-screen-id="s08-judgment-search"] .research-status-card {
+        min-width: 0;
+        border-radius: 18px;
+        padding: 8px 10px;
+      }
+      body[data-screen-id="s08-judgment-search"] .research-status-card p {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      body[data-screen-id="s08-judgment-search"] .mobile-dock {
+        box-sizing: border-box;
+        left: 16px;
+        right: auto;
+        width: min(358px, calc(100vw - 32px)) !important;
+        max-width: min(358px, calc(100vw - 32px));
+        width: min(358px, calc(100dvw - 32px)) !important;
+        max-width: min(358px, calc(100dvw - 32px));
+        overflow: hidden;
+      }
+      body[data-screen-id="s08-judgment-search"] .dock-grid,
+      body[data-screen-id="s08-judgment-search"] .dock-item {
+        min-width: 0;
+      }
+      body[data-screen-id="s08-judgment-search"] .desktop-shell,
+      body[data-screen-id="s08-judgment-search"] .desktop-shell main {
+        min-height: calc(100vh - 32px);
+      }
       @keyframes ls-orbit {
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
@@ -897,13 +1216,14 @@
     - Icon-based Sun / Moon / System theme control persists selection in localStorage ✅
     -->
   </head>
-  <body >
+  <body data-screen-id="s08-judgment-search">
     <div class="mx-auto min-h-screen max-w-[1440px]">
-      <div class="block md:hidden">
+      <div class="s08-mobile-view">
         <div class="min-h-screen px-4 pb-28 pt-4">
+          <div class="mobile-stack space-y-2">
           
-    <div class="priority-banner critical-banner sticky top-3 z-50 mb-3 rounded-xl px-3 py-1.5 shadow-panel" role="alert" aria-live="assertive">
-      <div class="flex items-center justify-between gap-3">
+    <div class="priority-banner critical-banner sticky top-0 z-50 rounded-xl px-3 py-1.5 shadow-panel" role="alert" aria-live="assertive">
+      <div class="flex items-start justify-between gap-3">
         <p class="text-[10px] leading-[1.2] text-[var(--ls-critical-text)]">Priority alert · Delhi High Court Court 32 is running <span class="mono">18m</span> ahead of schedule for Sharma v. State of Maharashtra</p>
         <div class="flex shrink-0 items-center gap-1">
           <button class="focus-ring min-h-[32px] text-[10px] font-medium text-[var(--ls-critical-text)] underline">View</button>
@@ -925,7 +1245,7 @@
       <p class="mt-2 text-[11px] leading-4 text-[var(--ls-text-secondary)]">Enterprise legal operations for Bharat.</p>
     </div>
   
-        <div class="flex shrink-0 items-center gap-2">
+        <div class="mobile-utility-actions flex shrink-0 items-center gap-2">
           
     <details class="notifications-popover relative">
       <summary aria-label="Open notifications" class="notify-button focus-ring cursor-pointer">
@@ -991,7 +1311,7 @@
           </div>
         </div>
       </summary>
-      <div class="panel absolute right-0 top-full mt-2 w-[184px] rounded-[20px] p-2 shadow-float">
+      <div class="popover-panel panel absolute right-0 top-full mt-2 w-[184px] rounded-[20px] p-2 shadow-float">
         <p class="px-2 pt-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--ls-text-secondary)]">Appearance</p>
         <div class="mt-2 grid grid-cols-3 gap-2">
           <button type="button" data-theme-option="light" aria-label="Switch to light mode" aria-pressed="false" class="theme-toggle-btn focus-ring min-h-[44px] rounded-xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] px-0">
@@ -1026,88 +1346,70 @@
     </section>
   
             
-    <section class="mobile-hero-card panel rounded-[22px] p-3 shadow-panel">
-      <div class="flex items-start justify-between gap-3">
-        <div>
+          </div>
+    <section class="mobile-hero-card panel rounded-[22px] p-3 shadow-panel s08-shell-teal">
+      <div class="flex items-start justify-between gap-2">
+        <div class="min-w-0">
           <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--ls-text-secondary)]">S-08 · Case law research</p>
-          <div class="mt-2 greeting-chip">
+          <div class="mt-1.5 greeting-chip">
             <span class="greeting-icon-badge" data-greeting-icon aria-hidden="true"></span>
             <div>
               <h1 data-greeting-text class="text-xl font-semibold text-[var(--ls-text-primary)]">Good Morning, Rajeev!</h1>
-              <p class="mt-1 text-xs leading-5 text-[var(--ls-text-secondary)]">Search across courts, acts, judges, and sections with context-aware result cards and saved research folders.</p>
             </div>
           </div>
         </div>
-        <div class="flex items-center gap-2 rounded-full border border-[var(--ls-border)] px-3 py-1">
+        <div class="s08-mobile-hit-pill flex shrink-0 items-center gap-2 rounded-full border border-[var(--ls-border)] px-3 py-1">
             <span class="grid h-7 w-7 place-items-center rounded-full border border-violet-500/25 bg-violet-500/12 text-violet-600 dark:text-violet-300">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5"><circle cx="10.5" cy="10.5" r="5.5"></circle><path d="m15 15 5 5"></path></svg>
             </span>
             <span class="font-mono text-xs text-[var(--ls-text-secondary)]">4,218 HITS</span>
           </div>
       </div>
+      <p class="s08-mobile-hero-summary mt-1.5 text-[var(--ls-text-secondary)]"><span class="block">Search across courts, acts, judges, and sections</span><span class="block">with context-aware result cards and saved research folders.</span></p>
+      <div class="mt-2 grid grid-cols-3 gap-2">
+        <div class="research-status-card border border-[var(--ls-border)]" style="background:linear-gradient(180deg, rgba(13,148,136,0.16), rgba(13,148,136,0.06));">
+          <p class="text-[9px] font-semibold uppercase tracking-[0.12em] text-[var(--ls-text-secondary)]">Matches</p>
+          <p class="mt-1 font-mono text-sm text-[var(--ls-text-primary)]">4,218</p>
+        </div>
+        <div class="research-status-card border border-[var(--ls-border)]" style="background:linear-gradient(180deg, rgba(217,119,6,0.16), rgba(217,119,6,0.06));">
+          <p class="text-[9px] font-semibold uppercase tracking-[0.12em] text-[var(--ls-text-secondary)]">Saved</p>
+          <p class="mt-1 font-mono text-sm text-[var(--ls-text-primary)]">18</p>
+        </div>
+        <div class="research-status-card border border-[var(--ls-border)]" style="background:linear-gradient(180deg, rgba(5,150,105,0.16), rgba(5,150,105,0.06));">
+          <p class="text-[9px] font-semibold uppercase tracking-[0.12em] text-[var(--ls-text-secondary)]">Refs</p>
+          <p class="mt-1 font-mono text-sm text-[var(--ls-text-primary)]">06</p>
+        </div>
+      </div>
     </section>
   
           </div>
           
           
-          <main class="mobile-content space-y-4">
+          <main class="mobile-content">
+            <div class="mobile-lower-stack space-y-2">
             
       
-      <section class="grid grid-cols-2 gap-2">
-        
-              <div class="mobile-stat-card" style="background:linear-gradient(180deg, rgba(43,108,176,0.16), rgba(43,108,176,0.06));">
-                <div class="mobile-stat-row">
-                  <div class="mobile-stat-copy">
-                    <span class="mobile-stat-icon" style="background:rgba(43,108,176,0.16); color:#2B6CB0;">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><rect x="4.5" y="5.5" width="15" height="14" rx="2"></rect><path d="M8 3.5v4M16 3.5v4M4.5 9.5h15"></path></svg>
-                    </span>
-                    <p class="text-[10px] uppercase tracking-[0.14em] text-[var(--ls-text-secondary)]">Results</p>
-                  </div>
-                  <p class="mono text-sm text-[var(--ls-text-primary)]">4,218</p>
-                </div>
-                <p class="mobile-stat-meta">Delhi High Court + Supreme Court</p>
-              </div>
-            
-              <div class="mobile-stat-card" style="background:linear-gradient(180deg, rgba(217,119,6,0.16), rgba(217,119,6,0.06));">
-                <div class="mobile-stat-row">
-                  <div class="mobile-stat-copy">
-                    <span class="mobile-stat-icon" style="background:rgba(217,119,6,0.16); color:#D97706;">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><rect x="4.5" y="5" width="15" height="14" rx="2"></rect><path d="M8 3.5v3M16 3.5v3M8 10h8M8 14h5"></path></svg>
-                    </span>
-                    <p class="text-[10px] uppercase tracking-[0.14em] text-[var(--ls-text-secondary)]">Saved</p>
-                  </div>
-                  <p class="mono text-sm text-[var(--ls-text-primary)]">18</p>
-                </div>
-                <p class="mobile-stat-meta">Folders synced</p>
-              </div>
-            
-              <div class="mobile-stat-card col-span-2" style="background:linear-gradient(180deg, rgba(5,150,105,0.16), rgba(5,150,105,0.06));">
-                <div class="mobile-stat-row">
-                  <div class="mobile-stat-copy">
-                    <span class="mobile-stat-icon" style="background:rgba(5,150,105,0.16); color:#059669;">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M5 7.5h14v9H5z"></path><path d="M5 10.5h14M8 15h2"></path></svg>
-                    </span>
-                    <p class="text-[10px] uppercase tracking-[0.14em] text-[var(--ls-text-secondary)]">Cross refs</p>
-                  </div>
-                  <p class="mono text-sm text-[var(--ls-text-primary)]">06</p>
-                </div>
-                <p class="mobile-stat-meta">Acts and precedents linked</p>
-              </div>
-            
-      </section>
-      
-      <section class="panel rounded-[24px] p-4">
-        <div class="rounded-2xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] px-4 py-3 tinted-card">
-          <p class="text-xs uppercase tracking-[0.18em] text-[var(--ls-text-secondary)]">Current query</p>
-          <p class="mt-2 text-sm text-[var(--ls-text-primary)]">Section <span class="mono">138</span> NI Act cheque dishonour notice service presumption</p>
+      <section class="s08-query-card panel rounded-[24px] p-4 s08-shell-blue">
+        <div class="flex items-center justify-between gap-3">
+          <span class="s08-kicker s08-kicker-navy">Research query</span>
+          <span class="s08-kicker s08-kicker-icon s08-query-search-icon" role="img" aria-label="Search judgments" title="Search judgments">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.35" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.5"></circle><path d="m15 15 5 5"></path></svg>
+          </span>
         </div>
-        <div class="mt-4 flex flex-wrap gap-2">
-          <span class="rounded-full border border-[var(--ls-border)] px-3 py-2 text-xs text-[var(--ls-text-secondary)]">Delhi HC</span><span class="rounded-full border border-[var(--ls-border)] px-3 py-2 text-xs text-[var(--ls-text-secondary)]">Supreme Court</span><span class="rounded-full border border-[var(--ls-border)] px-3 py-2 text-xs text-[var(--ls-text-secondary)]">2024-2026</span><span class="rounded-full border border-[var(--ls-border)] px-3 py-2 text-xs text-[var(--ls-text-secondary)]">NI Act</span><span class="rounded-full border border-[var(--ls-border)] px-3 py-2 text-xs text-[var(--ls-text-secondary)]">Criminal</span>
+        <div class="s08-query-input mt-3 rounded-2xl border border-[var(--ls-border)] p-3 tint-violet">
+          <p class="text-sm text-[var(--ls-text-primary)]">Section <span class="mono">138</span> NI Act cheque dishonour notice service presumption</p>
+        </div>
+        <div class="s08-query-chips mt-3 flex flex-wrap gap-2">
+          <span class="s08-kicker s08-kicker-blue">Delhi HC</span><span class="s08-kicker s08-kicker-amber">Supreme Court</span><span class="s08-kicker s08-kicker-green">2024-2026</span><span class="s08-kicker s08-kicker-violet">NI Act</span>
         </div>
       </section>
       <section class="space-y-3">
+        <div class="flex items-center justify-between">
+          <span class="s08-kicker s08-kicker-violet">Result set</span>
+          <span class="font-mono text-[11px] text-[var(--ls-text-secondary)]">4,218 matches</span>
+        </div>
         
-              <article class="panel rounded-[24px] p-4 ring-1 ring-[var(--ls-accent)]">
+              <article class="panel rounded-[24px] p-4 ring-1 ring-[var(--ls-accent)] s08-shell-violet">
                 <div class="flex items-start justify-between gap-3">
                   <div>
                     <h2 class="text-base font-semibold text-[var(--ls-text-primary)]">Sharma v. State of Maharashtra</h2>
@@ -1117,12 +1419,12 @@
                 </div>
                 <p class="mt-3 text-sm leading-6 text-[var(--ls-text-secondary)]">Discusses presumptions, service requirements, and rebuttal thresholds under Section 138 NI Act.</p>
                 <div class="mt-4 flex gap-2">
-                  <button type="button" aria-label="Open Sharma v. State of Maharashtra" class="focus-ring min-h-[44px] flex-1 rounded-xl bg-[var(--ls-accent)] px-4 py-3 text-sm font-semibold text-white" data-action-select data-action-active="false">Open case</button>
-                  <button type="button" aria-label="Save Sharma v. State of Maharashtra to library" class="focus-ring min-h-[44px] flex-1 rounded-xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] px-4 py-3 text-sm font-semibold text-[var(--ls-text-primary)] tinted-card" data-action-select data-action-active="false">Save</button>
+                  <button type="button" title="Open case" aria-label="Open Sharma v. State of Maharashtra" class="focus-ring s08-action-icon s08-kicker-blue" data-action-select data-action-active="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M20 14v4.5A1.5 1.5 0 0 1 18.5 20h-13A1.5 1.5 0 0 1 4 18.5v-13A1.5 1.5 0 0 1 5.5 4H10"></path></svg></button>
+                  <button type="button" title="Save to folder" aria-label="Save Sharma v. State of Maharashtra to library" class="focus-ring s08-action-icon s08-kicker-amber" data-action-select data-action-active="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4.5h12v16l-6-3.5-6 3.5z"></path></svg></button>
                 </div>
               </article>
             
-              <article class="panel rounded-[24px] p-4 ">
+              <article class="panel rounded-[24px] p-4 s08-shell-blue">
                 <div class="flex items-start justify-between gap-3">
                   <div>
                     <h2 class="text-base font-semibold text-[var(--ls-text-primary)]">Priya Sharma v. State</h2>
@@ -1132,12 +1434,12 @@
                 </div>
                 <p class="mt-3 text-sm leading-6 text-[var(--ls-text-secondary)]">Clarifies deemed service where notice is refused and return memo is on record.</p>
                 <div class="mt-4 flex gap-2">
-                  <button type="button" aria-label="Open Priya Sharma v. State" class="focus-ring min-h-[44px] flex-1 rounded-xl bg-[var(--ls-accent)] px-4 py-3 text-sm font-semibold text-white" data-action-select data-action-active="false">Open case</button>
-                  <button type="button" aria-label="Save Priya Sharma v. State to library" class="focus-ring min-h-[44px] flex-1 rounded-xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] px-4 py-3 text-sm font-semibold text-[var(--ls-text-primary)] tinted-card" data-action-select data-action-active="false">Save</button>
+                  <button type="button" title="Open case" aria-label="Open Priya Sharma v. State" class="focus-ring s08-action-icon s08-kicker-blue" data-action-select data-action-active="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M20 14v4.5A1.5 1.5 0 0 1 18.5 20h-13A1.5 1.5 0 0 1 4 18.5v-13A1.5 1.5 0 0 1 5.5 4H10"></path></svg></button>
+                  <button type="button" title="Save to folder" aria-label="Save Priya Sharma v. State to library" class="focus-ring s08-action-icon s08-kicker-amber" data-action-select data-action-active="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4.5h12v16l-6-3.5-6 3.5z"></path></svg></button>
                 </div>
               </article>
             
-              <article class="panel rounded-[24px] p-4 ">
+              <article class="panel rounded-[24px] p-4 s08-shell-green">
                 <div class="flex items-start justify-between gap-3">
                   <div>
                     <h2 class="text-base font-semibold text-[var(--ls-text-primary)]">Apex Finlease v. Rohan Arora</h2>
@@ -1147,15 +1449,15 @@
                 </div>
                 <p class="mt-3 text-sm leading-6 text-[var(--ls-text-secondary)]">Useful for limitation, dispatch proof, and digital delivery evidence.</p>
                 <div class="mt-4 flex gap-2">
-                  <button type="button" aria-label="Open Apex Finlease v. Rohan Arora" class="focus-ring min-h-[44px] flex-1 rounded-xl bg-[var(--ls-accent)] px-4 py-3 text-sm font-semibold text-white" data-action-select data-action-active="false">Open case</button>
-                  <button type="button" aria-label="Save Apex Finlease v. Rohan Arora to library" class="focus-ring min-h-[44px] flex-1 rounded-xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] px-4 py-3 text-sm font-semibold text-[var(--ls-text-primary)] tinted-card" data-action-select data-action-active="false">Save</button>
+                  <button type="button" title="Open case" aria-label="Open Apex Finlease v. Rohan Arora" class="focus-ring s08-action-icon s08-kicker-blue" data-action-select data-action-active="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M20 14v4.5A1.5 1.5 0 0 1 18.5 20h-13A1.5 1.5 0 0 1 4 18.5v-13A1.5 1.5 0 0 1 5.5 4H10"></path></svg></button>
+                  <button type="button" title="Save to folder" aria-label="Save Apex Finlease v. Rohan Arora to library" class="focus-ring s08-action-icon s08-kicker-amber" data-action-select data-action-active="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4.5h12v16l-6-3.5-6 3.5z"></path></svg></button>
                 </div>
               </article>
             
       </section>
-      <section class="panel rounded-[24px] p-4" aria-live="polite">
-        <p class="text-xs uppercase tracking-[0.18em] text-[var(--ls-text-secondary)]">LegalGPT India research note</p>
-        <div class="mt-3 rounded-2xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] p-4 tinted-card">
+      <section class="panel rounded-[24px] p-4 s08-shell-green" aria-live="polite">
+        <span class="s08-kicker s08-kicker-rose">LegalGPT India note</span>
+        <div class="mt-3 rounded-2xl border border-[var(--ls-border)] p-4 tint-green">
           <p class="text-sm leading-6 text-[var(--ls-text-primary)]">The stronger line of authority appears where dispatch proof, refusal endorsement, and timeline under <span class="mono">Section 138(b)</span> are all visible in the record. Use Delhi High Court cases for service presumptions and Supreme Court cases for rebuttal threshold.</p>
         </div>
       </section>
@@ -1238,6 +1540,7 @@
       </div>
     </details>
   
+            </div>
           </main>
           
           
@@ -1299,7 +1602,7 @@
         </div>
       </div>
 
-      <div class="hidden md:block">
+      <div class="s08-desktop-view">
         
     <div class="priority-banner critical-banner sticky top-0 z-50 border-b px-5 py-1.5" role="alert" aria-live="assertive">
       <div class="mx-auto flex max-w-[1440px] items-center justify-between gap-4">
@@ -1408,144 +1711,112 @@
     </aside>
   
           <main class="grid-pattern px-6 pb-6 lg:px-8" style="padding-top:5px; background-color: color-mix(in srgb, var(--ls-bg) 76%, white 24%); background-image: linear-gradient(rgba(144,164,183,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(144,164,183,0.05) 1px, transparent 1px); background-size:24px 24px;">
-            <div class="desktop-stack space-y-6" style="row-gap:10px;">
+            <div class="desktop-stack space-y-2" style="row-gap:10px;">
               <div class="desktop-sticky-stack" style="top:calc(var(--ls-desktop-card-top) - 4px); gap:10px;">
                 
-    <section class="desktop-toolbar panel rounded-[20px] p-3 shadow-panel">
-      <div class="flex items-center justify-between gap-4">
-        <div class="flex items-center gap-3">
-          
-    <div class="min-w-0">
-      <img src="./LegalSaathi_Logo.png" alt="Legal Saathi" class="w-[108px] sm:w-[120px] h-auto object-contain" />
-      <p class="mt-2 text-[11px] leading-4 text-[var(--ls-text-secondary)]">Enterprise legal operations for Bharat.</p>
-    </div>
-  
+    <section class="desktop-toolbar header-card rounded-[18px] p-[14px] shadow-panel" style="border-color:rgba(13,148,136,0.30); background:linear-gradient(180deg, rgba(13,148,136,0.11), rgba(43,108,176,0.04)), var(--ls-bg);">
+      <div class="flex items-start justify-between gap-5">
+        <div class="min-w-0">
+          <p class="text-[10px] font-semibold uppercase tracking-[0.17em] text-[var(--ls-text-secondary)]">S-08 · Judgment Search</p>
+          <div class="mt-1.5 flex items-center gap-2">
+            <span class="greeting-icon-badge" data-greeting-icon aria-hidden="true"></span>
+            <h1 data-greeting-text class="text-[25px] font-semibold leading-tight text-[var(--ls-text-primary)]">Good Morning, Rajeev!</h1>
+          </div>
+          <p class="mt-1.5 max-w-3xl text-[13px] leading-5 text-[var(--ls-text-secondary)]">Dense case research view with citation-first ranking, saved folders, cross references, and LegalGPT India drafting cues.</p>
         </div>
-        <div class="flex items-center gap-3">
-          
-    <details class="notifications-popover relative">
-      <summary aria-label="Open notifications" class="notify-button focus-ring cursor-pointer">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M15 17.5H5.5a1 1 0 0 1-.8-1.6l1.3-1.8V9.8a6 6 0 1 1 12 0v4.3l1.3 1.8a1 1 0 0 1-.8 1.6H15"></path><path d="M9.5 17.5a2.5 2.5 0 0 0 5 0"></path></svg>
-        <span data-notification-count class="notify-badge">4</span>
-      </summary>
-      <div class="notify-panel panel absolute right-0 top-full mt-2 rounded-[18px] p-2.5 shadow-float">
-        <div class="flex items-center justify-between gap-3">
-          <div>
-            <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--ls-text-secondary)]">Notifications</p>
-            <p data-notification-summary class="mt-1 text-xs text-[var(--ls-text-primary)]"><span class="mono">4</span> new updates</p>
+        <div class="flex shrink-0 flex-col items-end gap-2">
+          <div class="flex items-center gap-2">
+            <details class="notifications-popover relative">
+              <summary aria-label="Open notifications" class="notify-button focus-ring cursor-pointer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M15 17.5H5.5a1 1 0 0 1-.8-1.6l1.3-1.8V9.8a6 6 0 1 1 12 0v4.3l1.3 1.8a1 1 0 0 1-.8 1.6H15"></path><path d="M9.5 17.5a2.5 2.5 0 0 0 5 0"></path></svg>
+                <span data-notification-count class="notify-badge">4</span>
+              </summary>
+              <div class="notify-panel panel absolute right-0 top-full mt-2 rounded-[18px] p-2.5 shadow-float">
+                <div class="flex items-center justify-between gap-3">
+                  <div>
+                    <p class="text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--ls-text-secondary)]">Notifications</p>
+                    <p data-notification-summary class="mt-1 text-xs text-[var(--ls-text-primary)]"><span class="mono">4</span> new updates</p>
+                  </div>
+                  <div class="flex items-center gap-1">
+                    <button type="button" data-clear-notifications class="focus-ring min-h-[32px] rounded-lg px-2.5 text-[11px] font-medium text-[var(--ls-accent)]">Clear all</button>
+                    <button type="button" data-close-popover="notifications" aria-label="Close notifications" class="focus-ring grid h-8 w-8 place-items-center rounded-lg text-[var(--ls-text-secondary)]">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+                    </button>
+                  </div>
+                </div>
+                <div data-notification-list class="mt-3">
+                  <div class="notify-item">
+                    <p class="text-[11px] font-semibold text-[var(--ls-text-primary)]">Research folder synced</p>
+                    <p class="mt-1 text-[10px] leading-[1.35] text-[var(--ls-text-secondary)]">Cheque Dishonour folder refreshed with <span class="mono">12</span> authorities</p>
+                  </div>
+                  <div class="notify-item">
+                    <p class="text-[11px] font-semibold text-[var(--ls-text-primary)]">Citation alert</p>
+                    <p class="mt-1 text-[10px] leading-[1.35] text-[var(--ls-text-secondary)]">Delhi HC added a newer Section <span class="mono">138</span> authority</p>
+                  </div>
+                </div>
+              </div>
+            </details>
+            <details class="appearance-popover relative">
+              <summary aria-label="Open appearance controls. Current mode available." class="focus-ring grid h-12 w-12 rounded-2xl cursor-pointer place-items-center" style="border-color:rgba(217,119,6,0.28); background:rgba(217,119,6,0.14); color:#D97706; box-shadow:0 10px 24px -18px rgba(217,119,6,0.18);">
+                <div data-theme-preview data-current-theme="dark" class="theme-preview-trigger">
+                  <span data-mode="light" class="theme-preview-icon-static"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.75v2.1M12 19.15v2.1M4.93 4.93l1.49 1.49M17.58 17.58l1.49 1.49M2.75 12h2.1M19.15 12h2.1M4.93 19.07l1.49-1.49M17.58 6.42l1.49-1.49"></path></svg></span>
+                  <span data-mode="dark" class="theme-preview-icon-static"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M20.2 14.1A8.6 8.6 0 0 1 9.9 3.8a8.85 8.85 0 1 0 10.3 10.3Z"></path></svg></span>
+                  <span data-mode="system" class="theme-preview-icon-static"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><rect x="3.5" y="4.5" width="17" height="11.5" rx="2"></rect><path d="M8.5 19.5h7M12 16.5v3"></path></svg></span>
+                </div>
+              </summary>
+              <div class="panel absolute right-0 top-full mt-2 w-[168px] rounded-[20px] p-2 shadow-float">
+                <p class="px-2 pt-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-[var(--ls-text-secondary)]">Appearance</p>
+                <div class="mt-2 grid grid-cols-3 gap-2">
+                  <button type="button" data-theme-option="light" aria-label="Switch to light mode" aria-pressed="false" class="theme-toggle-btn focus-ring min-h-[44px] rounded-xl border px-0" style="border-color:rgba(217,119,6,0.28); background:rgba(217,119,6,0.14); color:#D97706;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><circle cx="12" cy="12" r="4.2"></circle><path d="M12 2.75v2.1M12 19.15v2.1M4.93 4.93l1.49 1.49M17.58 17.58l1.49 1.49M2.75 12h2.1M19.15 12h2.1M4.93 19.07l1.49-1.49M17.58 6.42l1.49-1.49"></path></svg></button>
+                  <button type="button" data-theme-option="dark" aria-label="Switch to dark mode" aria-pressed="false" class="theme-toggle-btn focus-ring min-h-[44px] rounded-xl border px-0" style="border-color:rgba(43,108,176,0.28); background:rgba(43,108,176,0.14); color:#2B6CB0;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M20.2 14.1A8.6 8.6 0 0 1 9.9 3.8a8.85 8.85 0 1 0 10.3 10.3Z"></path></svg></button>
+                  <button type="button" data-theme-option="system" aria-label="Use system theme" aria-pressed="false" class="theme-toggle-btn focus-ring min-h-[44px] rounded-xl border px-0" style="border-color:rgba(99,102,241,0.28); background:rgba(99,102,241,0.14); color:#4F46E5;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><rect x="3.5" y="4.5" width="17" height="11.5" rx="2"></rect><path d="M8.5 19.5h7M12 16.5v3"></path></svg></button>
+                </div>
+              </div>
+            </details>
           </div>
-          <div class="flex items-center gap-1">
-            <button type="button" data-clear-notifications class="focus-ring min-h-[32px] rounded-lg px-2.5 text-[11px] font-medium text-[var(--ls-accent)]">Clear all</button>
-            <button type="button" data-close-popover="notifications" aria-label="Close notifications" class="focus-ring grid h-8 w-8 place-items-center rounded-lg text-[var(--ls-text-secondary)]">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="m6 6 12 12M18 6 6 18"></path></svg>
-            </button>
-          </div>
-        </div>
-        <div data-notification-list class="mt-3">
-          <div class="notify-item">
-            <p class="text-[11px] font-semibold text-[var(--ls-text-primary)]">Court 32 moved up by <span class="mono">18m</span></p>
-            <p class="mt-1 text-[10px] leading-[1.35] text-[var(--ls-text-secondary)]">Sharma v. State of Maharashtra · Delhi High Court</p>
-          </div>
-          <div class="notify-item">
-            <p class="text-[11px] font-semibold text-[var(--ls-text-primary)]">NCLT Mumbai uploaded a new order</p>
-            <p class="mt-1 text-[10px] leading-[1.35] text-[var(--ls-text-secondary)]">Apex Builders matter refreshed at <span class="mono">08:57</span></p>
-          </div>
-          <div class="notify-item">
-            <p class="text-[11px] font-semibold text-[var(--ls-text-primary)]">Reminder due in <span class="mono">2h</span></p>
-            <p class="mt-1 text-[10px] leading-[1.35] text-[var(--ls-text-secondary)]">Rao Exports arbitration prep note is still pending</p>
-          </div>
-          <div class="notify-item">
-            <p class="text-[11px] font-semibold text-[var(--ls-text-primary)]">Bench assembled</p>
-            <p class="mt-1 text-[10px] leading-[1.35] text-[var(--ls-text-secondary)]">Apex Builders v. RERA is now ready in virtual court</p>
-          </div>
-        </div>
-      </div>
-    </details>
-  
-          <div class="theme-toggle-group grid grid-cols-3 gap-2 rounded-2xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] p-1">
-            <button type="button" data-theme-option="light" aria-label="Switch to light mode" aria-pressed="false" class="theme-toggle-btn focus-ring min-h-[44px] min-w-[44px] rounded-xl px-3">
-              
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
-        <circle cx="12" cy="12" r="4.2"></circle>
-        <path d="M12 2.75v2.1M12 19.15v2.1M4.93 4.93l1.49 1.49M17.58 17.58l1.49 1.49M2.75 12h2.1M19.15 12h2.1M4.93 19.07l1.49-1.49M17.58 6.42l1.49-1.49"></path>
-      </svg>
-    
-              <span class="sr-only">Light mode</span>
-            </button>
-            <button type="button" data-theme-option="dark" aria-label="Switch to dark mode" aria-pressed="false" class="theme-toggle-btn focus-ring min-h-[44px] min-w-[44px] rounded-xl px-3">
-              
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
-        <path d="M20.2 14.1A8.6 8.6 0 0 1 9.9 3.8a8.85 8.85 0 1 0 10.3 10.3Z"></path>
-      </svg>
-    
-              <span class="sr-only">Dark mode</span>
-            </button>
-            <button type="button" data-theme-option="system" aria-label="Use system theme" aria-pressed="false" class="theme-toggle-btn focus-ring min-h-[44px] min-w-[44px] rounded-xl px-3">
-              
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
-        <rect x="3.5" y="4.5" width="17" height="11.5" rx="2"></rect>
-        <path d="M8.5 19.5h7M12 16.5v3"></path>
-      </svg>
-    
-              <span class="sr-only">System theme</span>
-            </button>
+          <div class="metadata-line" aria-label="Current date and system metadata">
+            <span class="metadata-chip metadata-chip-primary mono">24 Apr 2026</span>
+            <span class="metadata-chip metadata-chip-amber mono">IST</span>
+            <span class="metadata-chip metadata-chip-violet mono">AP-SOUTH-1</span>
+            <span class="metadata-chip metadata-chip-emerald mono">RLS</span>
           </div>
         </div>
       </div>
     </section>
   
-                
-      <section class="desktop-hero panel rounded-[28px] p-6 shadow-float">
-        <div class="flex items-start justify-between gap-6">
-          <div>
-            <p class="text-xs font-semibold uppercase tracking-[0.24em] text-[var(--ls-text-secondary)]">S-08 · Research</p>
-            <div class="mt-2 greeting-chip">
-              <span class="greeting-icon-badge" data-greeting-icon aria-hidden="true"></span>
-              <h1 data-greeting-text class="text-3xl font-semibold text-[var(--ls-text-primary)]">Good Morning, Rajeev!</h1>
-            </div>
-            <p class="mt-3 max-w-3xl text-sm leading-6 text-[var(--ls-text-secondary)]">Dense case research view with citation-first ranking, saved folders, cross references, and LegalGPT India drafting cues.</p>
-          </div>
-          <div class="flex flex-wrap gap-2">
-    <span class="inline-flex items-center gap-2 rounded-full border border-sky-500/25 bg-gradient-to-r from-sky-500/16 via-amber-400/16 to-violet-500/12 px-3 py-1.5 text-[11px] text-[var(--ls-text-primary)]">
-      <span class="grid h-5 w-5 place-items-center rounded-full bg-[var(--ls-surface)]/70 text-[var(--ls-accent)]">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5"><rect x="4.5" y="5.5" width="15" height="14" rx="2"></rect><path d="M8 3.5v4M16 3.5v4M4.5 9.5h15"></path></svg>
-      </span>
-      <span class="font-mono">19 Apr 2026</span>
-    </span>
-    <span class="rounded-full border border-amber-500/20 bg-amber-500/12 px-3 py-1 font-mono text-[11px] text-amber-700 dark:text-amber-300">IST</span>
-    <span class="rounded-full border border-violet-500/20 bg-violet-500/12 px-3 py-1 font-mono text-[11px] text-violet-700 dark:text-violet-300">AP-SOUTH-1</span>
-    <span class="rounded-full border border-emerald-500/20 bg-emerald-500/12 px-3 py-1 font-mono text-[11px] text-emerald-700 dark:text-emerald-300">RLS</span>
-  </div>
-        </div>
-      </section>
-  
               </div>
               
       <section class="grid gap-6 xl:grid-cols-[280px,1.2fr,0.9fr]">
         <div class="space-y-4">
-          <div class="panel rounded-[24px] p-5">
-            <p class="text-xs uppercase tracking-[0.18em] text-[var(--ls-text-secondary)]">Filters</p>
+          <div class="panel rounded-[24px] p-5 s08-shell-blue">
+            <p class="s08-kicker s08-kicker-blue">Filters</p>
             <div class="mt-4 space-y-3">
-              <div class="rounded-2xl bg-[var(--ls-surface-2)] p-4 text-sm text-[var(--ls-text-primary)] tinted-card">Court: Supreme Court, Delhi HC</div><div class="rounded-2xl bg-[var(--ls-surface-2)] p-4 text-sm text-[var(--ls-text-primary)] tinted-card">Act: Negotiable Instruments Act</div><div class="rounded-2xl bg-[var(--ls-surface-2)] p-4 text-sm text-[var(--ls-text-primary)] tinted-card">Section: 138, 139</div><div class="rounded-2xl bg-[var(--ls-surface-2)] p-4 text-sm text-[var(--ls-text-primary)] tinted-card">Year: 2024-2026</div><div class="rounded-2xl bg-[var(--ls-surface-2)] p-4 text-sm text-[var(--ls-text-primary)] tinted-card">Judge: Sanjiv Khanna, Prathiba M. Singh</div>
+              <div class="rounded-2xl border p-4 text-sm text-[var(--ls-text-primary)] tint-blue">Court: Supreme Court, Delhi HC</div><div class="rounded-2xl border p-4 text-sm text-[var(--ls-text-primary)] tint-amber">Act: Negotiable Instruments Act</div><div class="rounded-2xl border p-4 text-sm text-[var(--ls-text-primary)] tint-violet">Section: 138, 139</div><div class="rounded-2xl border p-4 text-sm text-[var(--ls-text-primary)] tint-green">Year: 2024-2026</div><div class="rounded-2xl border p-4 text-sm text-[var(--ls-text-primary)] tint-blue">Judge: Sanjiv Khanna, Prathiba M. Singh</div>
             </div>
           </div>
         </div>
-        <div class="panel rounded-[24px] p-5">
+        <div class="panel rounded-[24px] p-5 s08-shell-violet">
           <div class="flex items-center justify-between">
             <div>
-              <p class="text-xs uppercase tracking-[0.18em] text-[var(--ls-text-secondary)]">Result set</p>
+              <p class="s08-kicker s08-kicker-violet">Result set</p>
               <p class="mt-1 text-sm text-[var(--ls-text-primary)]">Query: Section <span class="mono">138</span> NI Act notice presumption</p>
             </div>
-            <div class="flex items-center gap-2 rounded-full border border-[var(--ls-border)] px-3 py-1">
-              <span class="grid h-7 w-7 place-items-center rounded-full border border-violet-500/25 bg-violet-500/12 text-violet-600 dark:text-violet-300">
+            <div class="flex items-center gap-2 rounded-full border border-[var(--ls-border)] px-3 py-1 tint-blue">
+              <span class="s08-kicker s08-kicker-icon s08-kicker-blue" role="img" aria-label="Search result count" title="Search result count">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5"><circle cx="10.5" cy="10.5" r="5.5"></circle><path d="m15 15 5 5"></path></svg>
               </span>
               <span class="font-mono text-xs text-[var(--ls-text-secondary)]">4,218 MATCHES</span>
             </div>
           </div>
+          <div class="mt-4 flex items-center gap-3 rounded-2xl border p-3 tint-blue" role="search" aria-label="Judgment search query">
+            <span class="s08-kicker s08-kicker-icon s08-kicker-blue" role="img" aria-label="Search query">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.5"></circle><path d="m15 15 5 5"></path></svg>
+            </span>
+            <p class="text-sm text-[var(--ls-text-primary)]">Section <span class="mono">138</span> NI Act notice service presumption</p>
+          </div>
           <div class="mt-4 space-y-3">
             
-                  <article class="rounded-2xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] p-4 ring-1 ring-[var(--ls-accent)] tinted-card">
+                  <article class="rounded-2xl border p-4 ring-1 ring-[var(--ls-accent)] tint-violet">
                     <div class="flex items-start justify-between gap-4">
                       <div>
                         <h2 class="text-base font-semibold text-[var(--ls-text-primary)]">Sharma v. State of Maharashtra</h2>
@@ -1555,13 +1826,13 @@
                     </div>
                     <p class="mt-3 text-sm leading-6 text-[var(--ls-text-secondary)]">Leading service-presumption discussion with detailed reasoning on rebuttal.</p>
                     <div class="mt-4 flex gap-2">
-                      <button type="button" class="focus-ring min-h-[44px] rounded-xl bg-[var(--ls-accent)] px-4 py-2 text-sm font-semibold text-white" data-action-select data-action-active="false">Read full text</button>
-                      <button type="button" class="focus-ring min-h-[44px] rounded-xl border border-[var(--ls-border)] px-4 py-2 text-sm font-semibold text-[var(--ls-text-primary)]" data-action-select data-action-active="false">Save to folder</button>
-                      <button type="button" class="focus-ring min-h-[44px] rounded-xl border border-[var(--ls-border)] px-4 py-2 text-sm font-semibold text-[var(--ls-text-primary)]" data-action-select data-action-active="false">Cross-reference</button>
+                      <button type="button" title="Read full text" aria-label="Read full text for Sharma v. State of Maharashtra" class="focus-ring s08-action-icon s08-kicker-blue" data-action-select data-action-active="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M20 14v4.5A1.5 1.5 0 0 1 18.5 20h-13A1.5 1.5 0 0 1 4 18.5v-13A1.5 1.5 0 0 1 5.5 4H10"></path></svg></button>
+                      <button type="button" title="Save to folder" aria-label="Save Sharma v. State of Maharashtra to folder" class="focus-ring s08-action-icon s08-kicker-amber" data-action-select data-action-active="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4.5h12v16l-6-3.5-6 3.5z"></path></svg></button>
+                      <button type="button" title="Cross-reference" aria-label="Cross-reference Sharma v. State of Maharashtra" class="focus-ring s08-action-icon s08-kicker-green" data-action-select data-action-active="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7h8M8 12h8M8 17h5"></path><path d="M5 5.5h14v13H5z"></path></svg></button>
                     </div>
                   </article>
                 
-                  <article class="rounded-2xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] p-4  tinted-card">
+                  <article class="rounded-2xl border p-4 tint-blue">
                     <div class="flex items-start justify-between gap-4">
                       <div>
                         <h2 class="text-base font-semibold text-[var(--ls-text-primary)]">Priya Sharma v. State</h2>
@@ -1571,13 +1842,13 @@
                     </div>
                     <p class="mt-3 text-sm leading-6 text-[var(--ls-text-secondary)]">Helpful on refusal endorsements and postal tracking evidence.</p>
                     <div class="mt-4 flex gap-2">
-                      <button type="button" class="focus-ring min-h-[44px] rounded-xl bg-[var(--ls-accent)] px-4 py-2 text-sm font-semibold text-white" data-action-select data-action-active="false">Read full text</button>
-                      <button type="button" class="focus-ring min-h-[44px] rounded-xl border border-[var(--ls-border)] px-4 py-2 text-sm font-semibold text-[var(--ls-text-primary)]" data-action-select data-action-active="false">Save to folder</button>
-                      <button type="button" class="focus-ring min-h-[44px] rounded-xl border border-[var(--ls-border)] px-4 py-2 text-sm font-semibold text-[var(--ls-text-primary)]" data-action-select data-action-active="false">Cross-reference</button>
+                      <button type="button" title="Read full text" aria-label="Read full text for Priya Sharma v. State" class="focus-ring s08-action-icon s08-kicker-blue" data-action-select data-action-active="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M20 14v4.5A1.5 1.5 0 0 1 18.5 20h-13A1.5 1.5 0 0 1 4 18.5v-13A1.5 1.5 0 0 1 5.5 4H10"></path></svg></button>
+                      <button type="button" title="Save to folder" aria-label="Save Priya Sharma v. State to folder" class="focus-ring s08-action-icon s08-kicker-amber" data-action-select data-action-active="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4.5h12v16l-6-3.5-6 3.5z"></path></svg></button>
+                      <button type="button" title="Cross-reference" aria-label="Cross-reference Priya Sharma v. State" class="focus-ring s08-action-icon s08-kicker-green" data-action-select data-action-active="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7h8M8 12h8M8 17h5"></path><path d="M5 5.5h14v13H5z"></path></svg></button>
                     </div>
                   </article>
                 
-                  <article class="rounded-2xl border border-[var(--ls-border)] bg-[var(--ls-surface-2)] p-4  tinted-card">
+                  <article class="rounded-2xl border p-4 tint-green">
                     <div class="flex items-start justify-between gap-4">
                       <div>
                         <h2 class="text-base font-semibold text-[var(--ls-text-primary)]">Apex Finlease v. Rohan Arora</h2>
@@ -1587,23 +1858,23 @@
                     </div>
                     <p class="mt-3 text-sm leading-6 text-[var(--ls-text-secondary)]">Useful for limitation, notice timelines, and digital delivery evidence.</p>
                     <div class="mt-4 flex gap-2">
-                      <button type="button" class="focus-ring min-h-[44px] rounded-xl bg-[var(--ls-accent)] px-4 py-2 text-sm font-semibold text-white" data-action-select data-action-active="false">Read full text</button>
-                      <button type="button" class="focus-ring min-h-[44px] rounded-xl border border-[var(--ls-border)] px-4 py-2 text-sm font-semibold text-[var(--ls-text-primary)]" data-action-select data-action-active="false">Save to folder</button>
-                      <button type="button" class="focus-ring min-h-[44px] rounded-xl border border-[var(--ls-border)] px-4 py-2 text-sm font-semibold text-[var(--ls-text-primary)]" data-action-select data-action-active="false">Cross-reference</button>
+                      <button type="button" title="Read full text" aria-label="Read full text for Apex Finlease v. Rohan Arora" class="focus-ring s08-action-icon s08-kicker-blue" data-action-select data-action-active="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 4h6v6"></path><path d="M20 4 10 14"></path><path d="M20 14v4.5A1.5 1.5 0 0 1 18.5 20h-13A1.5 1.5 0 0 1 4 18.5v-13A1.5 1.5 0 0 1 5.5 4H10"></path></svg></button>
+                      <button type="button" title="Save to folder" aria-label="Save Apex Finlease v. Rohan Arora to folder" class="focus-ring s08-action-icon s08-kicker-amber" data-action-select data-action-active="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 4.5h12v16l-6-3.5-6 3.5z"></path></svg></button>
+                      <button type="button" title="Cross-reference" aria-label="Cross-reference Apex Finlease v. Rohan Arora" class="focus-ring s08-action-icon s08-kicker-green" data-action-select data-action-active="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7h8M8 12h8M8 17h5"></path><path d="M5 5.5h14v13H5z"></path></svg></button>
                     </div>
                   </article>
                 
           </div>
         </div>
         <div class="space-y-4">
-          <div class="panel rounded-[24px] p-5" aria-live="polite">
-            <p class="text-xs uppercase tracking-[0.18em] text-[var(--ls-text-secondary)]">LegalGPT India note</p>
-            <div class="mt-4 rounded-2xl bg-[var(--ls-surface-2)] p-4 text-sm leading-6 text-[var(--ls-text-primary)] tinted-card">For notice-service arguments, combine Supreme Court authority on presumptions with Delhi High Court cases on refusal endorsements and courier tracking. Keep the answer citation-bound and avoid treating it as legal advice.</div>
+          <div class="panel rounded-[24px] p-5 s08-shell-green" aria-live="polite">
+            <p class="s08-kicker s08-kicker-rose">LegalGPT India note</p>
+            <div class="mt-4 rounded-2xl border p-4 text-sm leading-6 text-[var(--ls-text-primary)] tint-green">For notice-service arguments, combine Supreme Court authority on presumptions with Delhi High Court cases on refusal endorsements and courier tracking. Keep the answer citation-bound and avoid treating it as legal advice.</div>
           </div>
-          <div class="panel rounded-[24px] p-5">
-            <p class="text-xs uppercase tracking-[0.18em] text-[var(--ls-text-secondary)]">Saved research folders</p>
+          <div class="panel rounded-[24px] p-5 s08-shell-amber">
+            <p class="s08-kicker s08-kicker-amber">Saved research folders</p>
             <div class="mt-4 space-y-3">
-              <div class="rounded-2xl bg-[var(--ls-surface-2)] px-4 py-3 tinted-card"><div class="flex items-center justify-between gap-3"><p class="text-sm text-[var(--ls-text-primary)]">Cheque Dishonour</p><span class="font-mono text-xs text-[var(--ls-text-secondary)]">12 authorities</span></div></div><div class="rounded-2xl bg-[var(--ls-surface-2)] px-4 py-3 tinted-card"><div class="flex items-center justify-between gap-3"><p class="text-sm text-[var(--ls-text-primary)]">Anticipatory Bail</p><span class="font-mono text-xs text-[var(--ls-text-secondary)]">09 authorities</span></div></div><div class="rounded-2xl bg-[var(--ls-surface-2)] px-4 py-3 tinted-card"><div class="flex items-center justify-between gap-3"><p class="text-sm text-[var(--ls-text-primary)]">DPDP Compliance</p><span class="font-mono text-xs text-[var(--ls-text-secondary)]">17 authorities</span></div></div>
+              <div class="rounded-2xl border px-4 py-3 tint-amber"><div class="flex items-center justify-between gap-3"><p class="text-sm text-[var(--ls-text-primary)]">Cheque Dishonour</p><span class="font-mono text-xs text-[var(--ls-text-secondary)]">12 authorities</span></div></div><div class="rounded-2xl border px-4 py-3 tint-blue"><div class="flex items-center justify-between gap-3"><p class="text-sm text-[var(--ls-text-primary)]">Anticipatory Bail</p><span class="font-mono text-xs text-[var(--ls-text-secondary)]">09 authorities</span></div></div><div class="rounded-2xl border px-4 py-3 tint-green"><div class="flex items-center justify-between gap-3"><p class="text-sm text-[var(--ls-text-primary)]">DPDP Compliance</p><span class="font-mono text-xs text-[var(--ls-text-secondary)]">17 authorities</span></div></div>
             </div>
           </div>
         </div>
